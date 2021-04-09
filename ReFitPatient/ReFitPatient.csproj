@@ -79,6 +79,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BusinessLogic\ExerciseControl.cs" />
+    <Compile Include="BusinessLogic\LoginControl.cs" />
+    <Compile Include="BusinessLogic\LogoutControl.cs" />
+    <Compile Include="BusinessLogic\TrainingReminderControl.cs" />
+    <Compile Include="BusinessLogic\UpdateJournalControl.cs" />
+    <Compile Include="DataAccess\LoadDatabase.cs" />
+    <Compile Include="DataAccess\SaveDatabase.cs" />
+    <Compile Include="Domain\Exercise.cs" />
+    <Compile Include="Domain\ExercisePackage.cs" />
+    <Compile Include="Domain\Journal.cs" />
+    <Compile Include="Domain\Patient.cs" />
     <Compile Include="ExerciseWindow.xaml.cs">
       <DependentUpon>ExerciseWindow.xaml</DependentUpon>
     </Compile>
@@ -121,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PresentationLogic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
