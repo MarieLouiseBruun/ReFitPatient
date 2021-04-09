@@ -19,22 +19,38 @@ namespace ReFitPatient.BusinessLogic
         {
             //ExerciseWindow.Show();
             //HomeWindow.Close();
+            
+            //Her skal der hentes ExercisePackesIDs fra patienten der er logget ind
+
+            //_exerciseWindow.ShowPackageIDs();;
+            //Den skal vel have noget med som parameter?
         }
 
         public void PackageChosen()
         {
             //Skal vel have et ID med i parameter??
             //_loadDatabase.LoadPackageInfo(ExercisePackageID);
+            
+            //ny exercisePackage domæneklasse oprettes her - denne nye package skal løbes igennem for exercises og oprette domæne exercises
+
+            //foreach (var Exercise in ExercisePackage)
+            //{
+            //    _loadDatabase.GetExercise(ExerciseID);
+            //    ny exercise domæneklasse 
+            //}
+
+            //_exerciseWindow.ShowExerciseInformation();
         }
 
         public void PlayIsPressed(string URL)
         {
             //string link i parameter måske
+            //_exerciseWindow.PlayVideo();
         }
 
         public void CommentExerciseIsPressed()
         {
-            //ExerciseWindow.OpenCommentBox();
+            //_exerciseWindow.OpenCommentBox();
         }
 
         public void OKIsPressed(int exerciseID, string comment)

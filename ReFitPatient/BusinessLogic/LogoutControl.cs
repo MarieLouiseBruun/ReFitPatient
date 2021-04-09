@@ -10,7 +10,10 @@ namespace ReFitPatient.BusinessLogic
     {
         public void LogoutIsPressed()
         {
+            //_mainWindow.Close();
+            //_loginWindow.Show();
 
+            //Vi skal have ryddet vores cache på en måde, slettet det, som er gemt fra tidligere login
         }
     }
 }

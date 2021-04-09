@@ -19,9 +19,9 @@ namespace ReFitPatient.DataAccess
 
         //}
 
-        public void GetPreviousJournalInformation()
-        {
+    //    public Journal GetPreviousJournalInformation()
+    //    {
 
-        }
+    //    }
     }
 }
