@@ -1,12 +1,24 @@
-﻿<Window x:Class="ReFitPatient.MainWindow"
+﻿<Window x:Class="ReFitPatient.HomeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="HomeWindow"  Height="530" Width="265" FontSize="16">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
+            <Image Source="Images/Billede1.png" Height="120" Margin="0,0,10,0"/>
+            <TextBlock x:Name="welcomeL" Text="Hej. &#10;Her kan du se dine&#10;træningsøvelser eller&#10;opdatere din dagbog. &#10;God træning :-) "  Width="auto" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,20,0,0"/>
+            <Button x:Name="viewExercisesB" Content="Se øvelser" Width="160" Height="40" Margin="0,25,0,0"/>
+            <Button x:Name="journalB" Content="Dagbog" Width="160" Height="40" Margin="0,25,0,0"/>
+            <Button x:Name="logoutB" Content="Log ud" Width="160" Height="40" Margin="0,25,0,0"/>
+
+
+        </StackPanel>
     </Grid>
 </Window>

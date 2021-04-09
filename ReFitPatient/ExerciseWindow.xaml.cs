@@ -18,9 +18,9 @@ namespace ReFitPatient
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ExerciseWindow : Window
     {
-        public MainWindow()
+        public ExerciseWindow()
         {
             InitializeComponent();
         }
