@@ -8,7 +8,7 @@ namespace ReFitPatient.DataAccess
 {
     class SaveDatabase
     {
-        public void SaveComment(string comment)
+        public void SaveComment(string comment, int exerciseID)
         {
 
         }

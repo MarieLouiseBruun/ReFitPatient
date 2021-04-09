@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ReFitPatient.Domain;
 
 namespace ReFitPatient.DataAccess
 {
@@ -10,7 +11,7 @@ namespace ReFitPatient.DataAccess
     {
         //public Patient LoadPatientInfo(string SSN)
         //{
-            
+
         //}
 
         //public void LoadPackageInfo(ExercisePackageID id)
@@ -18,9 +19,9 @@ namespace ReFitPatient.DataAccess
 
         //}
 
-        //public void GetPreviousJournalInformation()
-        //{
+        public void GetPreviousJournalInformation()
+        {
 
-        //}
+        }
     }
 }
