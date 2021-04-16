@@ -29,7 +29,16 @@ namespace ReFitPatient
 
         private void gemB_Click(object sender, RoutedEventArgs e)
         {
-            _reminderControl.IntervalSet(Convert.ToInt32(intervalTB));
+            int value;
+            if (int.TryParse(intervalTB.Text, out value))
+            {
+                _reminderControl.IntervalSet(Convert.ToInt32(intervalTB.Text));
+                MessageBox.Show("Nyt interval gemt!");
+            }
+            else
+            {
+                MessageBox.Show("Indtast venligst et heltal!");
+            }
         }
 
         private void annullerB_Click(object sender, RoutedEventArgs e)
