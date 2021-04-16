@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReFitPatient.BusinessLogic;
 
 namespace ReFitPatient
 {
@@ -20,9 +21,18 @@ namespace ReFitPatient
     /// </summary>
     public partial class AddToJournalWindow : Window
     {
-        public AddToJournalWindow()
+        private ReturnController _returnController;
+        private JournalWindow _journalWindow;
+        public AddToJournalWindow(JournalWindow window)
         {
+            _journalWindow = window;
+            _returnController = new ReturnController(window);
             InitializeComponent();
+        }
+
+        private void backB_Click(object sender, RoutedEventArgs e)
+        {
+            _returnController.ReturnToJournalWindow(this);
         }
     }
 }

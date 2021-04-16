@@ -7,25 +7,36 @@ using ReFitPatient.DataAccess;
 
 namespace ReFitPatient.BusinessLogic
 {
-    class TrainingReminderControl
+    public class TrainingReminderControl
     {
         private SaveDatabase _saveDatabase;
+        private SetIntervalWindow _intervalWindow;
+        private HomeWindow _homeWindow;
+        private ReturnController _returnController;
 
-        public TrainingReminderControl()
+        public TrainingReminderControl(HomeWindow homeWindow)
         {
+            _homeWindow = homeWindow;
+            _returnController = new ReturnController(_homeWindow);
             _saveDatabase = new SaveDatabase();
         }
-        public void OptionButtonIsPressed()
+        public void SetIntervalBIsPressed()
         {
-            //_journalWindow.Show();
-
+            _intervalWindow = new SetIntervalWindow(this);
+            _intervalWindow.Show();
+            _homeWindow.Hide();
         }
 
         public void IntervalSet(int interval)
         {
             _saveDatabase.SaveInterval(interval);
-            //interval i parameter (som int, timer, dage måske?)
-            //_journalWindow.Close();
+            _homeWindow.Show();
+            _intervalWindow.Close();
+        }
+
+        public void CancelIntervalUpdate()
+        {
+            _returnController.ReturnToHome(_intervalWindow);
         }
     }
 }

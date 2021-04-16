@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ReFitPatient.Domain
 {
-    class Exercise
+    public class Exercise
     {
         public string ExerciseLink { get; set; }
         public string Description { get; set; }

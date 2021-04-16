@@ -21,7 +21,7 @@ namespace ReFitPatient.DataAccess
 
         public Journal GetPreviousJournalInformation()
         {
-            return new Journal();
+            return new Journal(5,35,"Heroin","Jeg har det skidt","Jeg kan bænke 120 kg");
         }
         public bool ValidateLogin(string SSN, string Password)
         {

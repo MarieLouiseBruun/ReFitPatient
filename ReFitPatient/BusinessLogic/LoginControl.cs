@@ -30,7 +30,7 @@ namespace ReFitPatient.BusinessLogic
 
                 if (_loadDatabase.ValidateLogin(SSN, Password))
                 {
-                    _loadDatabase.LoadPatientInfo(SSN);
+                    _patient = _loadDatabase.LoadPatientInfo(SSN);
                     //LoadPatientInfo skal her returnere en ny patient
                     _homeWindow = new HomeWindow();
                     _homeWindow.Show();

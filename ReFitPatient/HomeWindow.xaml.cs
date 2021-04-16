@@ -24,11 +24,13 @@ namespace ReFitPatient
         private LogoutControl _logoutControl;
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
+        private TrainingReminderControl _reminderControl;
         public HomeWindow()
         {
             _logoutControl = new LogoutControl(this);
             _updateJournalControl = new UpdateJournalControl(this);
             _exerciseControl = new ExerciseControl(this);
+            _reminderControl = new TrainingReminderControl(this);
 
             InitializeComponent();
         }
@@ -46,6 +48,11 @@ namespace ReFitPatient
         private void viewExercisesB_Click(object sender, RoutedEventArgs e)
         {
             _exerciseControl.WatchExerciseIsPressed();
+        }
+
+        private void intervalB_Click(object sender, RoutedEventArgs e)
+        {
+            _reminderControl.SetIntervalBIsPressed();
         }
     }
 }

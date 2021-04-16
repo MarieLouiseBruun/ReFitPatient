@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace ReFitPatient.Domain
 {
    
-    class ExercisePackage
+    public class ExercisePackage
     {
         public string PackageName { get; set; }
+        public int ExercisePackageID { get; set; }
         public List<Exercise> ExerciseList { get; set; }
-        //skal listen indeholde exercise eller exerciseID? ID er jo ikke en klasse..
     }
 }

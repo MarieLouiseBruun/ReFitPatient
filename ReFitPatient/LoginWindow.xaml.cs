@@ -28,6 +28,7 @@ namespace ReFitPatient
             _loginControl = new LoginControl(this);
 
             InitializeComponent();
+            cprTB.Focus();
         }
 
         private void loginB_Click(object sender, RoutedEventArgs e)

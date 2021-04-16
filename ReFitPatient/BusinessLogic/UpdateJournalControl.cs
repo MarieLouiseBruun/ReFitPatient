@@ -15,17 +15,23 @@ namespace ReFitPatient.BusinessLogic
         private SaveDatabase _saveDatabase;
         private HomeWindow _homeWindow;
         private JournalWindow _journalWindow;
+        private AddToJournalWindow _addToJournalWindow;
+        private Journal _journal;
 
         public UpdateJournalControl(HomeWindow window)
         {
             _homeWindow = window;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase();
+            
         }
-        public void UpdateJournalIsPressed()
+        public void UpdateJournalIsPressed(JournalWindow window)
         {
-            //_addToJournalWindow.Show();
-            //_journalWindow.Close();
+            _journalWindow = window;
+            _addToJournalWindow = new AddToJournalWindow(_journalWindow);
+            _journalWindow.Hide();
+            _addToJournalWindow.Show();
+            
         }
 
         public void ExercisePackageJournalChosen()
@@ -35,8 +41,8 @@ namespace ReFitPatient.BusinessLogic
         public void JournalButtonIsPressed()
         {
             _homeWindow.Hide();
-            //_loadDatabase.GetPreviousJournalInformation();
-            _journalWindow = new JournalWindow(_homeWindow);
+            _journal = _loadDatabase.GetPreviousJournalInformation();
+            _journalWindow = new JournalWindow(_homeWindow, _journal);
             _journalWindow.Show();
         }
 

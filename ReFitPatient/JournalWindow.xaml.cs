@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReFitPatient.BusinessLogic;
+using ReFitPatient.Domain;
 
 namespace ReFitPatient
 {
@@ -21,20 +22,31 @@ namespace ReFitPatient
     /// </summary>
     public partial class JournalWindow : Window
     {
+        public Journal _journal { get; set; }
         private ReturnController _returnController;
         private HomeWindow _homeWindow;
-        public JournalWindow(HomeWindow window)
+        private UpdateJournalControl _journalControl;
+        public JournalWindow(HomeWindow window, Journal journal)
         {
+            _journal = journal;
             _homeWindow = window;
             _returnController = new ReturnController(window);
-
-
+            _journalControl = new UpdateJournalControl(window);
+            //journalinfo er bare til at prøve at binde tekst til guien, hvor journalinfoen skal være
             InitializeComponent();
+
+            //Det her er KUN MIDLERTIDIGT!!!
+            JournalinfoTB.Text = "Painscale: " +_journal.PainScale + "\r\n" + "Angle: " +_journal.BendAngle + "\r\n" + "Medicine: "+ _journal.Medicine + "\r\n" + "Exercisecomment: " +_journal.ExerciseComment + "\r\n" + "General comment: " + _journal.GeneralComment;
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             _returnController.ReturnToHome(this);
+        }
+
+        private void editB_Click(object sender, RoutedEventArgs e)
+        {
+            _journalControl.UpdateJournalIsPressed(this);
         }
     }
 }
