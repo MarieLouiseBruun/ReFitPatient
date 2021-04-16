@@ -21,7 +21,6 @@ namespace ReFitPatient.BusinessLogic
         {
             _validateLogin = new ValidateLogin();
             _loginWindow = loginWindow;
-            _homeWindow = new HomeWindow();
             _loadDatabase = new LoadDatabase();
         }
         public void LoginButtonIsPressed(string SSN, string Password)
@@ -33,9 +32,9 @@ namespace ReFitPatient.BusinessLogic
                 {
                     _loadDatabase.LoadPatientInfo(SSN);
                     //LoadPatientInfo skal her returnere en ny patient
-                    _loginWindow.Close();
                     _homeWindow = new HomeWindow();
                     _homeWindow.Show();
+                    _loginWindow.Close();
                 }
                 else
                 {

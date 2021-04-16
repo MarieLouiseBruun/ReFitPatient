@@ -11,13 +11,13 @@ namespace ReFitPatient.DataAccess
     {
         public Patient LoadPatientInfo(string SSN)
         {
-            return new Patient();
+            return new Patient("a","b","c","d","e",1,2,new List<ExercisePackage>());
         }
 
-        public void LoadPackageInfo(ExercisePackageID id)
-        {
+        //public void LoadPackageInfo(ExercisePackageID id)
+        //{
 
-        }
+        //}
 
         public Journal GetPreviousJournalInformation()
         {

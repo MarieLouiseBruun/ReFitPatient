@@ -10,6 +10,10 @@ namespace ReFitPatient.BusinessLogic
     class ReturnController
     {
         private HomeWindow _homeWindow;
+        public ReturnController(HomeWindow window)
+        {
+            _homeWindow = window;
+        }
         public void ReturnToHome(Window window)
         {
             window.Close();

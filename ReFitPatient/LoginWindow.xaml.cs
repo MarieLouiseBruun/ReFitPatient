@@ -25,13 +25,14 @@ namespace ReFitPatient
         private LoginControl _loginControl;
         public LoginWindow()
         {
-            InitializeComponent();
             _loginControl = new LoginControl(this);
+
+            InitializeComponent();
         }
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
-            _loginControl.LoginButtonIsPressed(cprTB.Text,pwTB.Text);
+            _loginControl.LoginButtonIsPressed(cprTB.Text,pwTB.Password);
         }
 
         public void LoginErrorMessage()
@@ -42,6 +43,19 @@ namespace ReFitPatient
         public void SSNErrorMessage()
         {
             MessageBox.Show("Fejl i login. Prøv igen");
+        }
+
+        private void showPWCB_Checked(object sender, RoutedEventArgs e)
+        {
+            if (showPWCB.IsChecked == true)
+            {
+                pwTB.PasswordChar = '\0';
+            }
+
+            if (showPWCB.IsChecked == false)
+            {
+                pwTB.PasswordChar = '*';
+            }
         }
     }
 }

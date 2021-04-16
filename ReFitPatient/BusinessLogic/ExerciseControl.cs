@@ -17,10 +17,18 @@ namespace ReFitPatient.BusinessLogic
         private SaveDatabase _saveDatabase;
         private List<Exercise> _exerciseList;
         private List<ExercisePackage> _exercisePackage;
+
+        public ExerciseControl(HomeWindow window)
+        {
+            _homeWindow = window;
+            _loadDatabase = new LoadDatabase();
+            _saveDatabase = new SaveDatabase();
+        }
         public void WatchExerciseIsPressed()
         {
+            _exerciseWindow = new ExerciseWindow(_homeWindow);
             _exerciseWindow.Show();
-            _homeWindow.Close();
+            _homeWindow.Hide();
             
             //Her skal der hentes ExercisePackesIDs fra patienten der er logget ind
 
@@ -52,13 +60,13 @@ namespace ReFitPatient.BusinessLogic
 
         public void CommentExerciseIsPressed()
         {
-            //_exerciseWindow.OpenCommentBox();
+            _exerciseWindow.OpenCommentBox();
         }
 
         public void OKIsPressed(int exerciseID, string comment)
         {
             _saveDatabase.SaveComment(comment,exerciseID);
-            //ExerciseWindow.CommentSaved();
+            _exerciseWindow.CommentSaved();
         }
     }
 }

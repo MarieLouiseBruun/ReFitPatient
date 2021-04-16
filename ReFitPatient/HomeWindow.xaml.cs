@@ -26,10 +26,11 @@ namespace ReFitPatient
         private ExerciseControl _exerciseControl;
         public HomeWindow()
         {
+            _logoutControl = new LogoutControl(this);
+            _updateJournalControl = new UpdateJournalControl(this);
+            _exerciseControl = new ExerciseControl(this);
+
             InitializeComponent();
-            _logoutControl = new LogoutControl();
-            _updateJournalControl = new UpdateJournalControl();
-            _exerciseControl = new ExerciseControl();
         }
 
         private void logoutB_Click(object sender, RoutedEventArgs e)

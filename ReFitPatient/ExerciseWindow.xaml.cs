@@ -23,11 +23,13 @@ namespace ReFitPatient
     {
         private ReturnController _returnController;
         private ExerciseControl _exerciseControl;
-        public ExerciseWindow()
+        public ExerciseWindow(HomeWindow window)
         {
+            _returnController = new ReturnController(window);
+            _exerciseControl = new ExerciseControl(window);
+
+
             InitializeComponent();
-            _returnController = new ReturnController();
-            _exerciseControl = new ExerciseControl();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -39,6 +41,18 @@ namespace ReFitPatient
         private void addCommentB_Click(object sender, RoutedEventArgs e)
         {
             _exerciseControl.CommentExerciseIsPressed();
+        }
+
+        public void CommentSaved()
+        {
+            MessageBox.Show("Kommentar gemt!");
+        }
+
+        public void OpenCommentBox()
+        {
+            //Den skal åbne en ny textbox eller vindue, hvor man kan skrive I.
+            //Når man har skrevet hvad man vil trykker man OK, og OKIsPressed kaldes fra ExerciseController
+            //Her har den exerciseID med samt kommentaren, og dette gemmes i databasen
         }
     }
 }

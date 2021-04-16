@@ -10,6 +10,11 @@ namespace ReFitPatient.BusinessLogic
     class TrainingReminderControl
     {
         private SaveDatabase _saveDatabase;
+
+        public TrainingReminderControl()
+        {
+            _saveDatabase = new SaveDatabase();
+        }
         public void OptionButtonIsPressed()
         {
             //_journalWindow.Show();

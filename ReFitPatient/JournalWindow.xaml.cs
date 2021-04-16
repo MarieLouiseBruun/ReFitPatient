@@ -22,8 +22,13 @@ namespace ReFitPatient
     public partial class JournalWindow : Window
     {
         private ReturnController _returnController;
-        public JournalWindow()
+        private HomeWindow _homeWindow;
+        public JournalWindow(HomeWindow window)
         {
+            _homeWindow = window;
+            _returnController = new ReturnController(window);
+
+
             InitializeComponent();
         }
 

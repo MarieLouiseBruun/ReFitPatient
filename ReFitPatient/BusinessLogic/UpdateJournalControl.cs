@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ReFitPatient.DataAccess;
 using ReFitPatient.Domain;
 
@@ -12,6 +13,15 @@ namespace ReFitPatient.BusinessLogic
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
+        private HomeWindow _homeWindow;
+        private JournalWindow _journalWindow;
+
+        public UpdateJournalControl(HomeWindow window)
+        {
+            _homeWindow = window;
+            _loadDatabase = new LoadDatabase();
+            _saveDatabase = new SaveDatabase();
+        }
         public void UpdateJournalIsPressed()
         {
             //_addToJournalWindow.Show();
@@ -24,9 +34,10 @@ namespace ReFitPatient.BusinessLogic
         }
         public void JournalButtonIsPressed()
         {
-            //_homeWindow.Close();
+            _homeWindow.Hide();
             //_loadDatabase.GetPreviousJournalInformation();
-            //_journalWindow.Show();
+            _journalWindow = new JournalWindow(_homeWindow);
+            _journalWindow.Show();
         }
 
 
