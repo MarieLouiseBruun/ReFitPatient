@@ -8,15 +8,17 @@ using ReFitPatient.Domain;
 
 namespace ReFitPatient.BusinessLogic
 {
-    class ExerciseControl
+    public class ExerciseControl
     {
         private ExerciseWindow _exerciseWindow;
         private HomeWindow _homeWindow;
+        private CommentExerciseWindow _commentWindow;
         private Patient _patient;
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
         private List<Exercise> _exerciseList;
         private List<ExercisePackage> _exercisePackage;
+        private int CurrentExerciseID;
 
         public ExerciseControl(HomeWindow window)
         {
@@ -58,14 +60,17 @@ namespace ReFitPatient.BusinessLogic
             //_exerciseWindow.PlayVideo();
         }
 
-        public void CommentExerciseIsPressed()
+        public void CommentExerciseIsPressed(ExerciseWindow exerciseWindow, int exerciseID)
         {
-            _exerciseWindow.OpenCommentBox();
+            _exerciseWindow = exerciseWindow;
+            CurrentExerciseID = exerciseID;
+            _commentWindow = new CommentExerciseWindow(this);
+            _commentWindow.ShowDialog();
         }
 
-        public void OKIsPressed(int exerciseID, string comment)
+        public void SaveIsPressed(string comment)
         {
-            _saveDatabase.SaveComment(comment,exerciseID);
+            _saveDatabase.SaveComment(comment, CurrentExerciseID);
             _exerciseWindow.CommentSaved();
         }
     }

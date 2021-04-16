@@ -40,7 +40,8 @@ namespace ReFitPatient
 
         private void addCommentB_Click(object sender, RoutedEventArgs e)
         {
-            _exerciseControl.CommentExerciseIsPressed();
+            //EXERCISEID = 1 ER BARE FOR AT UNDGÅ FEJL!!!!
+            _exerciseControl.CommentExerciseIsPressed(this,1);
         }
 
         public void CommentSaved()
@@ -50,8 +51,10 @@ namespace ReFitPatient
 
         public void OpenCommentBox()
         {
+            //DET ER DET SAMME HERNEDE LISSSOMM!!!
+            _exerciseControl.CommentExerciseIsPressed(this,2);
             //Den skal åbne en ny textbox eller vindue, hvor man kan skrive I.
-            //Når man har skrevet hvad man vil trykker man OK, og OKIsPressed kaldes fra ExerciseController
+            //Når man har skrevet hvad man vil trykker man OK, og SaveIsPressed kaldes fra ExerciseController
             //Her har den exerciseID med samt kommentaren, og dette gemmes i databasen
         }
     }
