@@ -18,9 +18,16 @@ namespace ReFitPatient.Domain
         public int Repetitions { get; set; }
         public List<ExercisePackage> PackageList { get; set; }
 
-        public Patient()
+        public Patient(string name, string password, string ssn, string email, string phonenumber, int sets, int repetitions, List<ExercisePackage> packageList)
         {
-            
+            Name = name;
+            Password = password;
+            SSN = ssn;
+            Email = email;
+            PhoneNumber = phonenumber;
+            Sets = sets;
+            Repetitions = repetitions;
+            PackageList = packageList;
         }
     }
 }

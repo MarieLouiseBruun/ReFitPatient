@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReFitPatient.BusinessLogic;
+using ReFitPatient.PresentationLogic;
 
 namespace ReFitPatient
 {
@@ -20,9 +22,26 @@ namespace ReFitPatient
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private LoginControl _loginControl;
         public LoginWindow()
         {
             InitializeComponent();
+            _loginControl = new LoginControl(this);
+        }
+
+        private void loginB_Click(object sender, RoutedEventArgs e)
+        {
+            _loginControl.LoginButtonIsPressed(cprTB.Text,pwTB.Text);
+        }
+
+        public void LoginErrorMessage()
+        {
+            MessageBox.Show("Fejl i login. Prøv igen");
+        }
+
+        public void SSNErrorMessage()
+        {
+            MessageBox.Show("Fejl i login. Prøv igen");
         }
     }
 }

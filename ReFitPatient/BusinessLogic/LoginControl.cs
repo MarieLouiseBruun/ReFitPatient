@@ -11,24 +11,46 @@ namespace ReFitPatient.BusinessLogic
 {
     class LoginControl
     {
-        private bool loginBool;
         private ValidateLogin _validateLogin;
         private Patient _patient;
         private LoadDatabase _loadDatabase;
+        private HomeWindow _homeWindow;
+        private LoginWindow _loginWindow;
+
+        public LoginControl(LoginWindow loginWindow)
+        {
+            _validateLogin = new ValidateLogin();
+            _loginWindow = loginWindow;
+            _homeWindow = new HomeWindow();
+            _loadDatabase = new LoadDatabase();
+        }
         public void LoginButtonIsPressed(string SSN, string Password)
         {
-            loginBool = _validateLogin.LoginPressed(SSN, Password);
-
-            if (loginBool == true)
+            if (_validateLogin.CheckSSN(SSN))
             {
-                //_loadDatabase.LoadPatientInfo(SSN);
-                //ny patientdomæneklasse skal oprettes her og gemmes i Loginklassen??
-                //_loginWindow.Close();
-                //_homeWindow.Show();
+
+                if (_loadDatabase.ValidateLogin(SSN, Password))
+                {
+                    _loadDatabase.LoadPatientInfo(SSN);
+                    //LoadPatientInfo skal her returnere en ny patient
+                    _loginWindow.Close();
+                    _homeWindow = new HomeWindow();
+                    _homeWindow.Show();
+                }
+                else
+                {
+                    _loginWindow.LoginErrorMessage();
+                    _loginWindow.cprTB.Clear();
+                    _loginWindow.pwTB.Clear();
+                    _loginWindow.cprTB.Focus();
+                }
             }
             else
             {
-                //_loginWindow.LoginErrorMessage();
+                _loginWindow.SSNErrorMessage();
+                _loginWindow.cprTB.Clear();
+                _loginWindow.pwTB.Clear();
+                _loginWindow.cprTB.Focus();
             }
         }
     }

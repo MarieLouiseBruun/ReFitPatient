@@ -9,19 +9,23 @@ namespace ReFitPatient.DataAccess
 {
     class LoadDatabase
     {
-        //public Patient LoadPatientInfo(string SSN)
-        //{
+        public Patient LoadPatientInfo(string SSN)
+        {
+            return new Patient();
+        }
 
-        //}
+        public void LoadPackageInfo(ExercisePackageID id)
+        {
 
-        //public void LoadPackageInfo(ExercisePackageID id)
-        //{
+        }
 
-        //}
-
-    //    public Journal GetPreviousJournalInformation()
-    //    {
-
-    //    }
+        public Journal GetPreviousJournalInformation()
+        {
+            return new Journal();
+        }
+        public bool ValidateLogin(string SSN, string Password)
+        {
+            return true;
+        }
     }
 }

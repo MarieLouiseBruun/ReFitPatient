@@ -10,6 +10,8 @@ namespace ReFitPatient.BusinessLogic
 {
     class ExerciseControl
     {
+        private ExerciseWindow _exerciseWindow;
+        private HomeWindow _homeWindow;
         private Patient _patient;
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
@@ -17,8 +19,8 @@ namespace ReFitPatient.BusinessLogic
         private List<ExercisePackage> _exercisePackage;
         public void WatchExerciseIsPressed()
         {
-            //ExerciseWindow.Show();
-            //HomeWindow.Close();
+            _exerciseWindow.Show();
+            _homeWindow.Close();
             
             //Her skal der hentes ExercisePackesIDs fra patienten der er logget ind
 

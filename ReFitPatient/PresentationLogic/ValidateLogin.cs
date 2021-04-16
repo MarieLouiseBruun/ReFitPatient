@@ -8,11 +8,24 @@ namespace ReFitPatient.PresentationLogic
 {
     class ValidateLogin
     {
-        public bool LoginPressed(string SSN, string password)
+        private int value;
+        public bool CheckSSN(string SSN)
         {
-            return true;
-            //skal verificere loginoplysninger i databasen
-            //denne klasse skal måske slettes og metoden flyttes over til LoadDatabase?
+            if (SSN.Length == 10)
+            {
+                if (int.TryParse(SSN,out value))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

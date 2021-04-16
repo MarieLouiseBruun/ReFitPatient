@@ -82,6 +82,7 @@
     <Compile Include="BusinessLogic\ExerciseControl.cs" />
     <Compile Include="BusinessLogic\LoginControl.cs" />
     <Compile Include="BusinessLogic\LogoutControl.cs" />
+    <Compile Include="BusinessLogic\ReturnController.cs" />
     <Compile Include="BusinessLogic\TrainingReminderControl.cs" />
     <Compile Include="BusinessLogic\UpdateJournalControl.cs" />
     <Compile Include="DataAccess\LoadDatabase.cs" />

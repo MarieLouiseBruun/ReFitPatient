@@ -22,7 +22,7 @@
                 <Label x:Name="showPwL" Content="Vis password:" HorizontalAlignment="Left" Margin="55,0,0,0"/>
                 <RadioButton x:Name="showPwRB" Margin="26,7,0,0"/>
             </StackPanel>
-            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,25,0,0"/>
+            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,25,0,0" Click="loginB_Click"/>
             
 
 
