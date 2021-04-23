@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReFitPatient.BusinessLogic;
+using ReFitPatient.Domain;
 
 namespace ReFitPatient
 {
@@ -24,11 +25,13 @@ namespace ReFitPatient
         private LogoutControl _logoutControl;
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
+        private Patient _patient;
         private TrainingReminderControl _reminderControl;
-        public HomeWindow()
+        public HomeWindow(Patient patient)
         {
             _logoutControl = new LogoutControl(this);
-            _updateJournalControl = new UpdateJournalControl(this);
+            _patient = patient;
+            _updateJournalControl = new UpdateJournalControl(this, _patient);
             _exerciseControl = new ExerciseControl(this);
             _reminderControl = new TrainingReminderControl(this);
 

@@ -25,18 +25,21 @@ namespace ReFitPatient
         public Journal _journal { get; set; }
         private ReturnController _returnController;
         private HomeWindow _homeWindow;
+        private Patient _patient;
         private UpdateJournalControl _journalControl;
-        public JournalWindow(HomeWindow window, Journal journal)
+
+        public JournalWindow(HomeWindow window, Journal journal, Patient patient)
         {
+            _patient = patient;
             _journal = journal;
             _homeWindow = window;
             _returnController = new ReturnController(window);
-            _journalControl = new UpdateJournalControl(window);
+            _journalControl = new UpdateJournalControl(window, patient);
             //journalinfo er bare til at prøve at binde tekst til guien, hvor journalinfoen skal være
             InitializeComponent();
 
-            //Det her er KUN MIDLERTIDIGT!!!
-            JournalinfoTB.Text = "Painscale: " +_journal.PainScale + "\r\n" + "Angle: " +_journal.BendAngle + "\r\n" + "Medicine: "+ _journal.Medicine + "\r\n" + "Exercisecomment: " +_journal.ExerciseComment + "\r\n" + "General comment: " + _journal.GeneralComment;
+            //    //Det her er KUN MIDLERTIDIGT!!!
+            //    JournalinfoTB.Text = "Painscale: " +_journal.PainScale + "\r\n" + "Angle: " +_journal.BendAngle + "\r\n" + "Medicine: "+ _journal.Medicine + "\r\n" + "Exercisecomment: " +_journal.ExerciseComment + "\r\n" + "General comment: " + _journal.GeneralComment;
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)

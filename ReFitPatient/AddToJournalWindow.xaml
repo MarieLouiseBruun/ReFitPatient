@@ -23,6 +23,23 @@
                 <TextBlock x:Name="scaleTB" Text="Hvor meget smerte oplever &#10;du i dit knæ på en skala fra &#10;1-10?"/>
                 <Slider x:Name="painS" Cursor="None" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
 
+                <Label x:Name="vinkelL" Content="Vinkel" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="vinkelTBL" Text="Hvad vinkel kan du bøje din knæ i"/>
+                <TextBox x:Name="vinkelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
+
+                <Label x:Name="generelL" Content="Generel kommentar" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="generelTBL" Text="Har du noget om dit&#10;generelle helbred du vil nævne?"/>
+                <TextBox x:Name="generelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
+
+                <Label x:Name="medicineL" Content="Medicinindtag" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="medicinTBL" Text="Hvilke præparater har du &#10;taget siden sidst og &#10;hvor mange af hver?"/>
+                <TextBox x:Name="medicinTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="gemB" Content="Gem" Width="80" Margin="0,0,0,0" Click="gemB_Click"/>
+
+                    <Button x:Name="anullerB" Content="Annuller" Width="80" Margin="30,0,0,0" Click="AnullerB_OnClick"/>
+                </StackPanel>
+               
 
             </StackPanel>
         </Grid>

@@ -23,16 +23,28 @@ namespace ReFitPatient
     {
         private ReturnController _returnController;
         private JournalWindow _journalWindow;
-        public AddToJournalWindow(JournalWindow window)
+        private UpdateJournalControl _updateJournalControl;
+        public AddToJournalWindow(JournalWindow window, UpdateJournalControl journalControl)
         {
             _journalWindow = window;
             _returnController = new ReturnController(window);
+            _updateJournalControl = journalControl;
             InitializeComponent();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             _returnController.ReturnToJournalWindow(this);
+        }
+
+        private void gemB_Click(object sender, RoutedEventArgs e)
+        {
+            _updateJournalControl.SaveNewJournalData();
+        }
+
+        private void AnullerB_OnClick(object sender, RoutedEventArgs e)
+        {
+            _updateJournalControl.CancelButtonIsPressed();
         }
     }
 }

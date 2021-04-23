@@ -39,23 +39,28 @@ namespace ReFitPatient.BusinessLogic
                     //ALT HERFRA TIL _HOMEWINDOW TÆNKER VI ER GODT 
                     //Spørgsmålet er, hvorvidt det skal placeres her, eller i homewindow eller et andet sted, så det kommer
                     //med videre rundt i forløbet i programmet. :)
-                    _patient = _loadDatabase.LoadPatientInfo(SSN);
-                    foreach (var item in _patient.PackageList)
-                    {
-                        _exercisePackage = _loadDatabase.LoadPackageInfo(item.ExercisePackageID);
-                        _packageList.Add(_exercisePackage);
-                    }
 
-                    foreach (var item in _packageList)
-                    {
-                        foreach (var exercise in item.ExerciseList)
-                        {
-                            _exercise = _loadDatabase.LoadExerciseInfo(exercise.ExerciseID);
-                            _exerciseList.Add(_exercise);
-                        }
-                    }
-                    
-                    _homeWindow = new HomeWindow();
+                    _patient = _loadDatabase.LoadPatientInfo(SSN);
+                    //foreach (var item in _patient.PackageList)
+                    //{
+                    //    _exercisePackage = _loadDatabase.LoadPackageInfo(item.ExercisePackageID);
+                    //    _packageList.Add(_exercisePackage);
+                    //}
+
+
+                    //foreach (var item in _packageList)
+                    //{
+                    //    foreach (var exercise in item.ExerciseList)
+                    //    {
+                    //        _exercise = _loadDatabase.LoadExerciseInfo(exercise.ExerciseID);
+                    //        _exerciseList.Add(_exercise);
+                    //    }
+                    //}
+
+
+
+
+                    _homeWindow = new HomeWindow(_patient);
                     _homeWindow.Show();
                     _loginWindow.Close();
                 }

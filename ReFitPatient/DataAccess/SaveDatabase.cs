@@ -14,7 +14,7 @@ namespace ReFitPatient.DataAccess
 
         }
 
-        public void SaveJournal(Journal journal)
+        public void SaveJournal(string journalString)
         {
 
         }

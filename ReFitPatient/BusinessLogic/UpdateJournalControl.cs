@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Peers;
 using ReFitPatient.DataAccess;
 using ReFitPatient.Domain;
 
@@ -17,18 +18,20 @@ namespace ReFitPatient.BusinessLogic
         private JournalWindow _journalWindow;
         private AddToJournalWindow _addToJournalWindow;
         private Journal _journal;
+        private Patient _patient;
 
-        public UpdateJournalControl(HomeWindow window)
+        public UpdateJournalControl(HomeWindow window, Patient patient)
         {
             _homeWindow = window;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase();
-            
+            _patient = patient;
+
         }
         public void UpdateJournalIsPressed(JournalWindow window)
         {
             _journalWindow = window;
-            _addToJournalWindow = new AddToJournalWindow(_journalWindow);
+            _addToJournalWindow = new AddToJournalWindow(_journalWindow, this);
             _journalWindow.Hide();
             _addToJournalWindow.Show();
             
@@ -42,35 +45,49 @@ namespace ReFitPatient.BusinessLogic
         {
             _homeWindow.Hide();
             _journal = _loadDatabase.GetPreviousJournalInformation();
-            _journalWindow = new JournalWindow(_homeWindow, _journal);
+            _journalWindow = new JournalWindow(_homeWindow, _journal, _patient);
+
+            //Her skal vi have indlæst data fra journalen i databasen, og sat det korrekt ind i vinduet med nyeste først
+            PrintJournal();
+
             _journalWindow.Show();
         }
 
 
         public void CancelButtonIsPressed()
         {
-            //_addToJournalWindow.ShowCancelMessage();
+            MessageBox.Show("Er du sikker på du vil annullere?","Cancel message",MessageBoxButton.YesNo);
         }
 
-        public void ConfirmIsPressed()
-        {
-            //_addToJournalWindow.Close();
-
-            //Den her show er ikke i sekvensdiagrammet, men tror måske den skal med for at give mening? :)
-            //_journalWindow.Show();
-        }
-
-        public void DenyIsPressed()
-        {
-            //_addToJournalWindow.CloseCancelMessage();
-        }
 
         public void SaveNewJournalData()
         {
             //new journal domæneklasse skal laves her
-            //_saveDatabase.SaveJournal(den nye journal);
-            //_addToJournalWindow.Close();
-            //_journalWindow.Show();
+            string tempJournalString = "Generelt kommentar :" + _addToJournalWindow.generelTB.Text + "Medicinifo :" + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10 :" +
+                                       _addToJournalWindow.painS.Value + "Vinkel i grader :" + _addToJournalWindow.vinkelTB.Text;
+
+            //Gemer både i den lokale _journal og i databasen
+            _journal.JournalList.Add(tempJournalString);
+            _saveDatabase.SaveJournal(tempJournalString);
+            _addToJournalWindow.Close();
+            _journalWindow.Show();
+        }
+
+
+        //Skal måske være en ny klasse!
+        public void PrintJournal()
+        {
+            //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
+            for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
+            {
+                _journalWindow.JournalinfoTB.Text = _patient.Journal.JournalList[i];
+                i--;
+
+            }
+            //foreach (var item in _patient.Journal.JournalList)
+            //{
+            //    _journalWindow.JournalinfoTB.Text += item;
+            //}
         }
     }
 }

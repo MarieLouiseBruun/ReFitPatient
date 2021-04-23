@@ -11,7 +11,7 @@ namespace ReFitPatient.DataAccess
     {
         public Patient LoadPatientInfo(string SSN)
         {
-            return new Patient("a","b","c","d","e",new List<ExercisePackage>());
+            return new Patient("a","b","c","d","e",new List<ExercisePackage>(), new Journal(new List<string>()));
         }
 
         public ExercisePackage LoadPackageInfo(int ID)
@@ -26,7 +26,7 @@ namespace ReFitPatient.DataAccess
 
         public Journal GetPreviousJournalInformation()
         {
-            return new Journal(5,35,"Heroin","Jeg har det skidt","Jeg kan bænke 120 kg");
+            return new Journal(new List<string>());
         }
         public bool ValidateLogin(string SSN, string Password)
         {
