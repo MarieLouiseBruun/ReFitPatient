@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ReFitPatient.Domain
 {
+    //JOURNAL SKAL LAVES OM!
+    //Den skal tilbage til de forskellige attributter, og dette kræver en del ændringer i nogle af de andre klasser. HUSK DET
     public class Journal
     {
         //public int PainScale { get; set; }
