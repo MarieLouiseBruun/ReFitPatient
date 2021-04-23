@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace ReFitPatient.BusinessLogic
 {
-    class ReturnController
+    public class ReturnController
     {
         private HomeWindow _homeWindow;
         private JournalWindow _journalWindow;

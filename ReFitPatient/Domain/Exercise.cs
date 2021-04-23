@@ -9,8 +9,10 @@ namespace ReFitPatient.Domain
 {
     public class Exercise
     {
+        public int ExerciseID { get; set; }
         public string ExerciseLink { get; set; }
         public string Description { get; set; }
-        public int ExerciseID { get; set; }
+        public int Sets { get; set; }
+        public int Repetitions { get; set; }
     }
 }

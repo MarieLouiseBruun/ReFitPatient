@@ -7,17 +7,22 @@ using ReFitPatient.Domain;
 
 namespace ReFitPatient.DataAccess
 {
-    class LoadDatabase
+    public class LoadDatabase
     {
         public Patient LoadPatientInfo(string SSN)
         {
-            return new Patient("a","b","c","d","e",1,2,new List<ExercisePackage>());
+            return new Patient("a","b","c","d","e",new List<ExercisePackage>());
         }
 
-        //public void LoadPackageInfo(ExercisePackageID id)
-        //{
+        public ExercisePackage LoadPackageInfo(int ID)
+        {
+            return new ExercisePackage();
+        }
 
-        //}
+        public Exercise LoadExerciseInfo(int ID)
+        {
+            return new Exercise();
+        }
 
         public Journal GetPreviousJournalInformation()
         {

@@ -7,7 +7,7 @@ using ReFitPatient.Domain;
 
 namespace ReFitPatient.DataAccess
 {
-    class SaveDatabase
+    public class SaveDatabase
     {
         public void SaveComment(string comment, int exerciseID)
         {

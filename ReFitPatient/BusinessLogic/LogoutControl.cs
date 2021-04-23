@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReFitPatient.BusinessLogic
 {
-    class LogoutControl
+    public class LogoutControl
     {
         private HomeWindow _homeWindow;
         private LoginWindow _loginWindow;

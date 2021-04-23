@@ -9,7 +9,7 @@ using ReFitPatient.Domain;
 
 namespace ReFitPatient.BusinessLogic
 {
-    class UpdateJournalControl
+    public class UpdateJournalControl
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
