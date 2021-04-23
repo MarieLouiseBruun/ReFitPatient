@@ -23,6 +23,7 @@ namespace ReFitPatient
     public partial class JournalWindow : Window
     {
         public Journal _journal { get; set; }
+        public string laaaaangjournalstring { get; set; }
         private ReturnController _returnController;
         private HomeWindow _homeWindow;
         private Patient _patient;
@@ -34,12 +35,10 @@ namespace ReFitPatient
             _journal = journal;
             _homeWindow = window;
             _returnController = new ReturnController(window);
-            _journalControl = new UpdateJournalControl(window, patient);
-            //journalinfo er bare til at prøve at binde tekst til guien, hvor journalinfoen skal være
-            InitializeComponent();
+            _journalControl = new UpdateJournalControl(window, patient, journal);
 
-            //    //Det her er KUN MIDLERTIDIGT!!!
-            //    JournalinfoTB.Text = "Painscale: " +_journal.PainScale + "\r\n" + "Angle: " +_journal.BendAngle + "\r\n" + "Medicine: "+ _journal.Medicine + "\r\n" + "Exercisecomment: " +_journal.ExerciseComment + "\r\n" + "General comment: " + _journal.GeneralComment;
+            InitializeComponent();
+            _journalControl.PrintJournal();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)

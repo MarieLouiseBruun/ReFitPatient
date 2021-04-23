@@ -26,12 +26,13 @@ namespace ReFitPatient
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
         private Patient _patient;
+        private Journal _journal;
         private TrainingReminderControl _reminderControl;
         public HomeWindow(Patient patient)
         {
             _logoutControl = new LogoutControl(this);
             _patient = patient;
-            _updateJournalControl = new UpdateJournalControl(this, _patient);
+            _updateJournalControl = new UpdateJournalControl(this, _patient, _journal);
             _exerciseControl = new ExerciseControl(this);
             _reminderControl = new TrainingReminderControl(this);
 

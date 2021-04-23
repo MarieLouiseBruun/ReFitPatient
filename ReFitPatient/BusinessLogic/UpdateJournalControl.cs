@@ -20,12 +20,13 @@ namespace ReFitPatient.BusinessLogic
         private Journal _journal;
         private Patient _patient;
 
-        public UpdateJournalControl(HomeWindow window, Patient patient)
+        public UpdateJournalControl(HomeWindow window, Patient patient, Journal journal)
         {
             _homeWindow = window;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase();
             _patient = patient;
+            _journal = journal;
 
         }
         public void UpdateJournalIsPressed(JournalWindow window)
@@ -63,8 +64,8 @@ namespace ReFitPatient.BusinessLogic
         public void SaveNewJournalData()
         {
             //new journal domæneklasse skal laves her
-            string tempJournalString = "Generelt kommentar :" + _addToJournalWindow.generelTB.Text + "Medicinifo :" + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10 :" +
-                                       _addToJournalWindow.painS.Value + "Vinkel i grader :" + _addToJournalWindow.vinkelTB.Text;
+            string tempJournalString = "Generelt kommentar: " + _addToJournalWindow.generelTB.Text + "Medicinifo: " + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10: " +
+                                       _addToJournalWindow.painS.Value + "Vinkel i grader: " + _addToJournalWindow.vinkelTB.Text;
 
             //Gemer både i den lokale _journal og i databasen
             _journal.JournalList.Add(tempJournalString);
@@ -80,9 +81,8 @@ namespace ReFitPatient.BusinessLogic
             //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
             for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
             {
-                _journalWindow.JournalinfoTB.Text = _patient.Journal.JournalList[i];
+                _journalWindow.JournalinfoTB.Text += _patient.Journal.JournalList[i];
                 i--;
-
             }
             //foreach (var item in _patient.Journal.JournalList)
             //{
