@@ -9,7 +9,7 @@
     <ScrollViewer>
         <Grid>
             <Grid.Resources>
-                <ImageBrush x:Key="AddButtonImageBrush" ImageSource="Images/tilbage.png" Stretch="UniformToFill"/>
+                <ImageBrush x:Key="AddButtonImageBrush" ImageSource="/Images/tilbage.png" Stretch="UniformToFill"/>
             </Grid.Resources>
 
             <Grid.ColumnDefinitions>

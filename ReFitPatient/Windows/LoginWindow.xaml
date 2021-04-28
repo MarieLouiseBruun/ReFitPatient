@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
-            <Image Source="Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
+            <Image Source="/Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
             <Label x:Name="cprL" Content="CPR-nummer:"  HorizontalAlignment="Center" Margin="0,20,0,0"/>
             <TextBox x:Name="cprTB" Width="150"  />
             <Label x:Name="pwL" Content="Password:" HorizontalAlignment="Center"/>

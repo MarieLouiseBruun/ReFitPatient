@@ -9,7 +9,7 @@
 
     <Grid>
         <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
-            <Image Source="Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
+            <Image Source="/Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
             <Label x:Name="interalL" Content="Dagsinterval mellem træning:" HorizontalAlignment="Center" Margin="0,20,0,0"/>
             <TextBox x:Name="intervalTB" Width="150" Height="100" />
             <StackPanel Orientation="Horizontal">
