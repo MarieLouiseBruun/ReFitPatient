@@ -17,16 +17,15 @@
             <Label x:Name="cprL" Content="CPR-nummer:"  HorizontalAlignment="Center" Margin="0,20,0,0"/>
             <TextBox x:Name="cprTB" Width="150"  />
             <Label x:Name="pwL" Content="Password:" HorizontalAlignment="Center"/>
-            <PasswordBox x:Name="pwTB" Width="150" />
+
+            <TextBox x:Name="pwTB" Width="150"/>
+            <PasswordBox x:Name="pwPB" Width="150" Margin="0,-25,0,0" />
+
             <StackPanel Orientation="Horizontal">
                 <Label x:Name="showPwL" Content="Vis password:" HorizontalAlignment="Left" Margin="55,0,0,0"/>
-                <CheckBox x:Name="showPWCB" Margin="26,7,0,0" Checked="showPWCB_Checked"/>
+                <CheckBox x:Name="showPWCB" Margin="26,7,0,0" Unchecked="showPWCB_UnChecked" Checked="showPWCB_Checked"/>
             </StackPanel>
-            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,25,0,0" Click="loginB_Click"/>
-            
-
-
-
+            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,0,0,0" Click="loginB_Click"/>
         </StackPanel>
     </Grid>
 </Window>

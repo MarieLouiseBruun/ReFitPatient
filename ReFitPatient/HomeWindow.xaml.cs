@@ -37,6 +37,7 @@ namespace ReFitPatient
             _reminderControl = new TrainingReminderControl(this);
 
             InitializeComponent();
+            welcomeL.Text = "Hej " + _patient.Name+". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
 
         private void logoutB_Click(object sender, RoutedEventArgs e)
