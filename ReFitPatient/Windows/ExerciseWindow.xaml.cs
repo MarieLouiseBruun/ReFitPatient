@@ -30,6 +30,7 @@ namespace ReFitPatient
 
 
             InitializeComponent();
+            Browser.Visibility = Visibility.Collapsed;
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -56,6 +57,14 @@ namespace ReFitPatient
             //Den skal åbne en ny textbox eller vindue, hvor man kan skrive I.
             //Når man har skrevet hvad man vil trykker man OK, og SaveIsPressed kaldes fra ExerciseController
             //Her har den exerciseID med samt kommentaren, og dette gemmes i databasen
+        }
+
+        private void playB_Click(object sender, RoutedEventArgs e)
+        {
+            Browser.Visibility = Visibility.Visible;
+            playB.Visibility = Visibility.Collapsed;
+            Browser.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+         
         }
     }
 }

@@ -10,6 +10,7 @@
         <Grid>
             <Grid.Resources>
                 <ImageBrush x:Key="AddButtonImageBrush" ImageSource="/Images/tilbage.png" Stretch="UniformToFill"/>
+                <ImageBrush x:Key="play" ImageSource="/Images/play.png" Stretch="UniformToFill"/>
             </Grid.Resources>
 
             <Grid.ColumnDefinitions>
@@ -25,6 +26,8 @@
                 </ComboBox>
                 <Label x:Name="exercise1L" Content="Øvelse 1"/>
                 <TextBlock x:Name="welcomeL" Text="Beskrivelse &#10;God træning :-) " Margin="5,0,0,0"/>
+                <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
+                <WebBrowser x:Name ="Browser"/>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="repetitionsL" Content="Gentagelser:" />
                     <Label x:Name="repNumberL" Content="3x12"/>

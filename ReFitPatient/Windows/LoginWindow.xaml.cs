@@ -29,11 +29,12 @@ namespace ReFitPatient
 
             InitializeComponent();
             cprTB.Focus();
+            pwTB.Visibility = Visibility.Collapsed;
         }
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
-            _loginControl.LoginButtonIsPressed(cprTB.Text,pwTB.Password);
+            _loginControl.LoginButtonIsPressed(cprTB.Text, pwPB.Password);
         }
 
         public void LoginErrorMessage()
@@ -48,15 +49,16 @@ namespace ReFitPatient
 
         private void showPWCB_Checked(object sender, RoutedEventArgs e)
         {
-            if (showPWCB.IsChecked == true)
-            {
-                pwTB.PasswordChar = '\0';
-            }
+            pwTB.Text = pwPB.Password;
+            pwPB.Visibility = Visibility.Collapsed;
+            pwTB.Visibility = Visibility.Visible;
 
-            if (showPWCB.IsChecked == false)
-            {
-                pwTB.PasswordChar = '*';
-            }
+        }
+        private void showPWCB_UnChecked(object sender, RoutedEventArgs e)
+        {
+            pwPB.Password = pwTB.Text;
+            pwPB.Visibility = Visibility.Visible;
+            pwTB.Visibility = Visibility.Collapsed;
         }
     }
 }
