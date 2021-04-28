@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReFitPatient.BusinessLogic;
+using ReFitPatient.Domain;
 
 namespace ReFitPatient
 {
@@ -23,6 +24,7 @@ namespace ReFitPatient
     {
         private ReturnController _returnController;
         private JournalWindow _journalWindow;
+        private Journal newJournal;
         private UpdateJournalControl _updateJournalControl;
         public AddToJournalWindow(JournalWindow window, UpdateJournalControl journalControl)
         {
@@ -30,6 +32,24 @@ namespace ReFitPatient
             _returnController = new ReturnController(window);
             _updateJournalControl = journalControl;
             InitializeComponent();
+            if (_journalWindow.journalCB.Text == "Knæalloplastik")
+            {
+                overskriftL.Content = "Dagbog for knæalloplastik";
+                scaleTB.Text = "Hvor meget smerte oplever du i dit knæ på en skala fra 1 - 10 ?";
+                vinkelTBL.Text = "Hvor mange grader kan du bøje dit knæ i?";
+            }
+            else if (_journalWindow.journalCB.Text == "Hofte")
+            {
+                overskriftL.Content = "Dagbog for hofte";
+                scaleTB.Text = "Hvor meget smerte oplever du i din hofte på en skala fra 1 - 10?";
+                vinkelTBL.Visibility = Visibility.Collapsed;
+            }
+            else if (_journalWindow.journalCB.Text == "Albue")
+            {
+                overskriftL.Content = "Dagbog for albue";
+                scaleTB.Text = "Hvor meget smerte oplever du i din albue på en skala fra 1 - 10?";
+                vinkelTBL.Text = "Hvor mange grader kan du bøje din albue i?";
+            }
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -39,10 +59,12 @@ namespace ReFitPatient
 
         private void gemB_Click(object sender, RoutedEventArgs e)
         {
-            _updateJournalControl.SaveNewJournalData();
+            newJournal = new Journal(_journalWindow.journalCB.Text, painS.Value, Convert.ToDouble(vinkelTB.Text),medicinTB.Text
+                ,generelTB.Text);
+            _updateJournalControl.SaveNewJournalData(newJournal);
         }
 
-        private void AnullerB_OnClick(object sender, RoutedEventArgs e)
+        private void AnnullerB_OnClick(object sender, RoutedEventArgs e)
         {
             _updateJournalControl.CancelButtonIsPressed();
         }

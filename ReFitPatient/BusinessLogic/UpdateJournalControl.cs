@@ -61,17 +61,17 @@ namespace ReFitPatient.BusinessLogic
         }
 
 
-        public void SaveNewJournalData()
+        public void SaveNewJournalData(Journal journal)
         {
             //new journal domæneklasse skal laves her
-            string tempJournalString = "Generelt kommentar: " + _addToJournalWindow.generelTB.Text + "Medicinifo: " + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10: " +
-                                       _addToJournalWindow.painS.Value + "Vinkel i grader: " + _addToJournalWindow.vinkelTB.Text;
+            //string tempJournalString = "Generelt kommentar: " + _addToJournalWindow.generelTB.Text + "Medicinifo: " + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10: " +
+            //                           _addToJournalWindow.painS.Value + "Vinkel i grader: " + _addToJournalWindow.vinkelTB.Text;
 
             //Gemer både i den lokale _journal og i databasen
-            _journal.JournalList.Add(tempJournalString);
-            _saveDatabase.SaveJournal(tempJournalString);
-            _addToJournalWindow.Close();
-            _journalWindow.Show();
+            //_journal.JournalList.Add(tempJournalString);
+            //_saveDatabase.SaveJournal(tempJournalString);
+            //_addToJournalWindow.Close();
+            //_journalWindow.Show();
         }
 
 
@@ -79,11 +79,11 @@ namespace ReFitPatient.BusinessLogic
         public void PrintJournal()
         {
             //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
-            for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
-            {
-                _journalWindow.JournalinfoTB.Text += _patient.Journal.JournalList[i];
-                i--;
-            }
+            //for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
+            //{
+            //    _journalWindow.JournalinfoTB.Text += _patient.Journal.JournalList[i];
+            //    i--;
+            //}
             //foreach (var item in _patient.Journal.JournalList)
             //{
             //    _journalWindow.JournalinfoTB.Text += item;

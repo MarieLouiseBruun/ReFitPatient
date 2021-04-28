@@ -15,9 +15,9 @@ namespace ReFitPatient.Domain
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public List<ExercisePackage> PackageList { get; set; } = new List<ExercisePackage>();
-        public Journal Journal { get; set; }
+        public List<Journal> JournalList { get; set; } = new List<Journal>();
 
-        public Patient(string name, string password, string ssn, string email, string phonenumber, List<ExercisePackage> packageList, Journal journal)
+        public Patient(string name, string password, string ssn, string email, string phonenumber, List<ExercisePackage> packageList)
         {
             Name = name;
             Password = password;
@@ -25,7 +25,6 @@ namespace ReFitPatient.Domain
             Email = email;
             PhoneNumber = phonenumber;
             PackageList = packageList;
-            Journal = journal;
         }
     }
 }

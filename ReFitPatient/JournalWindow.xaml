@@ -21,7 +21,7 @@
                 <ComboBox x:Name="journalCB">
                     <ComboBoxItem>Albue</ComboBoxItem>
                     <ComboBoxItem IsSelected="True">Knæalloplastik</ComboBoxItem>
-                    <ComboBoxItem>Tå</ComboBoxItem>
+                    <ComboBoxItem>Hofte</ComboBoxItem>
                 </ComboBox>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="DagbogL" Content="Dagbog:" Margin="0,20,0,0"/>
