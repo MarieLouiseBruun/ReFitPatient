@@ -55,33 +55,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CommentExerciseWindow.xaml.cs">
+    <Compile Include="Windows\CommentExerciseWindow.xaml.cs">
       <DependentUpon>CommentExerciseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SetIntervalWindow.xaml.cs">
+    <Compile Include="Windows\SetIntervalWindow.xaml.cs">
       <DependentUpon>SetIntervalWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="CommentExerciseWindow.xaml">
+    <Page Include="Windows\CommentExerciseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ExerciseWindow.xaml">
+    <Page Include="Windows\ExerciseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="AddToJournalWindow.xaml">
+    <Page Include="Windows\AddToJournalWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="JournalWindow.xaml">
+    <Page Include="Windows\JournalWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="Windows\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="HomeWindow.xaml">
+    <Page Include="Windows\HomeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -101,23 +101,23 @@
     <Compile Include="Domain\ExercisePackage.cs" />
     <Compile Include="Domain\Journal.cs" />
     <Compile Include="Domain\Patient.cs" />
-    <Compile Include="ExerciseWindow.xaml.cs">
+    <Compile Include="Windows\ExerciseWindow.xaml.cs">
       <DependentUpon>ExerciseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddToJournalWindow.xaml.cs">
+    <Compile Include="Windows\AddToJournalWindow.xaml.cs">
       <DependentUpon>AddToJournalWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="JournalWindow.xaml.cs">
+    <Compile Include="Windows\JournalWindow.xaml.cs">
       <DependentUpon>JournalWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
+    <Compile Include="Windows\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomeWindow.xaml.cs">
+    <Compile Include="Windows\HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SetIntervalWindow.xaml">
+    <Page Include="Windows\SetIntervalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,5 +155,6 @@
   <ItemGroup>
     <Resource Include="Images\tilbage.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
