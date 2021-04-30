@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation.Peers;
-using ReFitPatient.DataAccess;
-using ReFitPatient.Domain;
-using ReFitPatient.PresentationLogic;
+using ReFitPatientCore;
+using ReFitPatientCore.PresentationLogic;
+using ReFitPatientCore.DataAccess;
+using ReFitPatientCore.Domain;
 
-namespace ReFitPatient.BusinessLogic
+namespace ReFitPatientCore.BusinessLogic
 {
     public class LoginControl
     {

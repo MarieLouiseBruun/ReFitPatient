@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ReFitPatient.BusinessLogic;
+using ReFitPatientCore.BusinessLogic;
 
-namespace ReFitPatient
+namespace ReFitPatientCore
 {
     /// <summary>
     /// Interaction logic for SetIntervalWindow.xaml

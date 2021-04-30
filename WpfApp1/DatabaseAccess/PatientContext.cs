@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatient.Domain;
+using ReFitPatientCore.Domain;
 
-namespace ReFitPatient.DatabaseAccess
+namespace ReFitPatientCore.DatabaseAccess
 {
     public class PatientContext : DbContext
     {
@@ -20,6 +20,6 @@ namespace ReFitPatient.DatabaseAccess
         public DbSet<ExercisePackage> ExercisePackages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlServer(
-            "Data Source = ST-I4DAB.uni.au.dk; Initial Catalog = F21ST4GRP3; User ID = F21ST4GRP3; Password=F21ST4GRP3;Connect Timeout = 30; Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
+            "Data Source=ST-I4DAB.uni.au.dk;Initial Catalog=F21ST4GRP3;User ID=F21ST4GRP3;Password=F21ST4GRP3;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
     }
 }

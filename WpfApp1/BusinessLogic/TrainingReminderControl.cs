@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatient.DataAccess;
+using ReFitPatientCore;
+using ReFitPatientCore.DataAccess;
 
-namespace ReFitPatient.BusinessLogic
+namespace ReFitPatientCore.BusinessLogic
 {
     public class TrainingReminderControl
     {

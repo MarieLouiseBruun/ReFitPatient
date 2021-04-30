@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatient.PresentationLogic
+namespace ReFitPatientCore.PresentationLogic
 {
     public class ValidateLogin
     {

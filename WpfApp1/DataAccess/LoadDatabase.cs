@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatient.Domain;
+using ReFitPatientCore.Domain;
 
-namespace ReFitPatient.DataAccess
+namespace ReFitPatientCore.DataAccess
 {
     public class LoadDatabase
     {

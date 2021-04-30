@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatient.Domain
+namespace ReFitPatientCore.Domain
 {
     public class Patient
     {
