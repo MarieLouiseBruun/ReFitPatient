@@ -4,62 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation.Peers;
-using ReFitPatientCore;
-using ReFitPatientCore.DataAccess;
+using ReFitPatientBusiness;
+using ReFitPatientData;
 using ReFitPatientCore.Domain;
 
-namespace ReFitPatientCore.BusinessLogic
+namespace ReFitPatientBusiness
 {
     public class UpdateJournalControl
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
-        private HomeWindow _homeWindow;
-        private JournalWindow _journalWindow;
-        private AddToJournalWindow _addToJournalWindow;
         private Journal _journal;
         private Patient _patient;
 
-        public UpdateJournalControl(HomeWindow window, Patient patient, Journal journal)
+        public UpdateJournalControl(Patient patient, Journal journal)
         {
-            _homeWindow = window;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase();
             _patient = patient;
             _journal = journal;
 
         }
-        public void UpdateJournalIsPressed(JournalWindow window)
-        {
-            _journalWindow = window;
-            _addToJournalWindow = new AddToJournalWindow(_journalWindow, this);
-            _journalWindow.Hide();
-            _addToJournalWindow.Show();
-            
-        }
 
         public void ExercisePackageJournalChosen()
         {
             //Tror vi skal kigge på vores sekvensdiagram her..
         }
-        public void JournalButtonIsPressed()
-        {
-            _homeWindow.Hide();
-            //_journal = _loadDatabase.GetPreviousJournalInformation();
-            _journalWindow = new JournalWindow(_homeWindow, _journal, _patient);
-
-            //Her skal vi have indlæst data fra journalen i databasen, og sat det korrekt ind i vinduet med nyeste først
-            PrintJournal();
-
-            _journalWindow.Show();
-        }
 
 
-        public void CancelButtonIsPressed()
-        {
-            MessageBox.Show("Er du sikker på du vil annullere?","Cancel message",MessageBoxButton.YesNo);
-        }
+      
 
 
         public void SaveNewJournalData(Journal journal)
@@ -79,6 +52,7 @@ namespace ReFitPatientCore.BusinessLogic
         //Skal måske være en ny klasse!
         public void PrintJournal()
         {
+            //_journal = _loadDatabase.GetPreviousJournalInformation();
             //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
             //for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
             //{

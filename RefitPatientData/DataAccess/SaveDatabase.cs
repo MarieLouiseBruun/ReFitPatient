@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ReFitPatientCore.Domain;
 
-namespace ReFitPatientCore.DataAccess
+namespace ReFitPatientData
 {
     public class SaveDatabase
     {

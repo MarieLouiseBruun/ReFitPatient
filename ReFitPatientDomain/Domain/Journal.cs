@@ -9,10 +9,9 @@ namespace ReFitPatientCore.Domain
 {
     public class Journal
     {
+        public int JournalID { get; set; }
         [Required]
-        [Key]
-        public int ID { get; set; }
-
+        public DateTime JournalDate { get; set; }
         [Required]
         public string JournalType { get; set; }
         [MaxLength(10)]
@@ -23,15 +22,5 @@ namespace ReFitPatientCore.Domain
         public string Medicine { get; set; }
         [MaxLength(500)]
         public string GeneralComment { get; set; }
-        //public string ExerciseComment { get; set; }
-
-        //public Journal(string journalType, double painscale, double bendAngle, string medicine, string generalComment)
-        //{
-        //    JournalType = journalType;
-        //    PainScale = painscale;
-        //    BendAngle = bendAngle;
-        //    Medicine = medicine;
-        //    GeneralComment = generalComment;
-        //}
     }
 }

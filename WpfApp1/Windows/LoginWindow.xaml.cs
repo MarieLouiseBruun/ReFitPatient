@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
-using ReFitPatientCore.PresentationLogic;
+using ReFitPatientBusiness;
+using ReFitPatientCore.Domain;
 
 namespace ReFitPatientCore
 {
@@ -23,10 +23,11 @@ namespace ReFitPatientCore
     public partial class LoginWindow : Window
     {
         private LoginControl _loginControl;
+        private HomeWindow _homeWindow;
+        private Patient _patient;
         public LoginWindow()
         {
-            _loginControl = new LoginControl(this);
-
+            _loginControl = new LoginControl();
             InitializeComponent();
             cprTB.Focus();
             pwTB.Visibility = Visibility.Collapsed;
@@ -34,7 +35,20 @@ namespace ReFitPatientCore
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
-            _loginControl.LoginButtonIsPressed(cprTB.Text, pwPB.Password);
+            if(_loginControl.LoginButtonIsPressed(cprTB.Text, pwPB.Password))
+            {
+                _homeWindow = new HomeWindow(_patient);
+                _homeWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                this.LoginErrorMessage();
+                this.cprTB.Clear();
+                this.pwTB.Clear();
+                this.cprTB.Focus();
+            }
+            
         }
 
         public void LoginErrorMessage()

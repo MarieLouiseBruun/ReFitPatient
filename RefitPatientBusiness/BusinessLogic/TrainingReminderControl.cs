@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatientCore;
-using ReFitPatientCore.DataAccess;
+using ReFitPatientBusiness;
+using ReFitPatientData;
 
-namespace ReFitPatientCore.BusinessLogic
+namespace ReFitPatientBusiness
 {
     public class TrainingReminderControl
     {
         private SaveDatabase _saveDatabase;
-        private SetIntervalWindow _intervalWindow;
-        private HomeWindow _homeWindow;
         private ReturnController _returnController;
 
-        public TrainingReminderControl(HomeWindow homeWindow)
+        public TrainingReminderControl()
         {
-            _homeWindow = homeWindow;
-            _returnController = new ReturnController(_homeWindow);
+            _returnController = new ReturnController();
             _saveDatabase = new SaveDatabase();
         }
         public void SetIntervalBIsPressed()

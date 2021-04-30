@@ -26,17 +26,8 @@ namespace ReFitPatientCore.Domain
         [Required]
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
-        public List<ExercisePackage> PackageList { get; set; } = new List<ExercisePackage>();
-        public List<Journal> JournalList { get; set; } = new List<Journal>();
-
-        //public Patient(string name, string password, string ssn, string email, string phonenumber, List<ExercisePackage> packageList)
-        //{
-        //    Name = name;
-        //    Password = password;
-        //    SSN = ssn;
-        //    Email = email;
-        //    PhoneNumber = phonenumber;
-        //    PackageList = packageList;
-        //}
+        public List<ExercisePackage> Packages { get; set; } = new List<ExercisePackage>();
+        public List<JournalCollection> Journals { get; set; } = new List<JournalCollection>();
     }
 }
+

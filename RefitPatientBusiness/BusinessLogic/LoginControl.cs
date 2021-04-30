@@ -3,33 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Automation.Peers;
-using ReFitPatientCore;
-using ReFitPatientCore.PresentationLogic;
-using ReFitPatientCore.DataAccess;
+using ReFitPatientData;
 using ReFitPatientCore.Domain;
 
-namespace ReFitPatientCore.BusinessLogic
+namespace ReFitPatientBusiness
 {
     public class LoginControl
     {
         private ValidateLogin _validateLogin;
         private Patient _patient;
         private LoadDatabase _loadDatabase;
-        private HomeWindow _homeWindow;
-        private LoginWindow _loginWindow;
         private List<ExercisePackage> _packageList;
         private ExercisePackage _exercisePackage;
         private Exercise _exercise;
         private List<Exercise> _exerciseList;
 
-        public LoginControl(LoginWindow loginWindow)
+        public LoginControl()
         {
             _validateLogin = new ValidateLogin();
-            _loginWindow = loginWindow;
             _loadDatabase = new LoadDatabase();
         }
-        public void LoginButtonIsPressed(string SSN, string Password)
+        public bool LoginButtonIsPressed(string SSN, string Password)
         {
             if (_validateLogin.CheckSSN(SSN))
             {
@@ -60,25 +54,16 @@ namespace ReFitPatientCore.BusinessLogic
 
 
 
-
-                    _homeWindow = new HomeWindow(_patient);
-                    _homeWindow.Show();
-                    _loginWindow.Close();
+                    return true;
                 }
                 else
                 {
-                    _loginWindow.LoginErrorMessage();
-                    _loginWindow.cprTB.Clear();
-                    _loginWindow.pwTB.Clear();
-                    _loginWindow.cprTB.Focus();
+                    return false;
                 }
             }
             else
             {
-                _loginWindow.SSNErrorMessage();
-                _loginWindow.cprTB.Clear();
-                _loginWindow.pwTB.Clear();
-                _loginWindow.cprTB.Focus();
+                return false;
             }
         }
     }

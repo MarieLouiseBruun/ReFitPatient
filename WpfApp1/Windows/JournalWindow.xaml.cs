@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
+using ReFitPatientBusiness;
 using ReFitPatientCore.Domain;
 
 namespace ReFitPatientCore
@@ -22,6 +22,7 @@ namespace ReFitPatientCore
     /// </summary>
     public partial class JournalWindow : Window
     {
+        private AddToJournalWindow _addToJournalWindow;
         public Journal _journal { get; set; }
         public string laaaaangjournalstring { get; set; }
         private ReturnController _returnController;
@@ -34,8 +35,8 @@ namespace ReFitPatientCore
             _patient = patient;
             _journal = journal;
             _homeWindow = window;
-            _returnController = new ReturnController(window);
-            _journalControl = new UpdateJournalControl(window, patient, journal);
+            _returnController = new ReturnController();
+            _journalControl = new UpdateJournalControl(patient, journal);
 
             InitializeComponent();
             _journalControl.PrintJournal();
@@ -43,12 +44,16 @@ namespace ReFitPatientCore
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
-            _returnController.ReturnToHome(this);
+            //Her er dobbelt dependency
+            this.Close();
+            _homeWindow.Show();
         }
 
         private void editB_Click(object sender, RoutedEventArgs e)
         {
-            _journalControl.UpdateJournalIsPressed(this);
+
+            _addToJournalWindow = new AddToJournalWindow(this,_patient,_journalControl);
+            _addToJournalWindow.Show();
         }
     }
 }

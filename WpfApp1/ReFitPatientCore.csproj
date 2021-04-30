@@ -22,6 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RefitPatientBusiness\RefitPatientBusiness.csproj" />
+    <ProjectReference Include="..\ReFitPatientDomain\ReFitPatientDomain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Billede1.png" />
     <Resource Include="Images\play.png" />
     <Resource Include="Images\tilbage.png" />

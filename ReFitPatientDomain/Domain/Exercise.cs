@@ -25,5 +25,7 @@ namespace ReFitPatientCore.Domain
         [Required]
         [MaxLength(50)]
         public int Repetitions { get; set; }
+        [Required]
+        public bool Hide { get; set; } = false;
     }
 }

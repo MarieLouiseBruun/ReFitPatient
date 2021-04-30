@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
+using ReFitPatientBusiness;
 using ReFitPatientCore.Domain;
+using ReFitPatientCore;
 
 namespace ReFitPatientCore
 {
@@ -22,6 +23,14 @@ namespace ReFitPatientCore
     /// </summary>
     public partial class HomeWindow : Window
     {
+
+        private ExerciseWindow _exerciseWindow;
+        private JournalWindow _journalWindow;
+        private AddToJournalWindow _addToJournalWindow;
+        private SetIntervalWindow _setIntervalWindow;
+        private CommentExerciseWindow _commentExerciseWindow;
+        private LoginWindow _loginWindow;
+
         private LogoutControl _logoutControl;
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
@@ -30,11 +39,22 @@ namespace ReFitPatientCore
         private TrainingReminderControl _reminderControl;
         public HomeWindow(Patient patient)
         {
-            _logoutControl = new LogoutControl(this);
+            _logoutControl = new LogoutControl();
             _patient = patient;
-            _updateJournalControl = new UpdateJournalControl(this, _patient, _journal);
-            _exerciseControl = new ExerciseControl(this);
-            _reminderControl = new TrainingReminderControl(this);
+            _updateJournalControl = new UpdateJournalControl(_patient, _journal);
+            _exerciseControl = new ExerciseControl();
+            _reminderControl = new TrainingReminderControl();
+
+            _exerciseWindow = new ExerciseWindow(this);
+            _exerciseWindow.Hide();
+            _journalWindow = new JournalWindow(this,_journal,_patient);
+            _journalWindow.Hide();
+            _commentExerciseWindow = new CommentExerciseWindow(_exerciseControl);
+            _commentExerciseWindow.Hide();
+            _setIntervalWindow = new SetIntervalWindow(_reminderControl);
+            _setIntervalWindow.Hide();
+
+           
 
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
@@ -42,22 +62,35 @@ namespace ReFitPatientCore
 
         private void logoutB_Click(object sender, RoutedEventArgs e)
         {
-            _logoutControl.LogoutIsPressed();
+            _loginWindow = new LoginWindow();
+            _loginWindow.Show();
+            this.Close();
         }
 
         private void journalB_Click(object sender, RoutedEventArgs e)
         {
-            _updateJournalControl.JournalButtonIsPressed();
+            this.Hide();
+            _journalWindow = new JournalWindow(this, _journal, _patient);
+            _journalWindow.Show();
+            _updateJournalControl.PrintJournal();
+
         }
 
         private void viewExercisesB_Click(object sender, RoutedEventArgs e)
         {
-            _exerciseControl.WatchExerciseIsPressed();
+            _exerciseWindow = new ExerciseWindow();
+            _exerciseWindow.Show();
+            this.Hide();
+            
+            
+            //_exerciseControl.WatchExerciseIsPressed();
         }
 
         private void intervalB_Click(object sender, RoutedEventArgs e)
         {
-            _reminderControl.SetIntervalBIsPressed();
+            _setIntervalWindow = new SetIntervalWindow();
+            _setIntervalWindow.Show();
+            this.Hide();
         }
     }
 }

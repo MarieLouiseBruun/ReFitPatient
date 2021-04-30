@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
+using ReFitPatientBusiness;
 using ReFitPatientCore.Domain;
 
 namespace ReFitPatientCore
@@ -22,15 +22,15 @@ namespace ReFitPatientCore
     /// </summary>
     public partial class AddToJournalWindow : Window
     {
-        private ReturnController _returnController;
+        private UpdateJournalControl _updateJournalControl;
         private JournalWindow _journalWindow;
         private Journal newJournal;
-        private UpdateJournalControl _updateJournalControl;
-        public AddToJournalWindow(JournalWindow window, UpdateJournalControl journalControl)
+        private Patient _patient;
+        public AddToJournalWindow(JournalWindow window, Patient patient, UpdateJournalControl journalControl)
         {
             _journalWindow = window;
-            _returnController = new ReturnController(window);
             _updateJournalControl = journalControl;
+            patient = _patient;
             InitializeComponent();
             if (_journalWindow.journalCB.Text == "Knæalloplastik")
             {
@@ -54,7 +54,8 @@ namespace ReFitPatientCore
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
-            _returnController.ReturnToJournalWindow(this);
+            this.Close();
+            _journalWindow.Show();
         }
 
         private void gemB_Click(object sender, RoutedEventArgs e)
@@ -66,7 +67,7 @@ namespace ReFitPatientCore
 
         private void AnnullerB_OnClick(object sender, RoutedEventArgs e)
         {
-            _updateJournalControl.CancelButtonIsPressed();
+            MessageBox.Show("Er du sikker på du vil annullere?", "Cancel message", MessageBoxButton.YesNo);
         }
     }
 }

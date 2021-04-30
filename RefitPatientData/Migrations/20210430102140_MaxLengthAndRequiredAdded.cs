@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ReFitPatientCore.Migrations
+namespace ReFitPatientData
 {
     public partial class MaxLengthAndRequiredAdded : Migration
     {

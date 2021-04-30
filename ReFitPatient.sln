@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReFitPatient", "ReFitPatient\ReFitPatient.csproj", "{6B3D7B06-66C0-4792-A24C-C745A6E41A87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReFitPatientCore", "WpfApp1\ReFitPatientCore.csproj", "{A0E5E776-4B75-4294-9B79-00CE45FD2924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReFitPatientCore", "WpfApp1\ReFitPatientCore.csproj", "{A0E5E776-4B75-4294-9B79-00CE45FD2924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReFitPatientData", "RefitPatientData\ReFitPatientData.csproj", "{4A574494-9072-434F-811C-BAB6F97F10FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefitPatientBusiness", "RefitPatientBusiness\RefitPatientBusiness.csproj", "{CDEDC839-C40D-41C3-BA94-36487A693A25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReFitPatientDomain", "ReFitPatientDomain\ReFitPatientDomain.csproj", "{8B6F1125-C980-4450-A20E-2D3211E87FD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{A0E5E776-4B75-4294-9B79-00CE45FD2924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0E5E776-4B75-4294-9B79-00CE45FD2924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0E5E776-4B75-4294-9B79-00CE45FD2924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A574494-9072-434F-811C-BAB6F97F10FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A574494-9072-434F-811C-BAB6F97F10FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A574494-9072-434F-811C-BAB6F97F10FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A574494-9072-434F-811C-BAB6F97F10FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDEDC839-C40D-41C3-BA94-36487A693A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEDC839-C40D-41C3-BA94-36487A693A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEDC839-C40D-41C3-BA94-36487A693A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEDC839-C40D-41C3-BA94-36487A693A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6F1125-C980-4450-A20E-2D3211E87FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6F1125-C980-4450-A20E-2D3211E87FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6F1125-C980-4450-A20E-2D3211E87FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6F1125-C980-4450-A20E-2D3211E87FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

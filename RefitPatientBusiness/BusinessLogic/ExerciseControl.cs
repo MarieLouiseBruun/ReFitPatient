@@ -3,36 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatientCore;
-using ReFitPatientCore.DataAccess;
+using ReFitPatientData;
 using ReFitPatientCore.Domain;
+using ReFitPatientBusiness;
 
-namespace ReFitPatientCore.BusinessLogic
+namespace ReFitPatientBusiness
 {
     public class ExerciseControl
     {
-        private ExerciseWindow _exerciseWindow;
-        private HomeWindow _homeWindow;
-        private CommentExerciseWindow _commentWindow;
-        private Patient _patient;
+        //private ExerciseWindow _exerciseWindow;
+        //private HomeWindow _homeWindow;
+        //private CommentExerciseWindow _commentWindow;
+        //private Patient _patient;
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
-        private List<Exercise> _exerciseList;
-        private List<ExercisePackage> _exercisePackage;
-        private int CurrentExerciseID;
+        //private List<Exercise> _exerciseList;
+        //private List<ExercisePackage> _exercisePackage;
+        //private int CurrentExerciseID;
 
-        public ExerciseControl(HomeWindow window)
+        public ExerciseControl()
         {
-            _homeWindow = window;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase();
         }
         public void WatchExerciseIsPressed()
         {
-            _exerciseWindow = new ExerciseWindow(_homeWindow);
-            _exerciseWindow.Show();
-            _homeWindow.Hide();
-            
             //Her skal der hentes ExercisePackesIDs fra patienten der er logget ind
 
             //_exerciseWindow.ShowPackageIDs();;

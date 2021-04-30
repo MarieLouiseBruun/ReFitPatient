@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
+using ReFitPatientBusiness;
+using ReFitPatientCore.Domain;
 
 namespace ReFitPatientCore
 {
@@ -23,9 +24,18 @@ namespace ReFitPatientCore
     {
         private ReturnController _returnController;
         private ExerciseControl _exerciseControl;
-        public ExerciseWindow(HomeWindow window)
+
+
+        private ExerciseWindow _exerciseWindow;
+        private HomeWindow _homeWindow;
+        private CommentExerciseWindow _commentWindow;
+        private Patient _patient;
+        private List<Exercise> _exerciseList;
+        private List<ExercisePackage> _exercisePackage;
+        private int CurrentExerciseID;
+        public ExerciseWindow()
         {
-            _returnController = new ReturnController(window);
+            _returnController = new ReturnController();
             _exerciseControl = new ExerciseControl(window);
 
 

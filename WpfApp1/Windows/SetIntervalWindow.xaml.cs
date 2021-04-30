@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ReFitPatientCore.BusinessLogic;
+using ReFitPatientBusiness;
 
 namespace ReFitPatientCore
 {
@@ -21,9 +21,9 @@ namespace ReFitPatientCore
     public partial class SetIntervalWindow : Window
     {
         private TrainingReminderControl _reminderControl;
-        public SetIntervalWindow(TrainingReminderControl reminderControl)
+        public SetIntervalWindow()
         {
-            _reminderControl = reminderControl;
+            _reminderControl = new TrainingReminderControl();
             InitializeComponent();
         }
 
