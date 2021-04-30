@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DatabaseAccess\PatientContext.cs" />
     <Compile Include="Windows\CommentExerciseWindow.xaml.cs">
       <DependentUpon>CommentExerciseWindow.xaml</DependentUpon>
     </Compile>
@@ -179,6 +180,7 @@
   <ItemGroup>
     <Resource Include="Images\play.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

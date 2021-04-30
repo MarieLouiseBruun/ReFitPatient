@@ -1,0 +1,36 @@
+﻿<Window x:Class="ReFitPatient.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReFitPatient"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="530" Width="265" FontSize="16">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
+            <Image Source="/Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
+            <Label x:Name="cprL" Content="CPR-nummer:"  HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBox x:Name="cprTB" Width="150"  />
+            <Label x:Name="pwL" Content="Password:" HorizontalAlignment="Center"/>
+
+            <TextBox x:Name="pwTB" Width="150"/>
+            <PasswordBox x:Name="pwPB" Width="150" Margin="0,-25,0,0" />
+
+
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="showPwL" Content="Vis password:" HorizontalAlignment="Left" Margin="55,0,0,0"/>
+                <CheckBox x:Name="showPWCB" Margin="26,7,0,0" Unchecked="showPWCB_UnChecked" Checked="showPWCB_Checked"/>
+            </StackPanel>
+            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,0,0,0" Click="loginB_Click"/>
+
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>

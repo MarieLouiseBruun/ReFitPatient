@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Billede1.png" />
+    <None Remove="Images\play.png" />
+    <None Remove="Images\tilbage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Billede1.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\tilbage.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Windows\AddToJournalWindow.xaml.cs">
+      <DependentUpon>AddToJournalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\CommentExerciseWindow.xaml.cs">
+      <DependentUpon>CommentExerciseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\ExerciseWindow.xaml.cs">
+      <DependentUpon>ExerciseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\HomeWindow.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>HomeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\JournalWindow.xaml.cs">
+      <DependentUpon>JournalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Windows\SetIntervalWindow.xaml.cs">
+      <DependentUpon>SetIntervalWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Windows\AddToJournalWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\CommentExerciseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\ExerciseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\HomeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\JournalWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\SetIntervalWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
