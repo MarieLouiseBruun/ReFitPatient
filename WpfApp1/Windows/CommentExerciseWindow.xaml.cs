@@ -20,22 +20,22 @@ namespace ReFitPatientCore
     /// </summary>
     public partial class CommentExerciseWindow : Window
     {
-    //    private ExerciseControl _exerciseControl;
-    //    public CommentExerciseWindow()
-    //    {
-    //        _exerciseControl = new ExerciseControl();
-    //        InitializeComponent();
-    //    }
+        private ExerciseControl _exerciseControl;
+        public CommentExerciseWindow()
+        {
+            _exerciseControl = new ExerciseControl();
+            InitializeComponent();
+        }
 
-    //    private void gemB_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        _exerciseControl.SaveIsPressed(kommentarTB.Text);
-    //        this.Close();
-    //    }
+        private void gemB_Click(object sender, RoutedEventArgs e)
+        {
+            //_exerciseControl.SaveIsPressed(kommentarTB.Text);
+            this.Close();
+        }
 
-    //    private void annullerB_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        this.Close();
-    //    }
+        private void annullerB_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReFitPatientData;
 
-namespace ReFitPatientCore.Migrations
+namespace ReFitPatientDomain
 {
     [DbContext(typeof(PatientContext))]
     [Migration("20210430111217_RettelseAfNavne")]

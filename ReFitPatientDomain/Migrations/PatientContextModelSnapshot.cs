@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReFitPatientData;
 
-namespace ReFitPatientCore.Migrations
+namespace ReFitPatientDomain
 {
     [DbContext(typeof(PatientContext))]
-    [Migration("20210430102140_MaxLengthAndRequiredAdded")]
-    partial class MaxLengthAndRequiredAdded
+    partial class PatientContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,6 +39,9 @@ namespace ReFitPatientCore.Migrations
                     b.Property<int?>("ExercisePackageID")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Hide")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Repetitions")
                         .HasMaxLength(50)
                         .HasColumnType("int");
@@ -63,7 +64,10 @@ namespace ReFitPatientCore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PackageName")
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -80,7 +84,7 @@ namespace ReFitPatientCore.Migrations
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("JournalID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -92,6 +96,12 @@ namespace ReFitPatientCore.Migrations
                     b.Property<string>("GeneralComment")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<int?>("JournalCollectionID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("JournalDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("JournalType")
                         .IsRequired()
@@ -105,6 +115,20 @@ namespace ReFitPatientCore.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("float");
 
+                    b.HasKey("JournalID");
+
+                    b.HasIndex("JournalCollectionID");
+
+                    b.ToTable("Journals");
+                });
+
+            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("PatientSSN")
                         .HasColumnType("nvarchar(10)");
 
@@ -112,7 +136,7 @@ namespace ReFitPatientCore.Migrations
 
                     b.HasIndex("PatientSSN");
 
-                    b.ToTable("Journals");
+                    b.ToTable("JournalCollections");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
@@ -149,34 +173,46 @@ namespace ReFitPatientCore.Migrations
             modelBuilder.Entity("ReFitPatientCore.Domain.Exercise", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.ExercisePackage", null)
-                        .WithMany("ExerciseList")
+                        .WithMany("Exercises")
                         .HasForeignKey("ExercisePackageID");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("PackageList")
+                        .WithMany("Packages")
                         .HasForeignKey("PatientSSN");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.Patient", null)
+                    b.HasOne("ReFitPatientCore.Domain.JournalCollection", null)
                         .WithMany("JournalList")
+                        .HasForeignKey("JournalCollectionID");
+                });
+
+            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+                {
+                    b.HasOne("ReFitPatientCore.Domain.Patient", null)
+                        .WithMany("Journals")
                         .HasForeignKey("PatientSSN");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
-                    b.Navigation("ExerciseList");
+                    b.Navigation("Exercises");
+                });
+
+            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+                {
+                    b.Navigation("JournalList");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
                 {
-                    b.Navigation("JournalList");
+                    b.Navigation("Journals");
 
-                    b.Navigation("PackageList");
+                    b.Navigation("Packages");
                 });
 #pragma warning restore 612, 618
         }

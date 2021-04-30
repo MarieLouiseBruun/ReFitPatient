@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ReFitPatientData
+namespace ReFitPatientDomain
 {
     public partial class JournalCollections : Migration
     {

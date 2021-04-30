@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ReFitPatientData
+namespace ReFitPatientDomain
 {
     public partial class JournalDate : Migration
     {

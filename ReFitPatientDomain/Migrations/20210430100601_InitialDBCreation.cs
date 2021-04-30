@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore;
 
-namespace ReFitPatientData
+namespace ReFitPatientDomain
 {
     public partial class InitialDBCreation : Migration
     {

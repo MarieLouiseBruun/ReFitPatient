@@ -9,10 +9,10 @@ namespace ReFitPatientData
 {
     public class LoadDatabase
     {
-        //public Patient LoadPatientInfo(string SSN)
-        //{
-        //    return new Patient("a", "b", "c", "d", "e", new List<ExercisePackage>());
-        //}
+        public Patient LoadPatientInfo(string SSN)
+        {
+            return new Patient();
+        }
 
         public ExercisePackage LoadPackageInfo(int ID)
         {

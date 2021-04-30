@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReFitPatientData;
 
-namespace ReFitPatientCore.Migrations
+namespace ReFitPatientDomain
 {
     [DbContext(typeof(PatientContext))]
-    [Migration("20210430105944_JournalCollections")]
-    partial class JournalCollections
+    [Migration("20210430110336_JournalDate")]
+    partial class JournalDate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,7 +80,7 @@ namespace ReFitPatientCore.Migrations
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("JournalID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -96,6 +96,9 @@ namespace ReFitPatientCore.Migrations
                     b.Property<int?>("JournalCollectionID")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("JournalDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("JournalType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -108,7 +111,7 @@ namespace ReFitPatientCore.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("float");
 
-                    b.HasKey("ID");
+                    b.HasKey("JournalID");
 
                     b.HasIndex("JournalCollectionID");
 

@@ -3,14 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using ReFitPatientData;
 
-namespace ReFitPatientData
+namespace ReFitPatientDomain
 {
     [DbContext(typeof(PatientContext))]
-    partial class PatientContextModelSnapshot : ModelSnapshot
+    [Migration("20210430100601_InitialDBCreation")]
+    partial class InitialDBCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,27 +29,18 @@ namespace ReFitPatientData
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ExerciseLink")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ExercisePackageID")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Hide")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Repetitions")
-                        .HasMaxLength(50)
                         .HasColumnType("int");
 
                     b.Property<int>("Sets")
-                        .HasMaxLength(50)
                         .HasColumnType("int");
 
                     b.HasKey("ExerciseID");
@@ -63,16 +57,11 @@ namespace ReFitPatientData
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("Completed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<string>("PackageName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PatientSSN")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ExercisePackageID");
 
@@ -83,86 +72,52 @@ namespace ReFitPatientData
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
                 {
-                    b.Property<int>("JournalID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("BendAngle")
-                        .HasMaxLength(10)
-                        .HasColumnType("float");
-
-                    b.Property<string>("GeneralComment")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<int?>("JournalCollectionID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("JournalDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("JournalType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Medicine")
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<double>("PainScale")
-                        .HasMaxLength(10)
-                        .HasColumnType("float");
-
-                    b.HasKey("JournalID");
-
-                    b.HasIndex("JournalCollectionID");
-
-                    b.ToTable("Journals");
-                });
-
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
-                {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("BendAngle")
+                        .HasColumnType("float");
+
+                    b.Property<string>("GeneralComment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JournalType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Medicine")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("PainScale")
+                        .HasColumnType("float");
+
                     b.Property<string>("PatientSSN")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ID");
 
                     b.HasIndex("PatientSSN");
 
-                    b.ToTable("JournalCollections");
+                    b.ToTable("Journals");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
                 {
                     b.Property<string>("SSN")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SSN");
 
@@ -172,46 +127,34 @@ namespace ReFitPatientData
             modelBuilder.Entity("ReFitPatientCore.Domain.Exercise", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.ExercisePackage", null)
-                        .WithMany("Exercises")
+                        .WithMany("ExerciseList")
                         .HasForeignKey("ExercisePackageID");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("Packages")
+                        .WithMany("PackageList")
                         .HasForeignKey("PatientSSN");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.JournalCollection", null)
-                        .WithMany("JournalList")
-                        .HasForeignKey("JournalCollectionID");
-                });
-
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
-                {
                     b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("Journals")
+                        .WithMany("JournalList")
                         .HasForeignKey("PatientSSN");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
-                    b.Navigation("Exercises");
-                });
-
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
-                {
-                    b.Navigation("JournalList");
+                    b.Navigation("ExerciseList");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
                 {
-                    b.Navigation("Journals");
+                    b.Navigation("JournalList");
 
-                    b.Navigation("Packages");
+                    b.Navigation("PackageList");
                 });
 #pragma warning restore 612, 618
         }

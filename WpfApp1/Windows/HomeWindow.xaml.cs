@@ -44,7 +44,7 @@ namespace ReFitPatientCore
             _updateJournalControl = new UpdateJournalControl(_patient, _journal);
             _exerciseControl = new ExerciseControl();
             _reminderControl = new TrainingReminderControl();
-
+            
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
@@ -67,7 +67,7 @@ namespace ReFitPatientCore
 
         private void viewExercisesB_Click(object sender, RoutedEventArgs e)
         {
-            _exerciseWindow = new ExerciseWindow();
+            _exerciseWindow = new ExerciseWindow(this);
             _exerciseWindow.Show();
             this.Hide();
             

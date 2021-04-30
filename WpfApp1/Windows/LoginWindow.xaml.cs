@@ -37,6 +37,7 @@ namespace ReFitPatientCore
         {
             if(_loginControl.LoginButtonIsPressed(cprTB.Text, pwPB.Password))
             {
+                _patient =_loginControl.GetPatientInfo(cprTB.Text, pwPB.Password);
                 _homeWindow = new HomeWindow(_patient);
                 _homeWindow.Show();
                 this.Close();
@@ -48,9 +49,7 @@ namespace ReFitPatientCore
                 this.pwTB.Clear();
                 this.cprTB.Focus();
             }
-            
         }
-
         public void LoginErrorMessage()
         {
             MessageBox.Show("Fejl i login. Prøv igen");

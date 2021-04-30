@@ -33,8 +33,9 @@ namespace ReFitPatientCore
         private List<Exercise> _exerciseList;
         private List<ExercisePackage> _exercisePackage;
         private int CurrentExerciseID;
-        public ExerciseWindow()
+        public ExerciseWindow(HomeWindow homewindow)
         {
+            _homeWindow = homewindow;
             _returnController = new ReturnController();
             _exerciseControl = new ExerciseControl();
 
@@ -45,8 +46,8 @@ namespace ReFitPatientCore
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
-             this.Close();
             _homeWindow.Show();
+            this.Close();
         }
 
         private void addCommentB_Click(object sender, RoutedEventArgs e)
