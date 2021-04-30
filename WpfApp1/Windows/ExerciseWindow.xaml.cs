@@ -63,8 +63,11 @@ namespace ReFitPatientCore
         {
             Browser.Visibility = Visibility.Visible;
             playB.Visibility = Visibility.Collapsed;
-            Browser.Navigate("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-         
+            //Her skal den navigere til den video, der viser øvelsen
+            
+            Browser.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
+
+
         }
     }
 }
