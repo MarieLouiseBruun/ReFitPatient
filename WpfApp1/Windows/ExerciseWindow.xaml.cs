@@ -36,7 +36,7 @@ namespace ReFitPatientCore
         public ExerciseWindow()
         {
             _returnController = new ReturnController();
-            _exerciseControl = new ExerciseControl(window);
+            _exerciseControl = new ExerciseControl();
 
 
             InitializeComponent();
@@ -45,14 +45,15 @@ namespace ReFitPatientCore
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
-            //Vi har isoleret return logikken til en klasse, og set, om vi kan lukke det vindue, hvor metoden bliver kaldt fra
-            _returnController.ReturnToHome(this);
+             this.Close();
+            _homeWindow.Show();
         }
 
         private void addCommentB_Click(object sender, RoutedEventArgs e)
         {
+            _commentWindow = new CommentExerciseWindow();
+            _commentWindow.ShowDialog();
             //EXERCISEID = 1 ER BARE FOR AT UNDGÅ FEJL!!!!
-            _exerciseControl.CommentExerciseIsPressed(this,1);
         }
 
         public void CommentSaved()
@@ -60,21 +61,14 @@ namespace ReFitPatientCore
             MessageBox.Show("Kommentar gemt!");
         }
 
-        public void OpenCommentBox()
-        {
-            //DET ER DET SAMME HERNEDE LISSSOMM!!!
-            _exerciseControl.CommentExerciseIsPressed(this,2);
-            //Den skal åbne en ny textbox eller vindue, hvor man kan skrive I.
-            //Når man har skrevet hvad man vil trykker man OK, og SaveIsPressed kaldes fra ExerciseController
-            //Her har den exerciseID med samt kommentaren, og dette gemmes i databasen
-        }
-
         private void playB_Click(object sender, RoutedEventArgs e)
         {
             Browser.Visibility = Visibility.Visible;
             playB.Visibility = Visibility.Collapsed;
             //Her skal den navigere til den video, der viser øvelsen
-            
+            _exerciseControl.PlayIsPressed();
+
+            //Indsæt string herunder!!
             Browser.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
 
 

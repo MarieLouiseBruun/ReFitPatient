@@ -17,6 +17,8 @@ namespace ReFitPatientBusiness
         //private Patient _patient;
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
+
+        private string link;
         //private List<Exercise> _exerciseList;
         //private List<ExercisePackage> _exercisePackage;
         //private int CurrentExerciseID;
@@ -50,24 +52,20 @@ namespace ReFitPatientBusiness
             //_exerciseWindow.ShowExerciseInformation();
         }
 
-        public void PlayIsPressed(string URL)
+        public string PlayIsPressed()
         {
+            //Metode til at hente link fra database!!
+            link = "hej hej";
+            return link;
             //string link i parameter måske
             //_exerciseWindow.PlayVideo();
         }
 
-        public void CommentExerciseIsPressed(ExerciseWindow exerciseWindow, int exerciseID)
-        {
-            _exerciseWindow = exerciseWindow;
-            CurrentExerciseID = exerciseID;
-            _commentWindow = new CommentExerciseWindow(this);
-            _commentWindow.ShowDialog();
-        }
 
-        public void SaveIsPressed(string comment)
-        {
-            _saveDatabase.SaveComment(comment, CurrentExerciseID);
-            _exerciseWindow.CommentSaved();
-        }
+        //public void SaveIsPressed(string comment, int exerciseID)
+        //{
+        //    _saveDatabase.SaveComment(comment, exerciseID);
+        //    _exerciseWindow.CommentSaved();
+        //}
     }
 }

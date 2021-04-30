@@ -45,17 +45,6 @@ namespace ReFitPatientCore
             _exerciseControl = new ExerciseControl();
             _reminderControl = new TrainingReminderControl();
 
-            _exerciseWindow = new ExerciseWindow(this);
-            _exerciseWindow.Hide();
-            _journalWindow = new JournalWindow(this,_journal,_patient);
-            _journalWindow.Hide();
-            _commentExerciseWindow = new CommentExerciseWindow(_exerciseControl);
-            _commentExerciseWindow.Hide();
-            _setIntervalWindow = new SetIntervalWindow(_reminderControl);
-            _setIntervalWindow.Hide();
-
-           
-
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
@@ -88,7 +77,7 @@ namespace ReFitPatientCore
 
         private void intervalB_Click(object sender, RoutedEventArgs e)
         {
-            _setIntervalWindow = new SetIntervalWindow();
+            _setIntervalWindow = new SetIntervalWindow(this);
             _setIntervalWindow.Show();
             this.Hide();
         }

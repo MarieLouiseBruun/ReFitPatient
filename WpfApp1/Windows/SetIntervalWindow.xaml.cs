@@ -21,8 +21,10 @@ namespace ReFitPatientCore
     public partial class SetIntervalWindow : Window
     {
         private TrainingReminderControl _reminderControl;
-        public SetIntervalWindow()
+        private HomeWindow _homeWindow;
+        public SetIntervalWindow(HomeWindow homewindow)
         {
+            _homeWindow = homewindow;
             _reminderControl = new TrainingReminderControl();
             InitializeComponent();
         }
@@ -34,6 +36,8 @@ namespace ReFitPatientCore
             {
                 _reminderControl.IntervalSet(Convert.ToInt32(intervalTB.Text));
                 MessageBox.Show("Nyt interval gemt!");
+                this.Close();
+                _homeWindow.Show();
             }
             else
             {
@@ -43,7 +47,8 @@ namespace ReFitPatientCore
 
         private void annullerB_Click(object sender, RoutedEventArgs e)
         {
-            _reminderControl.CancelIntervalUpdate();
+            this.Close();
+            _homeWindow.Show();
         }
     }
 }

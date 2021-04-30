@@ -24,7 +24,6 @@ namespace ReFitPatientCore
     {
         private AddToJournalWindow _addToJournalWindow;
         public Journal _journal { get; set; }
-        public string laaaaangjournalstring { get; set; }
         private ReturnController _returnController;
         private HomeWindow _homeWindow;
         private Patient _patient;
