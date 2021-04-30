@@ -40,7 +40,7 @@ namespace ReFitPatient.BusinessLogic
                     //Spørgsmålet er, hvorvidt det skal placeres her, eller i homewindow eller et andet sted, så det kommer
                     //med videre rundt i forløbet i programmet. :)
 
-                    _patient = _loadDatabase.LoadPatientInfo(SSN);
+                    //_patient = _loadDatabase.LoadPatientInfo(SSN);
                     //foreach (var item in _patient.PackageList)
                     //{
                     //    _exercisePackage = _loadDatabase.LoadPackageInfo(item.ExercisePackageID);
