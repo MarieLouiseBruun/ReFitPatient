@@ -11,9 +11,6 @@ namespace ReFitPatientCore.DatabaseAccess
 {
     public class PatientContext : DbContext
     {
-        public PatientContext(DbContextOptions options):base(options)
-        { }
-
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Journal> Journals { get; set; }
         public DbSet<Exercise> Exercises { get; set; }

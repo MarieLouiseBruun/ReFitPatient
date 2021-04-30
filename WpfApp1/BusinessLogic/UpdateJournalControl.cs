@@ -46,7 +46,7 @@ namespace ReFitPatientCore.BusinessLogic
         public void JournalButtonIsPressed()
         {
             _homeWindow.Hide();
-            _journal = _loadDatabase.GetPreviousJournalInformation();
+            //_journal = _loadDatabase.GetPreviousJournalInformation();
             _journalWindow = new JournalWindow(_homeWindow, _journal, _patient);
 
             //Her skal vi have indlæst data fra journalen i databasen, og sat det korrekt ind i vinduet med nyeste først

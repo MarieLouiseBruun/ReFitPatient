@@ -24,10 +24,10 @@ namespace ReFitPatientCore.DataAccess
             return new Exercise();
         }
 
-        public Journal GetPreviousJournalInformation()
-        {
-            return new Journal("a",1,3,"d","e");
-        }
+        //public Journal GetPreviousJournalInformation()
+        //{
+        //    return new Journal("a", 1, 3, "d", "e");
+        //}
         public bool ValidateLogin(string SSN, string Password)
         {
             return true;

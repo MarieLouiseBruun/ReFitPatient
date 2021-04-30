@@ -59,9 +59,9 @@ namespace ReFitPatientCore
 
         private void gemB_Click(object sender, RoutedEventArgs e)
         {
-            newJournal = new Journal(_journalWindow.journalCB.Text, painS.Value, Convert.ToDouble(vinkelTB.Text),medicinTB.Text
-                ,generelTB.Text);
-            _updateJournalControl.SaveNewJournalData(newJournal);
+            //newJournal = new Journal(_journalWindow.journalCB.Text, painS.Value, Convert.ToDouble(vinkelTB.Text),medicinTB.Text
+            //    ,generelTB.Text);
+            //_updateJournalControl.SaveNewJournalData(newJournal);
         }
 
         private void AnnullerB_OnClick(object sender, RoutedEventArgs e)
