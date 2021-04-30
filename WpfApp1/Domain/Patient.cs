@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatient.Domain
+namespace ReFitPatientCore.Domain
 {
     public class Patient
     {
@@ -17,14 +17,14 @@ namespace ReFitPatient.Domain
         public List<ExercisePackage> PackageList { get; set; } = new List<ExercisePackage>();
         public List<Journal> JournalList { get; set; } = new List<Journal>();
 
-        public Patient(string name, string password, string ssn, string email, string phonenumber, List<ExercisePackage> packageList)
-        {
-            Name = name;
-            Password = password;
-            SSN = ssn;
-            Email = email;
-            PhoneNumber = phonenumber;
-            PackageList = packageList;
-        }
+        //public Patient(string name, string password, string ssn, string email, string phonenumber, List<ExercisePackage> packageList)
+        //{
+        //    Name = name;
+        //    Password = password;
+        //    SSN = ssn;
+        //    Email = email;
+        //    PhoneNumber = phonenumber;
+        //    PackageList = packageList;
+        //}
     }
 }

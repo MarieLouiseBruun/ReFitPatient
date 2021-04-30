@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatient.Domain;
+using ReFitPatientCore.Domain;
 
-namespace ReFitPatient.DataAccess
+namespace ReFitPatientCore.DataAccess
 {
     public class LoadDatabase
     {
-        public Patient LoadPatientInfo(string SSN)
-        {
-            return new Patient("a","b","c","d","e",new List<ExercisePackage>());
-        }
+        //public Patient LoadPatientInfo(string SSN)
+        //{
+        //    return new Patient("a", "b", "c", "d", "e", new List<ExercisePackage>());
+        //}
 
         public ExercisePackage LoadPackageInfo(int ID)
         {

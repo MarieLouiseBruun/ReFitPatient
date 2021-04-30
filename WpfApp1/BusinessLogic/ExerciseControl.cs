@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatient.DataAccess;
-using ReFitPatient.Domain;
+using ReFitPatientCore;
+using ReFitPatientCore.DataAccess;
+using ReFitPatientCore.Domain;
 
-namespace ReFitPatient.BusinessLogic
+namespace ReFitPatientCore.BusinessLogic
 {
     public class ExerciseControl
     {

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using ReFitPatientCore;
 
-namespace ReFitPatient.BusinessLogic
+namespace ReFitPatientCore.BusinessLogic
 {
     public class ReturnController
     {

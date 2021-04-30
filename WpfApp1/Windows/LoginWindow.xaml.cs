@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ReFitPatient.BusinessLogic;
-using ReFitPatient.PresentationLogic;
+using ReFitPatientCore.BusinessLogic;
+using ReFitPatientCore.PresentationLogic;
 
-namespace ReFitPatient
+namespace ReFitPatientCore
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
