@@ -6,7 +6,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatientCore.Domain
+namespace ReFitPatientDomain
+
 {
     public class Patient
     {
@@ -26,8 +27,8 @@ namespace ReFitPatientCore.Domain
         [Required]
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
-        public List<ExercisePackage> Packages { get; set; } = new List<ExercisePackage>();
-        public List<JournalCollection> Journals { get; set; } = new List<JournalCollection>();
+        public List<ExercisePackage> PackageID { get; set; } = new List<ExercisePackage>();
+        public List<JournalCollection> JournalID { get; set; } = new List<JournalCollection>();
     }
 }
 

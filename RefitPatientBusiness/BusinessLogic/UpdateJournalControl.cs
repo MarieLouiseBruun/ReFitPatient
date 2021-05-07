@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using ReFitPatientBusiness;
 using ReFitPatientData;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
 
 namespace ReFitPatientBusiness
 {

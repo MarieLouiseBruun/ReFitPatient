@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReFitPatientBusiness;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
@@ -38,12 +38,12 @@ namespace ReFitPatientCore
             _journalControl = new UpdateJournalControl(patient, journal);
 
             InitializeComponent();
-            for (int i = _patient.Journals.Count; i > 0; i--)
+            for (int i = _patient.JournalID.Count; i > 0; i--)
             {
-                this.JournalinfoTB.Text += _patient.Journals[i].ToString();
+                this.JournalinfoTB.Text += _patient.JournalID[i].ToString();
                 i--;
             }
-            foreach (var item in _patient.Journals)
+            foreach (var item in _patient.JournalID)
             {
                 this.JournalinfoTB.Text += item;
             }

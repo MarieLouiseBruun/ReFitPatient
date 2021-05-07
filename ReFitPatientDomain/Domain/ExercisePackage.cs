@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatientCore.Domain
+namespace ReFitPatientDomain
 {
    
     public class ExercisePackage
@@ -20,6 +20,6 @@ namespace ReFitPatientCore.Domain
 
         [Required] public bool Completed { get; set; } = false;
         
-        public List<Exercise> Exercises { get; set; } = new List<Exercise>();
+        public List<Exercise> ExerciseID { get; set; } = new List<Exercise>();
     }
 }
