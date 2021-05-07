@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
+using ReFitPatientData;
 
 namespace ReFitPatientData
 {
@@ -23,9 +24,10 @@ namespace ReFitPatientData
         public Patient LoadPatientInfo(string SSN, string PW)
         {
             var patients = _db.Patients
-                .Include(e => e.Journals)
-                .Include(f => f.Packages)
+                .Include(e => e.JournalCollections)
+                .Include(f => f.ExercisePackages)
                 .ToList();
+
             _patient = patients.Find(c => c.SSN == SSN);
             return _patient;
         }
@@ -42,7 +44,7 @@ namespace ReFitPatientData
 
         public List<JournalCollection> GetPreviousJournalInformation()
         {
-            return _patient.Journals;
+            return _patient.JournalCollections;
 
         }
         public bool ValidateLogin(string SSN, string Password)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ReFitPatientData;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
 using ReFitPatientBusiness;
 
 namespace ReFitPatientBusiness

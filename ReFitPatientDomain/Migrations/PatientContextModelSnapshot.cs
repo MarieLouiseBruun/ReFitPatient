@@ -19,7 +19,7 @@ namespace ReFitPatientDomain.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Exercise", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Exercise", b =>
                 {
                     b.Property<int>("ExerciseID")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace ReFitPatientDomain.Migrations
                     b.ToTable("Exercises");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
+            modelBuilder.Entity("ReFitPatientDomain.ExercisePackage", b =>
                 {
                     b.Property<int>("ExercisePackageID")
                         .ValueGeneratedOnAdd()
@@ -82,7 +82,7 @@ namespace ReFitPatientDomain.Migrations
                     b.ToTable("ExercisePackages");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Journal", b =>
                 {
                     b.Property<int>("JournalID")
                         .ValueGeneratedOnAdd()
@@ -122,7 +122,7 @@ namespace ReFitPatientDomain.Migrations
                     b.ToTable("Journals");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+            modelBuilder.Entity("ReFitPatientDomain.JournalCollection", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -139,7 +139,7 @@ namespace ReFitPatientDomain.Migrations
                     b.ToTable("JournalCollections");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Patient", b =>
                 {
                     b.Property<string>("SSN")
                         .HasMaxLength(10)
@@ -170,49 +170,49 @@ namespace ReFitPatientDomain.Migrations
                     b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Exercise", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Exercise", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.ExercisePackage", null)
-                        .WithMany("Exercises")
+                    b.HasOne("ReFitPatientDomain.ExercisePackage", null)
+                        .WithMany("ExerciseID")
                         .HasForeignKey("ExercisePackageID");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
+            modelBuilder.Entity("ReFitPatientDomain.ExercisePackage", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("Packages")
+                    b.HasOne("ReFitPatientDomain.Patient", null)
+                        .WithMany("ExercisePackages")
                         .HasForeignKey("PatientSSN");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Journal", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Journal", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.JournalCollection", null)
-                        .WithMany("JournalList")
+                    b.HasOne("ReFitPatientDomain.JournalCollection", null)
+                        .WithMany("JournalID")
                         .HasForeignKey("JournalCollectionID");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+            modelBuilder.Entity("ReFitPatientDomain.JournalCollection", b =>
                 {
-                    b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("Journals")
+                    b.HasOne("ReFitPatientDomain.Patient", null)
+                        .WithMany("JournalCollections")
                         .HasForeignKey("PatientSSN");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
+            modelBuilder.Entity("ReFitPatientDomain.ExercisePackage", b =>
                 {
-                    b.Navigation("Exercises");
+                    b.Navigation("ExerciseID");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
+            modelBuilder.Entity("ReFitPatientDomain.JournalCollection", b =>
                 {
-                    b.Navigation("JournalList");
+                    b.Navigation("JournalID");
                 });
 
-            modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
+            modelBuilder.Entity("ReFitPatientDomain.Patient", b =>
                 {
-                    b.Navigation("Journals");
+                    b.Navigation("ExercisePackages");
 
-                    b.Navigation("Packages");
+                    b.Navigation("JournalCollections");
                 });
 #pragma warning restore 612, 618
         }

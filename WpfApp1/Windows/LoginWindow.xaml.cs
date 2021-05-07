@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReFitPatientBusiness;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
 using ReFitPatientData;
 
 namespace ReFitPatientCore

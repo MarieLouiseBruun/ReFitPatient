@@ -18,8 +18,8 @@
             <TextBox x:Name="cprTB" Width="150"  />
             <Label x:Name="pwL" Content="Password:" HorizontalAlignment="Center"/>
 
-            <TextBox x:Name="pwTB" Width="150"/>
-            <PasswordBox x:Name="pwPB" Width="150" Margin="0,-25,0,0" />
+            <TextBox x:Name="pwTB" Width="150" Margin="0,0,0,0"/>
+            <PasswordBox x:Name="pwPB" Width="150" Margin="0,0,0,0" />
 
 
             <StackPanel Orientation="Horizontal">

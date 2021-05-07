@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using ReFitPatientDomain;
 
 namespace ReFitPatientDomain
 
@@ -27,8 +28,8 @@ namespace ReFitPatientDomain
         [Required]
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
-        public List<ExercisePackage> PackageID { get; set; } = new List<ExercisePackage>();
-        public List<JournalCollection> JournalID { get; set; } = new List<JournalCollection>();
+        public List<ExercisePackage> ExercisePackages { get; set; } = new List<ExercisePackage>();
+        public List<JournalCollection> JournalCollections { get; set; } = new List<JournalCollection>();
     }
 }
 

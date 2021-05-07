@@ -37,9 +37,7 @@ namespace ReFitPatientBusiness
 
         public void SaveNewJournalData(Journal journal)
         {
-            //new journal domæneklasse skal laves her
-            //string tempJournalString = "Generelt kommentar: " + _addToJournalWindow.generelTB.Text + "Medicinifo: " + _addToJournalWindow.medicinTB.Text + "Smerteskala fra 1-10: " +
-            //                           _addToJournalWindow.painS.Value + "Vinkel i grader: " + _addToJournalWindow.vinkelTB.Text;
+            _saveDatabase.SaveJournal(journal);
 
             //Gemer både i den lokale _journal og i databasen
             //_journal.JournalList.Add(tempJournalString);

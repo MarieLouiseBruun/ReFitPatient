@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatientCore.Domain;
+using ReFitPatientDomain;
 
 namespace ReFitPatientData
 {
