@@ -33,14 +33,24 @@ namespace ReFitPatientCore
         private List<Exercise> _exerciseList;
         private List<ExercisePackage> _exercisePackage;
         private int CurrentExerciseID;
-        public ExerciseWindow(HomeWindow homewindow)
+        private int exercisenumber = 0;
+        public ExerciseWindow(HomeWindow homewindow, Patient patient)
         {
+            _patient = patient;
             _homeWindow = homewindow;
             _returnController = new ReturnController();
             _exerciseControl = new ExerciseControl();
-
-
             InitializeComponent();
+
+            //Jeg afprøver bare lige lidt.. :)
+
+            exerciseCB.Text = _patient.ExercisePackages.ToString();
+            _exercisePackage = _patient.ExercisePackages;
+            welcomeL.Text = _exercisePackage[exercisenumber].Name;
+            repNumberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Repetitions.ToString();
+            setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
+
+
             Browser.Visibility = Visibility.Collapsed;
         }
 
@@ -54,7 +64,6 @@ namespace ReFitPatientCore
         {
             _commentWindow = new CommentExerciseWindow();
             _commentWindow.ShowDialog();
-            //EXERCISEID = 1 ER BARE FOR AT UNDGÅ FEJL!!!!
         }
 
         public void CommentSaved()
@@ -73,6 +82,15 @@ namespace ReFitPatientCore
             Browser.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
 
 
+        }
+
+        private void nextExerciseB_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentExerciseID++;
+            //Måske initialize component?
+            //Hvis nu den loader siden igen, men den her gang med næste øvelse i rækken!!
+            //Jeg ved ikke helt hvad man så skal når man er færdig :) 
+            //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis)
         }
     }
 }

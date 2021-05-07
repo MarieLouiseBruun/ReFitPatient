@@ -30,9 +30,14 @@
                     <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="repetitionsL" Content="Gentagelser:" />
-                    <Label x:Name="repNumberL" Content="3x12"/>
+                    <Label x:Name="repNumberL" Content="12"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="setL" Content="Set:" />
+                    <Label x:Name="setNUmberL" Content="3"/>
                 </StackPanel>
                 <Button x:Name="addCommentB" Content="Tilføj kommentar" Width="180" Click="addCommentB_Click"/>
+                <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="180" Click="nextExerciseB_Click"/>
 
 
             </StackPanel>

@@ -73,7 +73,7 @@ namespace ReFitPatientCore
 
         private void viewExercisesB_Click(object sender, RoutedEventArgs e)
         {
-            _exerciseWindow = new ExerciseWindow(this);
+            _exerciseWindow = new ExerciseWindow(this, _patient);
             _exerciseWindow.Show();
             this.Hide();
             
