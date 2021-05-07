@@ -43,12 +43,11 @@ namespace ReFitPatientCore
             //    this.JournalinfoTB.Text += _patient.JournalID[i];
             //    i--;
             //}
-            foreach (var item in _patient.JournalCollections)
+            foreach (var item in _patient.JournalID)
             {
-                this.JournalinfoTB.Text += Convert.ToString(item.JournalID.Select(j => j.JournalType) + Convert.ToString(item.JournalID.Select(k => k.JournalDate))
-                    + Convert.ToString(item.JournalID.Select(l => l.GeneralComment)) + Convert.ToString(item.JournalID.Select(m => m.BendAngle))
-                + Convert.ToString(item.JournalID.Select(n => n.PainScale)) +
-                    Convert.ToString(item.JournalID.Select(o => o.Medicine)));
+                this.JournalinfoTB.Text += Convert.ToString(item.JournalType + Convert.ToString(item.JournalDate)
+                    + Convert.ToString(item.GeneralComment)) + Convert.ToString(item.BendAngle)
+                + Convert.ToString(item.PainScale) + Convert.ToString(item.Medicine);
             }
            // _journalControl.PrintJournal();
         }

@@ -29,7 +29,7 @@ namespace ReFitPatientDomain
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
         public List<ExercisePackage> ExercisePackages { get; set; } = new List<ExercisePackage>();
-        public List<JournalCollection> JournalCollections { get; set; } = new List<JournalCollection>();
+        public List<Journal> JournalID { get; set; } = new List<Journal>();
     }
 }
 

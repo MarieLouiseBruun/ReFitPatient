@@ -65,7 +65,11 @@ namespace ReFitPatientCore
             newJournal.PainScale = painS.Value;
             newJournal.BendAngle = Convert.ToDouble(vinkelTB.Text);
             newJournal.Medicine = medicinTB.Text;
+            newJournal.JournalDate = DateTime.Now;
+            newJournal.JournalType = _journalWindow.journalCB.Text;
             _updateJournalControl.SaveNewJournalData(newJournal);
+            this.Close();
+            _journalWindow.Show();
         }
 
         private void AnnullerB_OnClick(object sender, RoutedEventArgs e)

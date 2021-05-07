@@ -40,12 +40,12 @@ namespace ReFitPatientCore
 
         public HomeWindow(Patient patient)
         {
-            
+            _patient = patient;
             _logoutControl = new LogoutControl();
             _patient = patient;
             _updateJournalControl = new UpdateJournalControl(_patient, _journal);
             _exerciseControl = new ExerciseControl();
-            _reminderControl = new TrainingReminderControl();
+            _reminderControl = new TrainingReminderControl(patient);
             
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
@@ -83,7 +83,7 @@ namespace ReFitPatientCore
 
         private void intervalB_Click(object sender, RoutedEventArgs e)
         {
-            _setIntervalWindow = new SetIntervalWindow(this);
+            _setIntervalWindow = new SetIntervalWindow(this, _patient);
             _setIntervalWindow.Show();
             this.Hide();
         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ReFitPatientBusiness;
+using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
@@ -22,10 +23,12 @@ namespace ReFitPatientCore
     {
         private TrainingReminderControl _reminderControl;
         private HomeWindow _homeWindow;
-        public SetIntervalWindow(HomeWindow homewindow)
+        private Patient _patient;
+        public SetIntervalWindow(HomeWindow homewindow, Patient patient)
         {
             _homeWindow = homewindow;
-            _reminderControl = new TrainingReminderControl();
+            _patient = patient;
+            _reminderControl = new TrainingReminderControl(_patient);
             InitializeComponent();
         }
 

@@ -24,7 +24,7 @@ namespace ReFitPatientData
         public Patient LoadPatientInfo(string SSN, string PW)
         {
             var patients = _db.Patients
-                .Include(e => e.JournalCollections)
+                .Include(e => e.JournalID)
                 .Include(f => f.ExercisePackages)
                 .ToList();
 
@@ -42,15 +42,15 @@ namespace ReFitPatientData
             return new Exercise();
         }
 
-        public List<JournalCollection> GetPreviousJournalInformation()
+        public List<Journal> GetPreviousJournalInformation()
         {
-            return _patient.JournalCollections;
+            return _patient.JournalID;
 
         }
         public bool ValidateLogin(string SSN, string Password)
         {
             var patients = _db.Patients;
-            if ((patients.Any(o => o.SSN == SSN)) && patients.Any(p => p.Password == Password))
+            if (patients.Any(o => o.SSN == SSN && o.Password == Password))
             {
                 return true;
             }

@@ -26,7 +26,6 @@ namespace ReFitPatientBusiness
         public ExerciseControl()
         {
             _loadDatabase = new LoadDatabase();
-            _saveDatabase = new SaveDatabase();
         }
         public void WatchExerciseIsPressed()
         {

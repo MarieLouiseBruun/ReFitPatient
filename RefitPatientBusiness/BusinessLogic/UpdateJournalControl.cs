@@ -14,16 +14,15 @@ namespace ReFitPatientBusiness
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
-        private JournalCollection _journalCollection;
         private Journal _journal;
         private Patient _patient;
 
         public UpdateJournalControl(Patient patient, Journal journal)
         {
-            _loadDatabase = new LoadDatabase();
-            _saveDatabase = new SaveDatabase();
             _patient = patient;
             _journal = journal;
+            _loadDatabase = new LoadDatabase();
+            _saveDatabase = new SaveDatabase(_patient);
         }
 
         public void ExercisePackageJournalChosen()
