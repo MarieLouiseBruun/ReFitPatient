@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReFitPatientData;
 
-namespace ReFitPatientDomain
+namespace ReFitPatientDomain.Migrations
 {
     [DbContext(typeof(PatientContext))]
-    [Migration("20210430110336_JournalDate")]
-    partial class JournalDate
+    [Migration("20210507082330_InitialCreation2")]
+    partial class InitialCreation2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,9 @@ namespace ReFitPatientDomain
                     b.Property<int?>("ExercisePackageID")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Hide")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Repetitions")
                         .HasMaxLength(50)
                         .HasColumnType("int");
@@ -63,7 +66,10 @@ namespace ReFitPatientDomain
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("PackageName")
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -169,14 +175,14 @@ namespace ReFitPatientDomain
             modelBuilder.Entity("ReFitPatientCore.Domain.Exercise", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.ExercisePackage", null)
-                        .WithMany("ExerciseList")
+                        .WithMany("Exercises")
                         .HasForeignKey("ExercisePackageID");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("PackageList")
+                        .WithMany("Packages")
                         .HasForeignKey("PatientSSN");
                 });
 
@@ -190,13 +196,13 @@ namespace ReFitPatientDomain
             modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
                 {
                     b.HasOne("ReFitPatientCore.Domain.Patient", null)
-                        .WithMany("JournalList")
+                        .WithMany("Journals")
                         .HasForeignKey("PatientSSN");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.ExercisePackage", b =>
                 {
-                    b.Navigation("ExerciseList");
+                    b.Navigation("Exercises");
                 });
 
             modelBuilder.Entity("ReFitPatientCore.Domain.JournalCollection", b =>
@@ -206,9 +212,9 @@ namespace ReFitPatientDomain
 
             modelBuilder.Entity("ReFitPatientCore.Domain.Patient", b =>
                 {
-                    b.Navigation("JournalList");
+                    b.Navigation("Journals");
 
-                    b.Navigation("PackageList");
+                    b.Navigation("Packages");
                 });
 #pragma warning restore 612, 618
         }

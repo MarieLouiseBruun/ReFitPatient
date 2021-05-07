@@ -68,8 +68,7 @@ namespace ReFitPatientBusiness
         }
         public Patient GetPatientInfo(string ssr, string pw)
         {
-            return _loadDatabase.LoadPatientInfo(ssr);
-
+            return _loadDatabase.LoadPatientInfo(ssr, pw);
         }
     }
 }

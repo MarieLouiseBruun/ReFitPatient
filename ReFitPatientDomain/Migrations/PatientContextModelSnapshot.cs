@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReFitPatientData;
 
-namespace ReFitPatientDomain
+namespace ReFitPatientDomain.Migrations
 {
     [DbContext(typeof(PatientContext))]
     partial class PatientContextModelSnapshot : ModelSnapshot

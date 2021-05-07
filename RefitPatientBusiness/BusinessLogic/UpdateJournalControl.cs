@@ -52,7 +52,7 @@ namespace ReFitPatientBusiness
         //Skal måske være en ny klasse!
         public void PrintJournal()
         {
-            //_journal = _loadDatabase.GetPreviousJournalInformation();
+            _journal = _loadDatabase.GetPreviousJournalInformation();
             //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
             //for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
             //{
