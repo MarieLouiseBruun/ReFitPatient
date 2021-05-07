@@ -40,10 +40,11 @@ namespace ReFitPatientData
             return new Exercise();
         }
 
-        //public Journal GetPreviousJournalInformation()
-        //{
-        //    return new Journal("a", 1, 3, "d", "e");
-        //}
+        public List<JournalCollection> GetPreviousJournalInformation()
+        {
+            return _patient.Journals;
+
+        }
         public bool ValidateLogin(string SSN, string Password)
         {
             var patients = _db.Patients;

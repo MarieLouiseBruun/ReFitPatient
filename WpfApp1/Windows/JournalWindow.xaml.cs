@@ -38,7 +38,16 @@ namespace ReFitPatientCore
             _journalControl = new UpdateJournalControl(patient, journal);
 
             InitializeComponent();
-            _journalControl.PrintJournal();
+            for (int i = _patient.Journals.Count; i > 0; i--)
+            {
+                this.JournalinfoTB.Text += _patient.Journals[i].ToString();
+                i--;
+            }
+            foreach (var item in _patient.Journals)
+            {
+                this.JournalinfoTB.Text += item;
+            }
+           // _journalControl.PrintJournal();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)

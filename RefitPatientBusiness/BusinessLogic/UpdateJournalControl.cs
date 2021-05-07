@@ -14,6 +14,7 @@ namespace ReFitPatientBusiness
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
+        private JournalCollection _journalCollection;
         private Journal _journal;
         private Patient _patient;
 
@@ -23,7 +24,6 @@ namespace ReFitPatientBusiness
             _saveDatabase = new SaveDatabase();
             _patient = patient;
             _journal = journal;
-
         }
 
         public void ExercisePackageJournalChosen()
@@ -52,7 +52,6 @@ namespace ReFitPatientBusiness
         //Skal måske være en ny klasse!
         public void PrintJournal()
         {
-            _journal = _loadDatabase.GetPreviousJournalInformation();
             //Vi tror at den her udskriver den ældste først, da i = det største tal, det vil sige det ældste input i listen
             //for (int i = _patient.Journal.JournalList.Count; i > 0; i--)
             //{
