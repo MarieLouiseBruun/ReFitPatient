@@ -37,8 +37,10 @@ namespace ReFitPatientCore
         private Patient _patient;
         private Journal _journal;
         private TrainingReminderControl _reminderControl;
+
         public HomeWindow(Patient patient)
         {
+            
             _logoutControl = new LogoutControl();
             _patient = patient;
             _updateJournalControl = new UpdateJournalControl(_patient, _journal);
@@ -51,9 +53,13 @@ namespace ReFitPatientCore
 
         private void logoutB_Click(object sender, RoutedEventArgs e)
         {
-            _loginWindow = new LoginWindow();
-            _loginWindow.Show();
-            this.Close();
+            //_loginWindow = new LoginWindow();
+            //_loginWindow.Show();
+            //this.Close();
+
+            //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
         }
 
         private void journalB_Click(object sender, RoutedEventArgs e)
