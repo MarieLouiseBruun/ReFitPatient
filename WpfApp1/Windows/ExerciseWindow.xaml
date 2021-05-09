@@ -26,7 +26,7 @@
                 </ComboBox>
                 <Label x:Name="exercise1L" Content="Øvelse 1" />
                 <TextBlock x:Name="welcomeL" Text="Beskrivelse &#10;God træning :-) " Margin="5,0,0,0" />
-                    <WebBrowser x:Name ="Browser" Height="300" Width="250" />
+                    <WebBrowser x:Name ="browserWB" Height="300" Width="250" />
                     <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="repetitionsL" Content="Gentagelser:" />

@@ -51,12 +51,13 @@ namespace ReFitPatientCore
             setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
 
 
-            Browser.Visibility = Visibility.Collapsed;
+            browserWB.Visibility = Visibility.Collapsed;
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             _homeWindow.Show();
+            browserWB.Navigate("https://www.google.dk"); //det her er en dum måde at gøre det på, men det virker
             this.Close();
         }
 
@@ -73,13 +74,13 @@ namespace ReFitPatientCore
 
         private void playB_Click(object sender, RoutedEventArgs e)
         {
-            Browser.Visibility = Visibility.Visible;
+            browserWB.Visibility = Visibility.Visible;
             playB.Visibility = Visibility.Collapsed;
             //Her skal den navigere til den video, der viser øvelsen
             _exerciseControl.PlayIsPressed();
 
             //Indsæt string herunder!!
-            Browser.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
+            browserWB.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
 
 
         }
