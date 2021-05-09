@@ -23,6 +23,8 @@ namespace ReFitPatientData
         }
         public Patient LoadPatientInfo(string SSN, string PW)
         {
+
+            //Laver vi her en liste med alle patienter? er det sikkert? på andet semester tjekkede vi databasen,jeg ved ikke om det er muligt at gøre her?
             var patients = _db.Patients
                 .Include(e => e.JournalID)
                 .Include(f => f.ExercisePackages)

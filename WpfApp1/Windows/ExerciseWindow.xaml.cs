@@ -34,6 +34,8 @@ namespace ReFitPatientCore
         private List<ExercisePackage> _exercisePackage;
         private int CurrentExerciseID;
         private int exercisenumber = 0;
+        private string videopath;
+
         public ExerciseWindow(HomeWindow homewindow, Patient patient)
         {
             _patient = patient;
@@ -58,7 +60,7 @@ namespace ReFitPatientCore
         {
             _homeWindow.Show();
             browserWB.Navigate("https://www.google.dk"); //det her er en dum måde at gøre det på, men det virker
-            this.Close();
+            Close();
         }
 
         private void addCommentB_Click(object sender, RoutedEventArgs e)
@@ -80,7 +82,11 @@ namespace ReFitPatientCore
             _exerciseControl.PlayIsPressed();
 
             //Indsæt string herunder!!
-            browserWB.Navigate(/*"https://www.youtube.com/v/u0VMfrdbuMw"*/"https://www.youtube.com/v/dQw4w9WgXcQ?start=0"/*http://www.youtube.com/v/FhZ-HsiS8aI&hl=en"*/);
+
+            //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
+            //Hvornår henter vi nye exercise??
+            videopath = "https://www.youtube.com/v/dQw4w9WgXcQ?start=0";
+            browserWB.Navigate(videopath);
 
 
         }
@@ -88,10 +94,13 @@ namespace ReFitPatientCore
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
         {
             CurrentExerciseID++;
+
             //Måske initialize component?
             //Hvis nu den loader siden igen, men den her gang med næste øvelse i rækken!!
             //Jeg ved ikke helt hvad man så skal når man er færdig :) 
-            //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis)
+            //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis) - Enig :-)
+
+          
         }
     }
 }
