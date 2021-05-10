@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO
+namespace ReFitPatientDomain
 {
    
     public class ExercisePackage
@@ -16,6 +16,7 @@ namespace DTO
         {
             Patients = new HashSet<Patient>();
             Exercises = new List<Exercise>();
+            Completed = false;
         }
         [Key]
         [Required]

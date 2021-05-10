@@ -24,7 +24,7 @@ namespace ReFitPatientData
 
         public void SaveJournal(Journal journal)
         {
-            _patient.JournalID.Add(journal);
+            _patient.Journals.Add(journal);
             _db.Patients.Update(_patient);
             _db.Journals.Add(journal);
             _db.SaveChanges();

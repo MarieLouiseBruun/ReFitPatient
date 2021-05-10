@@ -46,11 +46,11 @@ namespace ReFitPatientCore
 
             //Jeg afprøver bare lige lidt.. :)
 
-            exerciseCB.Text = _patient.ExercisePackages.ToString();
-            _exercisePackage = _patient.ExercisePackages;
-            welcomeL.Text = _exercisePackage[exercisenumber].Name;
-            repNumberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Repetitions.ToString();
-            setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
+            //exerciseCB.Text = _patient.ExercisePackages.ToString();
+            //_exercisePackage = _patient.ExercisePackages;
+            //welcomeL.Text = _exercisePackage[exercisenumber].Name;
+            //repNumberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Repetitions.ToString();
+            //setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
 
 
             browserWB.Visibility = Visibility.Collapsed;

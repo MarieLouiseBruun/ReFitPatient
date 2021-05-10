@@ -20,14 +20,7 @@ namespace ReFitPatientBusiness
         {
             if (SSN.Length == 10)
             {
-                if (int.TryParse(SSN,out value))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             else
             {

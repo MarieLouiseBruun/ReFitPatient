@@ -31,7 +31,8 @@ namespace ReFitPatientBusiness
                 if (_loadDatabase.ValidateLogin(SSN, Password))
                 {
 
-                    //ALT HERFRA TIL _HOMEWINDOW TÆNKER VI ER GODT 
+                    //Tror det her skal slettes hehe :)
+
                     //Spørgsmålet er, hvorvidt det skal placeres her, eller i homewindow eller et andet sted, så det kommer
                     //med videre rundt i forløbet i programmet. :)
 

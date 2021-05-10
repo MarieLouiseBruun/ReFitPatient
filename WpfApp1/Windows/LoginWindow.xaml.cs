@@ -38,9 +38,9 @@ namespace ReFitPatientCore
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
-            if(_loginControl.LoginButtonIsPressed(cprTB.Text, pwPB.Password))
+            if(_loginControl.LoginButtonIsPressed(cprTB.Text, Convert.ToString(pwPB.Password)))
             {
-                _patient = _loginControl.GetPatientInfo(cprTB.Text, pwPB.Password);
+                _patient = _loginControl.GetPatientInfo(cprTB.Text, Convert.ToString(pwPB.Password));
                         _homeWindow = new HomeWindow(_patient);
                         _homeWindow.Show();
                         this.Close();
@@ -50,6 +50,7 @@ namespace ReFitPatientCore
                 this.LoginErrorMessage();
                 this.cprTB.Clear();
                 this.pwTB.Clear();
+                this.pwPB.Clear();
                 this.cprTB.Focus();
             }
         }
@@ -58,10 +59,6 @@ namespace ReFitPatientCore
             MessageBox.Show("Fejl i login. Prøv igen");
         }
 
-        public void SSNErrorMessage()
-        {
-            MessageBox.Show("Fejl i login. Prøv igen");
-        }
 
         private void showPWCB_Checked(object sender, RoutedEventArgs e)
         {

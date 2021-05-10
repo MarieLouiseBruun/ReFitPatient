@@ -36,20 +36,18 @@ namespace ReFitPatientCore
             _homeWindow = window;
             _returnController = new ReturnController();
             _journalControl = new UpdateJournalControl(patient, journal);
-
             InitializeComponent();
+
+            foreach (var item in _patient.ExercisePackages)
+            {
+                journalCB.Items.Add(item.Name);
+            }
+            journalCB.SelectedItem = journalCB.Items[0];
             //for (int i = _patient.JournalID.Count; i > 0; i--)
             //{
             //    this.JournalinfoTB.Text += _patient.JournalID[i];
             //    i--;
             //}
-            foreach (var item in _patient.JournalID)
-            {
-                this.JournalinfoTB.Text += Convert.ToString(item.JournalType + Convert.ToString(item.JournalDate)
-                    + Convert.ToString(item.GeneralComment)) + Convert.ToString(item.BendAngle)
-                + Convert.ToString(item.PainScale) + Convert.ToString(item.Medicine);
-            }
-           // _journalControl.PrintJournal();
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -64,6 +62,24 @@ namespace ReFitPatientCore
 
             _addToJournalWindow = new AddToJournalWindow(this,_patient,_journalControl);
             _addToJournalWindow.Show();
+        }
+
+        private void journalCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.JournalinfoTB.Text = "";
+            foreach (var item in _patient.Journals)
+            {
+                if ((string)journalCB.SelectedItem == item.JournalType)
+                {
+                    this.JournalinfoTB.Text += "Dato: "
+                                               + Convert.ToString(item.JournalDate)
+                                               + "\r\n" + "Generelt: " +
+                                               Convert.ToString(item.GeneralComment) + "\r\n"
+                                               + "Vinkel: " + Convert.ToString(item.BendAngle)
+                                               + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
+                                               + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine);
+                }
+            }
         }
     }
 }

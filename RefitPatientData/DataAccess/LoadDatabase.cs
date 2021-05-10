@@ -23,16 +23,16 @@ namespace ReFitPatientData
         }
         public Patient LoadPatientInfo(string SSN, string PW)
         {
-
-            //Laver vi her en liste med alle patienter? er det sikkert? på andet semester tjekkede vi databasen,jeg ved ikke om det er muligt at gøre her?
             var patients = _db.Patients
-                .Include(e => e.JournalID)
+                .Include(e => e.Journals)
                 .Include(f => f.ExercisePackages)
-                .ToList();
+                .ThenInclude(g => g.Exercises)
+                .FirstOrDefault(c => c.SSN == SSN);
 
-            _patient = patients.Find(c => c.SSN == SSN);
+            _patient = patients;
             return _patient;
         }
+
 
         public ExercisePackage LoadPackageInfo(int ID)
         {
@@ -46,7 +46,7 @@ namespace ReFitPatientData
 
         public List<Journal> GetPreviousJournalInformation()
         {
-            return _patient.JournalID;
+            return (List<Journal>)_patient.Journals;
 
         }
         public bool ValidateLogin(string SSN, string Password)
