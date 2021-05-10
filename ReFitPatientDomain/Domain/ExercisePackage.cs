@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatientDomain
+namespace DTO
 {
    
     public class ExercisePackage
     {
+        public ExercisePackage()
+        {
+            Patients = new HashSet<Patient>();
+            Exercises = new List<Exercise>();
+        }
         [Key]
         [Required]
         public int ExercisePackageID { get; set; }
@@ -20,6 +26,8 @@ namespace ReFitPatientDomain
 
         [Required] public bool Completed { get; set; } = false;
         
-        public List<Exercise> ExerciseID { get; set; } = new List<Exercise>();
+        public ICollection<Exercise> Exercises { get; set; }
+        public virtual ICollection<Patient> Patients { get; set; }
+
     }
 }

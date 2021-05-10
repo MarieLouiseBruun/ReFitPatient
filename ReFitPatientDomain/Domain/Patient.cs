@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using ReFitPatientDomain;
 
-namespace ReFitPatientDomain
-
+namespace DTO
 {
     public class Patient
     {
+        public Patient()
+        {
+            ExercisePackages = new HashSet<ExercisePackage>();
+            Journals = new List<Journal>();
+        }
         [Required]
         [Key]
         [MaxLength(10)]
@@ -28,8 +32,14 @@ namespace ReFitPatientDomain
         [Required]
         [MaxLength(10)]
         public string PhoneNumber { get; set; }
-        public List<ExercisePackage> ExercisePackages { get; set; } = new List<ExercisePackage>();
-        public List<Journal> JournalID { get; set; } = new List<Journal>();
+
+        public ICollection<Journal> Journals { get; set; }
+        public virtual ICollection<ExercisePackage> ExercisePackages { get; set; }
+
+        public override string ToString()
+        {
+            return SSN + ", " + Name;
+        }
     }
 }
 

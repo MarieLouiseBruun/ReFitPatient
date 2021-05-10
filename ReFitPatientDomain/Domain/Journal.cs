@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReFitPatientDomain
+namespace DTO
 {
     public class Journal
     {
@@ -22,5 +22,12 @@ namespace ReFitPatientDomain
         public string Medicine { get; set; }
         [MaxLength(500)]
         public string GeneralComment { get; set; }
+        public Patient Patient { get; set; }
+
+        public override string ToString()
+        {
+            return "Dato: " + JournalDate.ToString();
+        }
+
     }
 }
