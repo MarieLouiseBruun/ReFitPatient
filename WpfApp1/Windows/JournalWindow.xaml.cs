@@ -43,11 +43,7 @@ namespace ReFitPatientCore
                 journalCB.Items.Add(item.Name);
             }
             journalCB.SelectedItem = journalCB.Items[0];
-            //for (int i = _patient.JournalID.Count; i > 0; i--)
-            //{
-            //    this.JournalinfoTB.Text += _patient.JournalID[i];
-            //    i--;
-            //}
+           
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -66,18 +62,19 @@ namespace ReFitPatientCore
 
         private void journalCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var list = _patient.Journals.OrderByDescending(x => x.JournalDate.Date).ToList();
             this.JournalinfoTB.Text = "";
-            foreach (var item in _patient.Journals)
-            {
-                if ((string)journalCB.SelectedItem == item.JournalType)
+            foreach (var item in list)
+            { 
+                if ((string) journalCB.SelectedItem == item.JournalType)
                 {
-                    this.JournalinfoTB.Text += "Dato: "
-                                               + Convert.ToString(item.JournalDate)
-                                               + "\r\n" + "Generelt: " +
-                                               Convert.ToString(item.GeneralComment) + "\r\n"
-                                               + "Vinkel: " + Convert.ToString(item.BendAngle)
-                                               + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
-                                               + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine);
+                    //jeg ved ikke om dette virker, da vi skal have flere ting ind i databasen for at tjekke
+                    this.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
+                                                        + "\r\n" + "Generelt: " +
+                                                        Convert.ToString(item.GeneralComment) + "\r\n"
+                                                        + "Vinkel: " + Convert.ToString(item.BendAngle)
+                                                        + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
+                                                        + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine);
                 }
             }
         }

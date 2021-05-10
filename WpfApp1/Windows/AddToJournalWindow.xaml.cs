@@ -30,7 +30,7 @@ namespace ReFitPatientCore
         {
             _journalWindow = window;
             _updateJournalControl = journalControl;
-            patient = _patient;
+            _patient = patient;
             InitializeComponent();
             if (_journalWindow.journalCB.Text == "Knæalloplastik")
             {
@@ -67,6 +67,7 @@ namespace ReFitPatientCore
             newJournal.Medicine = medicinTB.Text;
             newJournal.JournalDate = DateTime.Now;
             newJournal.JournalType = _journalWindow.journalCB.Text;
+            newJournal.Patient = _patient;
             _updateJournalControl.SaveNewJournalData(newJournal);
             this.Close();
             _journalWindow.Show();
