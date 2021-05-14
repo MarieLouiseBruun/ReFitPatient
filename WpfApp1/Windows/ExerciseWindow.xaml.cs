@@ -84,7 +84,7 @@ namespace ReFitPatientCore
 
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
         {
-            if (_exerciseList[CurrentExerciseID].Hide == false)
+            //if (_exerciseList[CurrentExerciseID].Hide == false)
             {
                 if (CurrentExerciseID < _exerciseList.Count-1)
                 {
@@ -131,11 +131,11 @@ namespace ReFitPatientCore
                     }
                 }
             }
-            //welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
-            //setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
-            //repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
-            //exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
-            //videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+            setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+            repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+            exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
         }
         private void ExerciseWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
