@@ -81,14 +81,10 @@ namespace ReFitPatientCore
 
         private void JournalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-           
-
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    DragMove();
-                }
-
-            
+            if (e.LeftButton == MouseButtonState.Pressed)
+            { 
+                DragMove();
+            }
         }
     }
 }

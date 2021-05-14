@@ -71,6 +71,22 @@ namespace ReFitPatientCore
             _updateJournalControl.SaveNewJournalData(newJournal);
             this.Close();
             _journalWindow.Show();
+            var list = _patient.Journals.OrderByDescending(x => x.JournalDate.Date).ToList();
+            _journalWindow.JournalinfoTB.Text = "";
+            foreach (var item in list)
+            {
+                if ((string)_journalWindow.journalCB.SelectedItem == item.JournalType)
+                {
+                    //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
+                    _journalWindow.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
+                                                        + "\r\n" + "Generelt: " +
+                                                        Convert.ToString(item.GeneralComment) + "\r\n"
+                                                        + "Vinkel: " + Convert.ToString(item.BendAngle)
+                                                        + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
+                                                        + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine)
+                                                        + "\r\n";
+                }
+            }
         }
 
         private void AnnullerB_OnClick(object sender, RoutedEventArgs e)

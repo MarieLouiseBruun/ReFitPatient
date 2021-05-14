@@ -24,11 +24,12 @@
 
             <StackPanel Grid.ColumnSpan="2" Margin="10,0,10,0">
                 <Button x:Name="backB" Background="{StaticResource AddButtonImageBrush}" Height="30" Width="30" HorizontalAlignment="Left" Click="backB_Click"/>
-                <ComboBox x:Name="exercisepackageCB">
+                <ComboBox x:Name="exercisepackageCB" SelectionChanged="exercisepackageCB_SelectionChanged_1">
                     
                 </ComboBox>
                 
                 <TextBlock Text="Øvelse 1"
+                           x:Name="ExerciseTB"
                            Foreground="Black"
                            FontSize="15"
                            FontWeight="Medium"
@@ -36,6 +37,7 @@
                            TextWrapping="Wrap"
                            Margin="0,0,0,0"/>
                 <TextBlock Text="Beskrivelse &#10;God træning :-)"
+                           x:Name ="DescriptionTB"
                            Foreground="Black"
                            FontSize="15"
                            FontWeight="Medium"
@@ -45,22 +47,6 @@
                 <WebBrowser x:Name ="browserWB" Height="300" Width="250" />
                 <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="GentagelserTB" Text="Gentagelser:"
-                               Foreground="Black"
-                               FontSize="15"
-                               FontWeight="Medium"
-                               FontFamily="Fonts/#Dosis"
-                               TextWrapping="Wrap"
-                               Margin="0,0,0,0"/>
-                    <TextBlock Text="12"
-                               Foreground="Black"
-                               FontSize="15"
-                               FontWeight="Medium"
-                               FontFamily="Fonts/#Dosis"
-                               TextWrapping="Wrap"
-                               Margin="0,0,0,0"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="setTB"
                                Text="Set:"
                                Foreground="Black"
@@ -68,7 +54,7 @@
                                FontWeight="Medium"
                                FontFamily="Fonts/#Dosis"
                                TextWrapping="Wrap"
-                               Margin="0,0,0,0"/>
+                               Margin="0,15,0,0"/>
                     <TextBlock x:Name="setNumberTB"
                                Text="3"
                                Foreground="Black"
@@ -76,9 +62,27 @@
                                FontWeight="Medium"
                                FontFamily="Fonts/#Dosis"
                                TextWrapping="Wrap"
-                               Margin="0,0,0,0"/>
+                               Margin="0,15,0,0"/>
                 </StackPanel>
-                <Button x:Name="addCommentB" Content="Tilføj kommentar"   Margin="80,20,0,0"
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="GentagelserTB" Text="Gentagelser:"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,15,0,0"/>
+                    <TextBlock Text="12"
+                               x:Name="RepititionsTB"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,15,0,0"/>
+                </StackPanel>
+                
+                <Button x:Name="addCommentB" Content="Tilføj kommentar"   Margin="0,20,0,20"
                         Click="addCommentB_Click"
                         Foreground="White"
                         FontSize="14"
@@ -99,7 +103,7 @@
 
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Width="65" Height="27"
+                            <Border Width="140" Height="27"
                                     CornerRadius="12"
                                     Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center"
@@ -110,7 +114,7 @@
 
                 </Button>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="lastExerciseB" Content="Forrige øvelse"   Margin="0,0,0,0"
+                    <Button x:Name="lastExerciseB" Content="Forrige øvelse"   Margin="0,0,20,0"
                             Click="lastExerciseB_Click"
                             Foreground="White"
                             FontSize="14"
@@ -131,7 +135,7 @@
 
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="65" Height="27"
+                                <Border Width="100" Height="27"
                                         CornerRadius="12"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
@@ -162,7 +166,7 @@
 
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="65" Height="27"
+                                <Border Width="100" Height="27"
                                         CornerRadius="12"
                                         Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"
