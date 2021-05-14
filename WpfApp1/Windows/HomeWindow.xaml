@@ -28,11 +28,130 @@
         <Grid Grid.Row="1">
             <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
                 <TextBlock x:Name="welcomeL" Text="" TextWrapping="Wrap"  Width="auto" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,20,0,0"/>
-                <Button x:Name="viewExercisesB" Content="Se øvelser" Width="160" Height="40" Margin="0,0,0,0" Click="viewExercisesB_Click"/>
-                <Button x:Name="journalB" Content="Dagbog" Width="160" Height="40" Margin="0,20,0,0" Click="journalB_Click"/>
-                <Button x:Name="intervalB" Content="Skift dagsinterval" Width="160" Height="40" Margin="0,20,0,0" Click="intervalB_Click"/>
-                <Button x:Name="logoutB" Content="Log ud" Width="160" Height="40" Margin="0,20,0,0" Click="logoutB_Click"/>
+                <Button x:Name="viewExercisesB" Content="Se øvelser"   Margin="0,0,0,0"
+                        Click="viewExercisesB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="120">
 
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <Button x:Name="journalB" Content="Dagbog"   Margin="0,20,0,0"
+                        Click="viewExercisesB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="120">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <Button x:Name="intervalB" Content="Skift dagsinterval"   Margin="0,20,0,0"
+                        Click="viewExercisesB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="120">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <Button x:Name="logoutB" Content="Log ud"   Margin="0,20,0,0"
+                        Click="logoutB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="120">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
 
             </StackPanel>
 
