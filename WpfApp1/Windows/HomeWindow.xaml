@@ -28,7 +28,7 @@
         <Grid Grid.Row="1">
             <StackPanel Grid.ColumnSpan="2" Margin="0,20,0,0">
                 <TextBlock x:Name="welcomeL" Text="" TextWrapping="Wrap"  Width="auto" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,20,0,0"/>
-                <Button x:Name="viewExercisesB" Content="Se øvelser"   Margin="0,0,0,0"
+                <Button x:Name="viewExercisesB" Content="Se øvelser"   Margin="0,20,0,0"
                         Click="viewExercisesB_Click"
                         Foreground="White"
                         FontSize="14"
@@ -60,7 +60,7 @@
 
                 </Button>
                 <Button x:Name="journalB" Content="Dagbog"   Margin="0,20,0,0"
-                        Click="viewExercisesB_Click"
+                        Click="journalB_Click"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium" Width="120">
@@ -91,7 +91,7 @@
 
                 </Button>
                 <Button x:Name="intervalB" Content="Skift dagsinterval"   Margin="0,20,0,0"
-                        Click="viewExercisesB_Click"
+                        Click="intervalB_Click"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium" Width="120">
