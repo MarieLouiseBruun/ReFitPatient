@@ -76,7 +76,9 @@ namespace ReFitPatientCore
             //Hvornår henter vi nye exercise??
             //exercises hentes når patienten logger ind. 
             //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også er i.
-            videopath = "https://www.youtube.com/v/dQw4w9WgXcQ";
+
+            //skal lige undersøge om det virker for real
+            videopath = "https://www.youtube.com/embed?v=Xa0Swz3X1cQ";
             browserWB.Navigate(videopath);
 
 

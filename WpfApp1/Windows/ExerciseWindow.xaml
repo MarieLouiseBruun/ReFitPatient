@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
+        xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
+        xmlns:controls1="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls.WebView"
         mc:Ignorable="d"
         Title="ExerciseWindow"  Height="530" Width="265" FontSize="16"
         WindowStyle="None"
@@ -44,7 +46,8 @@
                            FontFamily="Fonts/#Dosis"
                            TextWrapping="Wrap"
                            Margin="0,0,0,0"/>    
-                <WebBrowser x:Name ="browserWB" Height="300" Width="250" />
+                <!--<WebBrowser x:Name ="browserWB" Height="300" Width="250" />-->
+                <controls1:WebView x:Name ="browserWB" Height="300" Width="250"/>
                 <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="setTB"
