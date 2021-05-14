@@ -73,5 +73,13 @@ namespace ReFitPatientCore
             pwPB.Visibility = Visibility.Visible;
             pwTB.Visibility = Visibility.Collapsed;
         }
+
+        private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
