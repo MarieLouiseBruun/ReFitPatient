@@ -84,5 +84,13 @@ namespace ReFitPatientCore
             _setIntervalWindow.Show();
             this.Hide();
         }
+
+        private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
