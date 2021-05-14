@@ -132,5 +132,7 @@ namespace ReFitPatientCore
         {
             cprTB.SelectAll();
         }
+
+       
     }
 }

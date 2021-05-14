@@ -58,8 +58,9 @@ namespace ReFitPatientCore
             //this.Close();
 
             //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
-            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
+            //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            
             //_logoutControl.LogoutIsPressed();
         }
 

@@ -43,6 +43,7 @@ namespace ReFitPatientCore
             {
                 exercisepackageCB.Items.Add(item.Name);
             }
+           exercisepackageCB.SelectedItem = exercisepackageCB.Items[0];
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -74,9 +75,8 @@ namespace ReFitPatientCore
             //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
             //Hvornår henter vi nye exercise??
             //exercises hentes når patienten logger ind. 
-            //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også
-            //er i.
-            videopath = "https://www.youtube.com/v/dQw4w9WgXcQ?start=0";
+            //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også er i.
+            videopath = "https://www.youtube.com/v/dQw4w9WgXcQ";
             browserWB.Navigate(videopath);
 
 
