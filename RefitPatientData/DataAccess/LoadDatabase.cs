@@ -33,22 +33,7 @@ namespace ReFitPatientData
             return _patient;
         }
 
-
-        public ExercisePackage LoadPackageInfo(int ID)
-        {
-            return new ExercisePackage();
-        }
-
-        public Exercise LoadExerciseInfo(int ID)
-        {
-            return new Exercise();
-        }
-
-        public List<Journal> GetPreviousJournalInformation()
-        {
-            return (List<Journal>)_patient.Journals;
-
-        }
+        
         public bool ValidateLogin(string SSN, string Password)
         {
             var patients = _db.Patients;
