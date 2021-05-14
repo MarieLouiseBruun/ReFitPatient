@@ -17,11 +17,8 @@ namespace ReFitPatientDomain
         [Key]
         [Required] 
         public int ExerciseID { get; set; }
-        [Required]
-        [MaxLength(200)]
         public string ExerciseLink { get; set; }
         [Required]
-        [MaxLength(500)]
         public string Description { get; set; }
         [Required]
         [MaxLength(50)]

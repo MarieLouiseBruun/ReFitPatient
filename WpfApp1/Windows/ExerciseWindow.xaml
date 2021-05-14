@@ -37,7 +37,7 @@
                 <Button x:Name="addCommentB" Content="Tilføj kommentar" Width="180" Click="addCommentB_Click"/>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="lastExerciseB" Content="Forrige øvelse" Width="100" Click="lastExerciseB_Click"/>
-                    <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="100" Margin="26,0,0,0" Click="nextExerciseB_Click"/>
+                    <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="100" Click="nextExerciseB_Click"/>
 
                 </StackPanel>
 

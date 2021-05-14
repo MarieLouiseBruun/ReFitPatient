@@ -17,52 +17,31 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    
     public partial class ExerciseWindow : Window
     {
-        private ReturnController _returnController;
         private ExerciseControl _exerciseControl;
-
-
-        private ExerciseWindow _exerciseWindow;
         private HomeWindow _homeWindow;
         private CommentExerciseWindow _commentWindow;
         private Patient _patient;
         private List<Exercise> _exerciseList;
-        private List<ExercisePackage> _exercisePackage;
-        private int CurrentExerciseID;
+        private int CurrentExerciseID = 0;
         private string videopath;
 
         public ExerciseWindow(HomeWindow homewindow, Patient patient)
         {
             _patient = patient;
             _homeWindow = homewindow;
-            _returnController = new ReturnController();
             _exerciseControl = new ExerciseControl();
             InitializeComponent();
 
-            //Jeg afprøver bare lige lidt.. :)
-
-            //exerciseCB.Text = _patient.ExercisePackages.ToString();
-            //_exercisePackage = _patient.ExercisePackages;
-            //welcomeL.Text = _exercisePackage[exercisenumber].Name;
-            //repNumberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Repetitions.ToString();
-            //setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
+            welcomeL.Text = "Vælg en øvelsespakke!";
+            repNumberL.Content = "";
+            setNUmberL.Content = "";
             browserWB.Visibility = Visibility.Collapsed;
-            if (exercisepackageCB.SelectedItem.ToString() == _patient.ExercisePackages.ToString())
+            foreach (var item in _patient.ExercisePackages)
             {
-                foreach (var item in _patient.ExercisePackages)
-                {
-                    if (exercisepackageCB.SelectedItem.ToString() == _patient.ExercisePackages.ToString())
-                    {
-                        foreach (var itemm in item.Exercises)
-                        {
-                            _exerciseList.Add(itemm);
-                        }
-                    }
-                }
+                exercisepackageCB.Items.Add(item.Name);
             }
         }
 
@@ -89,12 +68,14 @@ namespace ReFitPatientCore
             browserWB.Visibility = Visibility.Visible;
             playB.Visibility = Visibility.Collapsed;
             //Her skal den navigere til den video, der viser øvelsen
-            _exerciseControl.PlayIsPressed();
 
             //Indsæt string herunder!!
 
             //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
             //Hvornår henter vi nye exercise??
+            //exercises hentes når patienten logger ind. 
+            //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også
+            //er i.
             videopath = "https://www.youtube.com/v/dQw4w9WgXcQ?start=0";
             browserWB.Navigate(videopath);
 
@@ -105,20 +86,21 @@ namespace ReFitPatientCore
         {
             if (_exerciseList[CurrentExerciseID].Hide == false)
             {
-                CurrentExerciseID++;
-                welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
-                setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
-                repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
-                exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
-                videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
-                //Måske initialize component?
-                //Hvis nu den loader siden igen, men den her gang med næste øvelse i rækken!!
-                //Jeg ved ikke helt hvad man så skal når man er færdig :) 
-                //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis) - Enig :-)
-            }
-            else
-            {
-                MessageBox.Show("Ikke flere øvelser! :-)");
+                if (CurrentExerciseID < _exerciseList.Count-1)
+                {
+                    CurrentExerciseID++;
+                    welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+                    setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+                    repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+                    exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+                    videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+                }
+                else
+                {
+                    MessageBox.Show("Træning gennemført! Godt gået :-)");
+                    this.Close();
+                    _homeWindow.Show();
+                }
             }
         }
 
@@ -133,6 +115,27 @@ namespace ReFitPatientCore
                 exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
+        }
+
+        private void exercisepackageCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _exerciseList = new List<Exercise>();
+            CurrentExerciseID = 0;
+            foreach (var item in _patient.ExercisePackages)
+            {
+                if (Convert.ToString(exercisepackageCB.SelectedItem) == item.Name)
+                {
+                    foreach (var itemm in item.Exercises)
+                    {
+                        _exerciseList.Add(itemm);
+                    }
+                }
+            }
+            //welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+            //setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+            //repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+            //exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+            //videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
         }
         private void ExerciseWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
