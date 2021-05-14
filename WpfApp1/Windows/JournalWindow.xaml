@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="JournalWindow" Height="530" Width="265" FontSize="16">
+        Title="JournalWindow" Height="530" Width="265" FontSize="16"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="JournalWindow_OnMouseDown">
+
     <ScrollViewer>
         <Grid>
             <Grid.Resources>
@@ -21,8 +26,46 @@
                 <ComboBox x:Name="journalCB" SelectionChanged="journalCB_SelectionChanged">
                 </ComboBox>
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="DagbogL" Content="Dagbog:" Margin="0,20,0,0"/>
-                    <Button x:Name="editB" Content="Rediger" Width="65" Margin="85,20,0,0" Click="editB_Click"/>
+                    
+                    <TextBlock x:Name="DagbogTB" 
+                               Text="Dagbog" 
+                               Margin="10,10,0,0" 
+                               Foreground="Black"
+                               FontSize="20"
+                               FontFamily="Fonts/#Dosis"
+                               FontWeight="Medium"
+                               VerticalAlignment="Top"/>
+                    <Button x:Name="editB" Content="Rediger"   Margin="80,20,0,0"
+                            Click="editB_Click"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium" Width="65">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#FF2E4F7B"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF1D2F47"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="65" Height="27"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
                 </StackPanel>
                 <TextBlock x:Name="journalinfoLabel" Text="Dagbogsinfo" Width="180" Margin="0,0,30,0"/>
                 <TextBlock x:Name="JournalinfoTB" TextWrapping="Wrap" Height="360" />

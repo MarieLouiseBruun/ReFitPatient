@@ -20,9 +20,7 @@
             <StackPanel Grid.ColumnSpan="2" Margin="10,0,10,0">
                 <Button x:Name="backB" Background="{StaticResource AddButtonImageBrush}" Height="30" Width="30" HorizontalAlignment="Left" Click="backB_Click"/>
                 <ComboBox x:Name="exercisepackageCB">
-                    <ComboBoxItem>Albue</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">Knæalloplastik</ComboBoxItem>
-                    <ComboBoxItem>Tå</ComboBoxItem>
+                    
                 </ComboBox>
                 <Label x:Name="exercise1L" Content="Øvelse 1" />
                 <TextBlock x:Name="welcomeL" Text="Beskrivelse &#10;God træning :-) " Margin="5,0,0,0" />

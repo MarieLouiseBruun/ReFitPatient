@@ -134,5 +134,14 @@ namespace ReFitPatientCore
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
         }
+        private void ExerciseWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+
+        }
     }
 }
