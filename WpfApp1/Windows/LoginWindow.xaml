@@ -5,9 +5,197 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="530" Width="265" FontSize="16">
-
+        Title="LoginWindow" 
+        Height="530" 
+        Width="265" 
+        FontSize="16"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="LoginWindow_OnMouseDown">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Row="0">
+            <Image x:Name="LogoImage" 
+                   Margin="45,0,45,0" 
+                   Stretch="Fill"
+                   Source="/Images/Logo.jpg"/> 
+                   
+            </Grid>
+
+        <Grid Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--<StackPanel Orientation="Horizontal"-->
+                            <!--Margin="0,0,0,20">-->
+               
+                <!--<TextBlock Text="Refit"
+                               Foreground="White"
+                               FontSize="20"
+                               FontWeight="Medium"
+                               VerticalAlignment="Center"
+                               FontFamily="Fonts/#Dosis"
+                               Margin="30,0,0,0"/>-->
+            <!--</StackPanel>-->
+
+            <Grid Grid.Row="2">
+
+
+                <TextBlock Text="CPR"
+                           Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                           TextWrapping="Wrap"
+                           Margin="30,40,130,215"/>
+
+                <TextBox x:Name="cprTB" 
+                         HorizontalAlignment="Left" 
+                         Height="26" 
+                         FontSize="16"
+                         FontWeight="Medium"
+                         FontFamily="Fonts/#Dosis"
+                         TextWrapping="Wrap" 
+                         Width="200" 
+                         GotFocus="cprTB_GotFocus"
+                         Margin="30,50,0,184"/>
+
+                <TextBlock Text="Password"
+                           Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                           TextWrapping="Wrap"
+                           Margin="30,100,130,148"/>
+
+                <PasswordBox x:Name="pwPB" 
+                             HorizontalAlignment="Left" 
+                             VerticalAlignment="Top" 
+                             Width="200" 
+                             Height="26" 
+                             PasswordChanged="pwPB_PasswordChanged"
+                             Margin="30,120,0,0" />
+
+                <TextBox x:Name="pwTB" 
+                         HorizontalAlignment="Left" 
+                         Height="26" 
+                         TextWrapping="Wrap" 
+                         VerticalAlignment="Top" 
+                         Margin="30,120,0,0"
+                         Width="200"/>
+
+                <Button x:Name="loginB" Content="Login"  
+                        Click="loginB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        HorizontalAlignment="Left"
+                        Margin="30,156,0,66">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="115" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <Image x:Name="ShowHideImg" 
+                       Margin="320,114,140,122" 
+                       Stretch="Fill"
+                       Source="/Images/Show.JPG" 
+                       MouseDown="ShowHideImg_MouseDown" 
+                       RenderTransformOrigin="1.207,0.275"/>
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+
+
+        <!--<Grid 
+              Grid.RowSpan="2"
+              Margin="188,-466,-938,161"
+              Panel.ZIndex="-1">
+
+            <Grid.RenderTransform>
+                <RotateTransform Angle="45"/>
+            </Grid.RenderTransform>
+            <StackPanel Orientation="Horizontal"
+                        Margin="-350,250,-255,-250">
+
+                <StackPanel>
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF4881CC"
+                            Margin="150,0,0,0"
+                            CornerRadius="20"/>
+
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF827447"
+                            Margin="0,15,0,0"
+                            CornerRadius="20"/>
+
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF2E4F7B"
+                            Margin="75,15,0,0"
+                            CornerRadius="20"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF4881CC"
+                            Margin="150,0,0,0"
+                            CornerRadius="20"/>
+
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF827447"
+                            Margin="0,15,0,0"
+                            CornerRadius="20"/>
+
+                    <Border Width="700"
+                            Height="35"
+                            Background="#FF2E4F7B"
+                            Margin="75,15,0,0"
+                            CornerRadius="20"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>-->
+    <!--</Grid>-->
+
+
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -26,11 +214,8 @@
                 <Label x:Name="showPwL" Content="Vis password:" HorizontalAlignment="Left" Margin="55,0,0,0"/>
                 <CheckBox x:Name="showPWCB" Margin="26,7,0,0" Unchecked="showPWCB_UnChecked" Checked="showPWCB_Checked"/>
             </StackPanel>
-            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,0,0,0" Click="loginB_Click"/>
+            <Button x:Name="loginB" Content="Login" Width="80" Margin="0,0,0,0" Click="loginB_Click"/>-->
 
-
-
-
-        </StackPanel>
+        <!--</StackPanel>-->
     </Grid>
 </Window>

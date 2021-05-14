@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,9 @@ namespace ReFitPatientCore
         private LoginControl _loginControl;
         private HomeWindow _homeWindow;
         private Patient _patient;
+        private ValidateLogin _validateLogin;
+        private string _currentDirectory;
+        private bool _passwordIsVisible;
         public LoginWindow()
         {
             _loginControl = new LoginControl();
@@ -65,11 +69,69 @@ namespace ReFitPatientCore
             pwTB.Visibility = Visibility.Visible;
 
         }
-        private void showPWCB_UnChecked(object sender, RoutedEventArgs e)
+
+        void ShowPassword()
         {
+            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Hide.JPG"));
+            pwTB.Text = pwPB.Password;
+            pwPB.Visibility = Visibility.Collapsed;
+            pwTB.Visibility = Visibility.Visible;
+        }
+        void HidePassword()
+        {
+            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
             pwPB.Password = pwTB.Text;
-            pwPB.Visibility = Visibility.Visible;
             pwTB.Visibility = Visibility.Collapsed;
+            pwPB.Visibility = Visibility.Visible;
+        }
+
+        //private void showPWCB_UnChecked(object sender, RoutedEventArgs e)
+        //{
+        //    pwPB.Password = pwTB.Text;
+        //    pwPB.Visibility = Visibility.Visible;
+        //    pwTB.Visibility = Visibility.Collapsed;
+        //}
+        private void SetSelection(PasswordBox passwordBox, int start, int length)
+        {
+            passwordBox.GetType().GetMethod("Select", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(passwordBox, new object[] { start, length });
+        }
+        private void pwPB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (pwPB.Password.Length > 0)
+                ShowHideImg.Visibility = Visibility.Visible;
+            else
+                ShowHideImg.Visibility = Visibility.Hidden;
+        }
+        
+        private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void ShowHideImg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!_passwordIsVisible)
+            {
+                ShowPassword();
+                _passwordIsVisible = true;
+                pwTB.Focus();
+                pwTB.SelectionStart = pwTB.Text.Length;
+            }
+            else
+            {
+                HidePassword();
+                _passwordIsVisible = false;
+                pwPB.Focus();
+                SetSelection(pwPB, pwPB.Password.Length, 0);
+            }
+        }
+
+        private void cprTB_GotFocus(object sender, RoutedEventArgs e)
+        {
+            cprTB.SelectAll();
         }
     }
 }
