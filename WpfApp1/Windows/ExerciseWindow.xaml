@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="ExerciseWindow"  Height="530" Width="265" FontSize="16">
+        Title="ExerciseWindow"  Height="530" Width="265" FontSize="16"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="ExerciseWindow_OnMouseDown">
+
     <ScrollViewer>
         <Grid>
             <Grid.Resources>
@@ -22,22 +27,151 @@
                 <ComboBox x:Name="exercisepackageCB">
                     
                 </ComboBox>
-                <Label x:Name="exercise1L" Content="Øvelse 1" />
-                <TextBlock x:Name="welcomeL" Text="Beskrivelse &#10;God træning :-) " Margin="5,0,0,0" />
-                    <WebBrowser x:Name ="browserWB" Height="300" Width="250" />
-                    <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
+                
+                <TextBlock Text="Øvelse 1"
+                           Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,0"/>
+                <TextBlock Text="Beskrivelse &#10;God træning :-)"
+                           Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                           TextWrapping="Wrap"
+                           Margin="0,0,0,0"/>    
+                <WebBrowser x:Name ="browserWB" Height="300" Width="250" />
+                <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="repetitionsL" Content="Gentagelser:" />
-                    <Label x:Name="repNumberL" Content="12"/>
+                    <TextBlock x:Name="GentagelserTB" Text="Gentagelser:"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,0"/>
+                    <TextBlock Text="12"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,0"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label x:Name="setL" Content="Set:" />
-                    <Label x:Name="setNUmberL" Content="3"/>
+                    <TextBlock x:Name="setTB"
+                               Text="Set:"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,0"/>
+                    <TextBlock x:Name="setNumberTB"
+                               Text="3"
+                               Foreground="Black"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               FontFamily="Fonts/#Dosis"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,0"/>
                 </StackPanel>
-                <Button x:Name="addCommentB" Content="Tilføj kommentar" Width="180" Click="addCommentB_Click"/>
+                <Button x:Name="addCommentB" Content="Tilføj kommentar"   Margin="80,20,0,0"
+                        Click="addCommentB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="180">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="65" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="lastExerciseB" Content="Forrige øvelse" Width="100" Click="lastExerciseB_Click"/>
-                    <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="100" Click="nextExerciseB_Click"/>
+                    <Button x:Name="lastExerciseB" Content="Forrige øvelse"   Margin="0,0,0,0"
+                            Click="lastExerciseB_Click"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium" Width="100">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#FF2E4F7B"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF1D2F47"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="65" Height="27"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                    <Button x:Name="nextExerciseB" Content="Næste øvelse"   Margin="0,0,0,0"
+                            Click="nextExerciseB_Click"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium" Width="100">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#FF2E4F7B"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF1D2F47"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="65" Height="27"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
 
                 </StackPanel>
 
