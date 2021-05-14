@@ -26,7 +26,7 @@
 
 
         <Grid Grid.Row="1">
-            <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
+            <StackPanel Grid.ColumnSpan="2" Margin="0,20,0,0">
                 <TextBlock x:Name="welcomeL" Text="" TextWrapping="Wrap"  Width="auto" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,20,0,0"/>
                 <Button x:Name="viewExercisesB" Content="Se øvelser"   Margin="0,0,0,0"
                         Click="viewExercisesB_Click"
