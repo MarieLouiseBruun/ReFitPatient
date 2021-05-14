@@ -129,5 +129,10 @@ namespace ReFitPatientCore
                 SetSelection(pwPB, pwPB.Password.Length, 0);
             }
         }
+
+        private void cprTB_GotFocus(object sender, RoutedEventArgs e)
+        {
+            cprTB.SelectAll();
+        }
     }
 }
