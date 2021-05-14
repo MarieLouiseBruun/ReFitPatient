@@ -71,7 +71,7 @@ namespace ReFitPatientCore
             _updateJournalControl.SaveNewJournalData(newJournal);
             this.Close();
             _journalWindow.Show();
-            var list = _patient.Journals.OrderByDescending(x => x.JournalDate.Date).ToList();
+            var list = _patient.Journals.OrderBy(x => x.JournalDate.Date).ToList();
             _journalWindow.JournalinfoTB.Text = "";
             foreach (var item in list)
             {
