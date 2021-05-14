@@ -68,7 +68,6 @@ namespace ReFitPatientCore
             { 
                 if ((string) journalCB.SelectedItem == item.JournalType)
                 {
-                    //jeg ved ikke om dette virker, da vi skal have flere ting ind i databasen for at tjekke
                     this.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
                                                         + "\r\n" + "Generelt: " +
                                                         Convert.ToString(item.GeneralComment) + "\r\n"

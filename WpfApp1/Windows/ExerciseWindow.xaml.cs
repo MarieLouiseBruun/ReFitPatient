@@ -33,7 +33,6 @@ namespace ReFitPatientCore
         private List<Exercise> _exerciseList;
         private List<ExercisePackage> _exercisePackage;
         private int CurrentExerciseID;
-        private int exercisenumber = 0;
         private string videopath;
 
         public ExerciseWindow(HomeWindow homewindow, Patient patient)
@@ -51,9 +50,20 @@ namespace ReFitPatientCore
             //welcomeL.Text = _exercisePackage[exercisenumber].Name;
             //repNumberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Repetitions.ToString();
             //setNUmberL.Content = _exercisePackage[exercisenumber].ExerciseID[exercisenumber].Sets.ToString();
-
-
             browserWB.Visibility = Visibility.Collapsed;
+            if (exercisepackageCB.SelectedItem.ToString() == _patient.ExercisePackages.ToString())
+            {
+                foreach (var item in _patient.ExercisePackages)
+                {
+                    if (exercisepackageCB.SelectedItem.ToString() == _patient.ExercisePackages.ToString())
+                    {
+                        foreach (var itemm in item.Exercises)
+                        {
+                            _exerciseList.Add(itemm);
+                        }
+                    }
+                }
+            }
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -93,14 +103,36 @@ namespace ReFitPatientCore
 
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
         {
-            CurrentExerciseID++;
+            if (_exerciseList[CurrentExerciseID].Hide == false)
+            {
+                CurrentExerciseID++;
+                welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+                setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+                repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+                exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+                videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+                //Måske initialize component?
+                //Hvis nu den loader siden igen, men den her gang med næste øvelse i rækken!!
+                //Jeg ved ikke helt hvad man så skal når man er færdig :) 
+                //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis) - Enig :-)
+            }
+            else
+            {
+                MessageBox.Show("Ikke flere øvelser! :-)");
+            }
+        }
 
-            //Måske initialize component?
-            //Hvis nu den loader siden igen, men den her gang med næste øvelse i rækken!!
-            //Jeg ved ikke helt hvad man så skal når man er færdig :) 
-            //Det kunne være smart hvis den viste, hvor man var nået (exercise 1/5 eksempelvis) - Enig :-)
-
-          
+        private void lastExerciseB_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentExerciseID > 0)
+            {
+                CurrentExerciseID--;
+                welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+                setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+                repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+                exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+                videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            }
         }
     }
 }
