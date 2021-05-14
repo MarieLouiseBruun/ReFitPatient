@@ -19,9 +19,9 @@
 
             <StackPanel Grid.ColumnSpan="2" Margin="10,0,10,0">
                 <Button x:Name="backB" Background="{StaticResource AddButtonImageBrush}" Height="30" Width="30" HorizontalAlignment="Left" Click="backB_Click"/>
-                <ComboBox x:Name="exercisepackageCB">
+                <ComboBox x:Name="exercisepackageCB" SelectionChanged="exercisepackageCB_SelectionChanged">
                     <ComboBoxItem>Albue</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">Knæalloplastik</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">Knæ</ComboBoxItem>
                     <ComboBoxItem>Tå</ComboBoxItem>
                 </ComboBox>
                 <Label x:Name="exercise1L" Content="Øvelse 1" />
@@ -39,7 +39,7 @@
                 <Button x:Name="addCommentB" Content="Tilføj kommentar" Width="180" Click="addCommentB_Click"/>
                 <StackPanel Orientation="Horizontal">
                     <Button x:Name="lastExerciseB" Content="Forrige øvelse" Width="100" Click="lastExerciseB_Click"/>
-                    <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="100" Margin="26,0,0,0" Click="nextExerciseB_Click"/>
+                    <Button x:Name="nextExerciseB" Content="Næste øvelse" Width="100" Click="nextExerciseB_Click"/>
 
                 </StackPanel>
 
