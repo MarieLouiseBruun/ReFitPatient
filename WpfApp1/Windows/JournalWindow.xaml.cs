@@ -60,7 +60,7 @@ namespace ReFitPatientCore
 
         private void journalCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var list = _patient.Journals.OrderByDescending(x => x.JournalDate.Date).ToList();
+            var list = _patient.Journals.OrderByDescending(x => x.JournalID).ToList();
             this.JournalinfoTB.Text = "";
             foreach (var item in list)
             { 
