@@ -10,7 +10,6 @@ namespace ReFitPatientBusiness
 {
     public class LoginControl
     {
-        private ValidateLogin _validateLogin;
         private Patient _patient;
         private LoadDatabase _loadDatabase;
         private List<ExercisePackage> _packageList;
@@ -20,41 +19,15 @@ namespace ReFitPatientBusiness
 
         public LoginControl()
         {
-            _validateLogin = new ValidateLogin();
             _loadDatabase = new LoadDatabase();
         }
         public bool LoginButtonIsPressed(string SSN, string Password)
         {
-            if (_validateLogin.CheckSSN(SSN))
+            if (CheckSSN(SSN))
             {
 
                 if (_loadDatabase.ValidateLogin(SSN, Password))
                 {
-
-                    //Tror det her skal slettes hehe :)
-
-                    //Spørgsmålet er, hvorvidt det skal placeres her, eller i homewindow eller et andet sted, så det kommer
-                    //med videre rundt i forløbet i programmet. :)
-
-                    //_patient = _loadDatabase.LoadPatientInfo(SSN);
-                    //foreach (var item in _patient.PackageList)
-                    //{
-                    //    _exercisePackage = _loadDatabase.LoadPackageInfo(item.ExercisePackageID);
-                    //    _packageList.Add(_exercisePackage);
-                    //}
-
-
-                    //foreach (var item in _packageList)
-                    //{
-                    //    foreach (var exercise in item.ExerciseList)
-                    //    {
-                    //        _exercise = _loadDatabase.LoadExerciseInfo(exercise.ExerciseID);
-                    //        _exerciseList.Add(_exercise);
-                    //    }
-                    //}
-
-
-
                     return true;
                 }
                 else
@@ -70,6 +43,17 @@ namespace ReFitPatientBusiness
         public Patient GetPatientInfo(string ssr, string pw)
         {
             return _loadDatabase.LoadPatientInfo(ssr, pw);
+        }
+        public bool CheckSSN(string SSN)
+        {
+            if (SSN.Length == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

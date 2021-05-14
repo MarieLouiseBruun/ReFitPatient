@@ -17,9 +17,7 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    
     public partial class ExerciseWindow : Window
     {
         private ExerciseControl _exerciseControl;
@@ -70,12 +68,14 @@ namespace ReFitPatientCore
             browserWB.Visibility = Visibility.Visible;
             playB.Visibility = Visibility.Collapsed;
             //Her skal den navigere til den video, der viser øvelsen
-            _exerciseControl.PlayIsPressed();
 
             //Indsæt string herunder!!
 
             //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
             //Hvornår henter vi nye exercise??
+            //exercises hentes når patienten logger ind. 
+            //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også
+            //er i.
             videopath = "https://www.youtube.com/v/dQw4w9WgXcQ?start=0";
             browserWB.Navigate(videopath);
 
@@ -84,7 +84,7 @@ namespace ReFitPatientCore
 
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
         {
-            //if (_exerciseList[CurrentExerciseID].Hide == false)
+            if (_exerciseList[CurrentExerciseID].Hide == false)
             {
                 if (CurrentExerciseID < _exerciseList.Count-1)
                 {
@@ -131,11 +131,11 @@ namespace ReFitPatientCore
                     }
                 }
             }
-            welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
-            setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
-            repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
-            exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
-            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            //welcomeL.Text = _exerciseList[CurrentExerciseID].Description;
+            //setNUmberL.Content = _exerciseList[CurrentExerciseID].Sets;
+            //repNumberL.Content = _exerciseList[CurrentExerciseID].Repetitions;
+            //exercise1L.Content = _exerciseList[CurrentExerciseID].ExerciseID;
+            //videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
         }
     }
 }

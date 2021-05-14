@@ -24,7 +24,6 @@ namespace ReFitPatientCore
     {
         private AddToJournalWindow _addToJournalWindow;
         public Journal _journal { get; set; }
-        private ReturnController _returnController;
         private HomeWindow _homeWindow;
         private Patient _patient;
         private UpdateJournalControl _journalControl;
@@ -34,7 +33,6 @@ namespace ReFitPatientCore
             _patient = patient;
             _journal = journal;
             _homeWindow = window;
-            _returnController = new ReturnController();
             _journalControl = new UpdateJournalControl(patient, journal);
             InitializeComponent();
 

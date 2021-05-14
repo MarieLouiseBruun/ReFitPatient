@@ -26,10 +26,8 @@ namespace ReFitPatientCore
         private LoginControl _loginControl;
         private HomeWindow _homeWindow;
         private Patient _patient;
-        private ValidateLogin _validateLogin;
         public LoginWindow()
         {
-            _validateLogin = new ValidateLogin();
             _loginControl = new LoginControl();
             InitializeComponent();
             cprTB.Focus();
@@ -41,9 +39,9 @@ namespace ReFitPatientCore
             if(_loginControl.LoginButtonIsPressed(cprTB.Text, Convert.ToString(pwPB.Password)))
             {
                 _patient = _loginControl.GetPatientInfo(cprTB.Text, Convert.ToString(pwPB.Password));
-                        _homeWindow = new HomeWindow(_patient);
-                        _homeWindow.Show();
-                        this.Close();
+                    _homeWindow = new HomeWindow(_patient);
+                    _homeWindow.Show();
+                    this.Close();
             }
             else
             {

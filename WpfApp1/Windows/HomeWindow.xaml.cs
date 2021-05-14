@@ -60,6 +60,7 @@ namespace ReFitPatientCore
             //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
             System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
             Application.Current.Shutdown();
+            //_logoutControl.LogoutIsPressed();
         }
 
         private void journalB_Click(object sender, RoutedEventArgs e)
@@ -67,7 +68,6 @@ namespace ReFitPatientCore
             this.Hide();
             _journalWindow = new JournalWindow(this, _journal, _patient);
             _journalWindow.Show();
-            _updateJournalControl.PrintJournal();
 
         }
 
@@ -76,9 +76,6 @@ namespace ReFitPatientCore
             _exerciseWindow = new ExerciseWindow(this, _patient);
             _exerciseWindow.Show();
             this.Hide();
-            
-            
-            //_exerciseControl.WatchExerciseIsPressed();
         }
 
         private void intervalB_Click(object sender, RoutedEventArgs e)
