@@ -27,7 +27,6 @@ namespace ReFitPatientCore
         private LoginControl _loginControl;
         private HomeWindow _homeWindow;
         private Patient _patient;
-        private ValidateLogin _validateLogin;
         private string _currentDirectory;
         private bool _passwordIsVisible;
         public LoginWindow()
