@@ -20,7 +20,11 @@
         </Grid.RowDefinitions>
 
         <Grid Row="0">
-            
+            <Image x:Name="LogoImage" 
+                   Margin="45,0,45,0" 
+                   Stretch="Fill"
+                   Source="/Images/Logo.jpg"/> 
+                   
             </Grid>
 
         <Grid Row="1">
@@ -28,22 +32,22 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal"
-                            Margin="0,0,0,20">
+            <!--<StackPanel Orientation="Horizontal"-->
+                            <!--Margin="0,0,0,20">-->
                
-                <TextBlock Text="Refit"
+                <!--<TextBlock Text="Refit"
                                Foreground="White"
                                FontSize="20"
                                FontWeight="Medium"
                                VerticalAlignment="Center"
                                FontFamily="Fonts/#Dosis"
-                               Margin="30,0,0,0"/>
-            </StackPanel>
+                               Margin="30,0,0,0"/>-->
+            <!--</StackPanel>-->
 
             <Grid Grid.Row="2">
 
 
-                <TextBlock Text="Brugernavn"
+                <TextBlock Text="CPR"
                            Foreground="Black"
                            FontSize="15"
                            FontWeight="Medium"
@@ -51,8 +55,7 @@
                            TextWrapping="Wrap"
                            Margin="30,40,130,215"/>
 
-                <TextBox x:Name="UsernameTB" 
-                         Text="Brugernavn eller email" 
+                <TextBox x:Name="cprTB" 
                          HorizontalAlignment="Left" 
                          Height="26" 
                          FontSize="16"
@@ -60,7 +63,7 @@
                          FontFamily="Fonts/#Dosis"
                          TextWrapping="Wrap" 
                          Width="200" 
-                         GotFocus="UsernameTB_GotFocus"
+                         GotFocus="cprTB_GotFocus"
                          Margin="30,50,0,184"/>
 
                 <TextBlock Text="Password"
@@ -71,15 +74,15 @@
                            TextWrapping="Wrap"
                            Margin="30,100,130,148"/>
 
-                <PasswordBox x:Name="PasswordPB" 
+                <PasswordBox x:Name="pwPB" 
                              HorizontalAlignment="Left" 
                              VerticalAlignment="Top" 
                              Width="200" 
                              Height="26" 
-                             PasswordChanged="PasswordPB_PasswordChanged"
+                             PasswordChanged="pwPB_PasswordChanged"
                              Margin="30,120,0,0" />
 
-                <TextBox x:Name="passwordTxtBox" 
+                <TextBox x:Name="pwTB" 
                          HorizontalAlignment="Left" 
                          Height="26" 
                          TextWrapping="Wrap" 
@@ -87,8 +90,8 @@
                          Margin="30,120,0,0"
                          Width="200"/>
 
-                <Button x:Name="LoginB" Content="Login"  
-                        Click="LoginB_Click"
+                <Button x:Name="loginB" Content="Login"  
+                        Click="loginB_Click"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium"
