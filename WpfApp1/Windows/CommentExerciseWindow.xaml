@@ -5,15 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="CommentExerciseWindow" Height="240" Width="265" FontSize="16">
-    <Grid Background="CadetBlue">
+        Title="CommentExerciseWindow" Height="240" Width="265" FontSize="16"   WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="CommentExerciseWindow_OnMouseDown">
+    <Grid >
         <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
-            <Label x:Name="kommentarL" Content="Kommentar til øvelse:" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+            <Label x:Name="kommentarL" Foreground="Black"
+                   FontSize="15"
+                   FontWeight="Medium"
+                   FontFamily="Fonts/#Dosis"
+                   Content="Kommentar til øvelse:" HorizontalAlignment="Center" Margin="0,5,0,0"/>
             <TextBox x:Name="kommentarTB" Width="250" Height="125" TextWrapping="Wrap" />
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="gemB" Content="Gem" Width="80" Margin="30,15,0,0" Click="gemB_Click"/>
+                <Button x:Name="gemB" Content="Gem"   Margin="20,20,20,0"
+                        Click="gemB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="100">
 
-                <Button x:Name="annullerB" Content="Annuller" Width="80" Margin="30,15,0,0" Click="annullerB_Click"/>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="100" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+                <Button x:Name="annullerB" Content="Annuller"   Margin="0,20,20,0"
+                        Click="annullerB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="100">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="100" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>

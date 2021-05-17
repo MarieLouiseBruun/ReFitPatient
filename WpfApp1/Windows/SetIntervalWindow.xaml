@@ -5,17 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="SetIntervalWindow" Height="530" Width="265" FontSize="16">
+        Title="SetIntervalWindow" Height="530" Width="265" FontSize="16"   WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="SetIntervalWindow_OnMouseDown">
 
     <Grid>
         <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,0">
-            <Image Source="/Images/Billede1.png" Height="180" Margin="0,0,10,0"/>
-            <Label x:Name="interalL" Content="Dagsinterval mellem træning:" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <Image Source="/Images/Logo.jpg" Height="180" Margin="0,0,10,0"/>
+            <Label x:Name="interalL" Content="Dagsinterval mellem træning:" Foreground="Black"
+                   FontSize="15"
+                   FontWeight="Medium"
+                   FontFamily="Fonts/#Dosis"
+                   HorizontalAlignment="Center" Margin="0,20,0,0"/>
             <TextBox x:Name="intervalTB" Width="150" Height="100" />
             <StackPanel Orientation="Horizontal">
-    <Button x:Name="gemB" Content="Gem" Width="80" Margin="30,15,0,0" Click="gemB_Click"/>
+    <Button x:Name="gemB" Content="Gem"   Margin="50,20,0,20"
+            Click="gemB_Click"
+            Foreground="White"
+            FontSize="14"
+            FontWeight="Medium" Width="80">
 
-    <Button x:Name="annullerB" Content="Annuller" Width="80" Margin="30,15,0,0" Click="annullerB_Click"/>
+        <Button.Style>
+            <Style TargetType="Button">
+                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                <Setter Property="Background" Value="#FF2E4F7B"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FF1D2F47"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Button.Style>
+
+        <Button.Template>
+            <ControlTemplate TargetType="Button">
+                <Border Width="80" Height="27"
+                        CornerRadius="12"
+                        Background="{TemplateBinding Background}">
+                    <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+
+    </Button>
+                <Button x:Name="annullerB" Content="Annuller"   Margin="0,20,0,20"
+                        Click="annullerB_Click"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium" Width="80">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                            <Setter Property="Background" Value="#FF2E4F7B"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF1D2F47"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="80" Height="27"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
             </StackPanel>
             
 
