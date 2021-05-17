@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Hide.JPG" />
     <None Remove="Images\Logo.jpg" />
+    <None Remove="Images\Show.JPG" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,8 +30,10 @@
 
   <ItemGroup>
     <Resource Include="Images\Billede1.png" />
+    <Resource Include="Images\Hide.JPG" />
     <Resource Include="Images\Logo.jpg" />
     <Resource Include="Images\play.png" />
+    <Resource Include="Images\Show.JPG" />
     <Resource Include="Images\tilbage.png" />
   </ItemGroup>
 

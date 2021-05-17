@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReFitPatientCore"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="530" Width="265" FontSize="16">
+        Title="MainWindow"  Height="530" Width="265" FontSize="16"   WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#FFCEDCE2"
+        MouseDown="AddToJournalWindow_OnMouseDown">
     <ScrollViewer>
         <Grid>
             <Grid.Resources>
@@ -20,26 +23,111 @@
                     <Button x:Name="backB" Margin="0,0,0,0" Background="{StaticResource AddButtonImageBrush}" Height="30" Width="30" HorizontalAlignment="Left" Click="backB_Click"/>
                     <Label x:Name="overskriftL" Content="Type" Width="180" Margin="0,0,30,0"/>
                 </StackPanel>
-                <Label x:Name="scaleL" Content="Smerteskala" Width="180" Margin="0,0,30,0"/>
+                <Label x:Name="scaleL" Content="Smerteskala" Width="180" Foreground="Black"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis" Margin="0,0,60,0"/>
                 <TextBlock x:Name="scaleTB" TextWrapping="Wrap"  Margin="-0,0,0,0"/>
                 <Slider x:Name="painS" Cursor="None" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
 
 
-                <Label x:Name="vinkelL" Content="Vinkel" Width="180" Margin="0,0,30,0"/>
-                <TextBlock x:Name="vinkelTBL" Text="Hvad vinkel kan du bøje din knæ i"/>
+                <Label x:Name="vinkelL" Content="Vinkel" Width="180" Foreground="Black"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                       Margin="0,0,60,0"/>
+                <TextBlock x:Name="vinkelTBL" Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                           TextWrapping="Wrap" Text="Hvad vinkel kan du bøje din knæ i"/>
                 <TextBox x:Name="vinkelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
 
-                <Label x:Name="generelL" Content="Generel kommentar" Width="180" Margin="0,0,30,0"/>
-                <TextBlock x:Name="generelTBL" TextWrapping="Wrap" Text="Har du noget om dit generelle helbred du vil nævne eller til nogle af øvelserne?"/>
+                <Label x:Name="generelL" Foreground="Black"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                        Content="Generel kommentar" Width="180" Margin="0,0,60,0"/>
+                <TextBlock x:Name="generelTBL" Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis"
+                            TextWrapping="Wrap" Text="Har du noget om dit generelle helbred du vil nævne eller til nogle af øvelserne?"/>
                 <TextBox x:Name="generelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
 
-                <Label x:Name="medicineL" Content="Medicinindtag" Width="180" Margin="0,0,30,0"/>
-                <TextBlock x:Name="medicinTBL" TextWrapping="Wrap" Text="Hvilke præparater har du taget siden sidst og hvor mange af hver?"/>
+                <Label x:Name="medicineL" Foreground="Black"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                       Content="Medicinindtag" Width="180" Margin="0,0,60,0"/>
+                <TextBlock x:Name="medicinTBL" Foreground="Black"
+                           FontSize="15"
+                           FontWeight="Medium"
+                           FontFamily="Fonts/#Dosis" TextWrapping="Wrap" Text="Hvilke præparater har du taget siden sidst og hvor mange af hver?"/>
                 <TextBox x:Name="medicinTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="gemB" Content="Gem" Width="80" Margin="0,0,0,0" Click="gemB_Click"/>
+                    <Button x:Name="gemB" Content="Gem"   Margin="10,20,0,0"
+                            Click="gemB_Click"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium" Width="80">
 
-                    <Button x:Name="anullerB" Content="Annuller" Width="80" Margin="30,0,0,0" Click="AnnullerB_OnClick"/>
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#FF2E4F7B"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF1D2F47"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="65" Height="27"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                    <Button x:Name="anullerB" Content="Anuller"   Margin="0,20,0,0"
+                            Click="AnullerB_OnClick"
+                            Foreground="White"
+                            FontSize="14"
+                            FontWeight="Medium" Width="80">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="TextElement.FontFamily" Value="Fonts/#Dosis"/>
+                                <Setter Property="Background" Value="#FF2E4F7B"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FF1D2F47"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="65" Height="27"
+                                        CornerRadius="12"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

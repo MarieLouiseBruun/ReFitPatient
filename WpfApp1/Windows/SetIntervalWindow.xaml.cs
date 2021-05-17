@@ -53,5 +53,13 @@ namespace ReFitPatientCore
             this.Close();
             _homeWindow.Show();
         }
+
+        private void SetIntervalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
