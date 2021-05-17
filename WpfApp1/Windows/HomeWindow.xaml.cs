@@ -46,7 +46,7 @@ namespace ReFitPatientCore
             _updateJournalControl = new UpdateJournalControl(_patient, _journal);
             _exerciseControl = new ExerciseControl();
             _reminderControl = new TrainingReminderControl(patient);
-            
+
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
@@ -60,7 +60,7 @@ namespace ReFitPatientCore
             //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
             //Application.Current.Shutdown();
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            
+
             //_logoutControl.LogoutIsPressed();
         }
 

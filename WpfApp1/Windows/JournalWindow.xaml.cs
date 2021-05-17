@@ -54,7 +54,7 @@ namespace ReFitPatientCore
         private void editB_Click(object sender, RoutedEventArgs e)
         {
 
-            _addToJournalWindow = new AddToJournalWindow(this,_patient,_journalControl);
+            _addToJournalWindow = new AddToJournalWindow(this, _patient, _journalControl);
             _addToJournalWindow.Show();
         }
 
@@ -63,8 +63,8 @@ namespace ReFitPatientCore
             var list = _patient.Journals.OrderByDescending(x => x.JournalID).ToList();
             this.JournalinfoTB.Text = "";
             foreach (var item in list)
-            { 
-                if ((string) journalCB.SelectedItem == item.JournalType)
+            {
+                if ((string)journalCB.SelectedItem == item.JournalType)
                 {
                     //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
                     this.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
@@ -82,7 +82,7 @@ namespace ReFitPatientCore
         private void JournalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-            { 
+            {
                 DragMove();
             }
         }

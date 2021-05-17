@@ -17,7 +17,7 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
-    
+
     public partial class ExerciseWindow : Window
     {
         private ExerciseControl _exerciseControl;
@@ -43,7 +43,7 @@ namespace ReFitPatientCore
             {
                 exercisepackageCB.Items.Add(item.Name);
             }
-           exercisepackageCB.SelectedItem = exercisepackageCB.Items[0];
+            exercisepackageCB.SelectedItem = exercisepackageCB.Items[0];
         }
 
         private void backB_Click(object sender, RoutedEventArgs e)
@@ -88,7 +88,7 @@ namespace ReFitPatientCore
         {
             //if (_exerciseList[CurrentExerciseID].Hide == false)
             {
-                if (CurrentExerciseID < _exerciseList.Count-1)
+                if (CurrentExerciseID < _exerciseList.Count - 1)
                 {
                     CurrentExerciseID++;
                     DescriptionTB.Text = _exerciseList[CurrentExerciseID].Description;
@@ -118,7 +118,7 @@ namespace ReFitPatientCore
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
         }
-        
+
         private void ExerciseWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -131,23 +131,23 @@ namespace ReFitPatientCore
 
         private void exercisepackageCB_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-        _exerciseList = new List<Exercise>();
-        CurrentExerciseID = 0;
-        foreach (var item in _patient.ExercisePackages)
-        {
-            if (Convert.ToString(exercisepackageCB.SelectedItem) == item.Name)
+            _exerciseList = new List<Exercise>();
+            CurrentExerciseID = 0;
+            foreach (var item in _patient.ExercisePackages)
             {
-                foreach (var itemm in item.Exercises)
+                if (Convert.ToString(exercisepackageCB.SelectedItem) == item.Name)
                 {
-                    _exerciseList.Add(itemm);
+                    foreach (var itemm in item.Exercises)
+                    {
+                        _exerciseList.Add(itemm);
+                    }
                 }
             }
-        }
-        DescriptionTB.Text = _exerciseList[CurrentExerciseID].Description;
-        setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
-        RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
-        ExerciseTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].ExerciseID);
-        videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            DescriptionTB.Text = _exerciseList[CurrentExerciseID].Description;
+            setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
+            RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
+            ExerciseTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].ExerciseID);
+            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
         }
     }
 }

@@ -8,7 +8,7 @@ using ReFitPatientBusiness;
 
 namespace ReFitPatientBusiness
 {
-    public class LogoutControl
+    public class LogoutControl :ILogoutControl
     {
 
         public LogoutControl()

@@ -21,26 +21,26 @@
                     <Label x:Name="overskriftL" Content="Type" Width="180" Margin="0,0,30,0"/>
                 </StackPanel>
                 <Label x:Name="scaleL" Content="Smerteskala" Width="180" Margin="0,0,30,0"/>
-                    <TextBlock x:Name="scaleTB" TextWrapping="Wrap"  Margin="-0,0,0,0"/>
-                    <Slider x:Name="painS" Cursor="None" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
-                    
+                <TextBlock x:Name="scaleTB" TextWrapping="Wrap"  Margin="-0,0,0,0"/>
+                <Slider x:Name="painS" Cursor="None" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
 
-                    <Label x:Name="vinkelL" Content="Vinkel" Width="180" Margin="0,0,30,0"/>
-                    <TextBlock x:Name="vinkelTBL" Text="Hvad vinkel kan du bøje din knæ i"/>
-                    <TextBox x:Name="vinkelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
 
-                    <Label x:Name="generelL" Content="Generel kommentar" Width="180" Margin="0,0,30,0"/>
-                    <TextBlock x:Name="generelTBL" TextWrapping="Wrap" Text="Har du noget om dit generelle helbred du vil nævne eller til nogle af øvelserne?"/>
-                    <TextBox x:Name="generelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
+                <Label x:Name="vinkelL" Content="Vinkel" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="vinkelTBL" Text="Hvad vinkel kan du bøje din knæ i"/>
+                <TextBox x:Name="vinkelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
 
-                    <Label x:Name="medicineL" Content="Medicinindtag" Width="180" Margin="0,0,30,0"/>
-                    <TextBlock x:Name="medicinTBL" TextWrapping="Wrap" Text="Hvilke præparater har du taget siden sidst og hvor mange af hver?"/>
-                    <TextBox x:Name="medicinTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="gemB" Content="Gem" Width="80" Margin="0,0,0,0" Click="gemB_Click"/>
+                <Label x:Name="generelL" Content="Generel kommentar" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="generelTBL" TextWrapping="Wrap" Text="Har du noget om dit generelle helbred du vil nævne eller til nogle af øvelserne?"/>
+                <TextBox x:Name="generelTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
 
-                        <Button x:Name="anullerB" Content="Annuller" Width="80" Margin="30,0,0,0" Click="AnnullerB_OnClick"/>
-                    </StackPanel>
+                <Label x:Name="medicineL" Content="Medicinindtag" Width="180" Margin="0,0,30,0"/>
+                <TextBlock x:Name="medicinTBL" TextWrapping="Wrap" Text="Hvilke præparater har du taget siden sidst og hvor mange af hver?"/>
+                <TextBox x:Name="medicinTB" Width ="220" Height="60" TextWrapping="Wrap" Margin="0,0,30,0" />
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="gemB" Content="Gem" Width="80" Margin="0,0,0,0" Click="gemB_Click"/>
+
+                    <Button x:Name="anullerB" Content="Annuller" Width="80" Margin="30,0,0,0" Click="AnnullerB_OnClick"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </ScrollViewer>
