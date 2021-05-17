@@ -24,15 +24,14 @@ namespace ReFitPatientCore
     public partial class JournalWindow : Window
     {
         private AddToJournalWindow _addToJournalWindow;
-        public Journal _journal { get; set; }
         private HomeWindow _homeWindow;
         private Patient _patient;
         private UpdateJournalControl _journalControl;
 
-        public JournalWindow(HomeWindow window, Journal journal, Patient patient)
+        public JournalWindow(HomeWindow window, Patient patient)
         {
             _patient = patient;
-            _journal = journal;
+
             _homeWindow = window;
             _journalControl = new UpdateJournalControl(patient);
             InitializeComponent();

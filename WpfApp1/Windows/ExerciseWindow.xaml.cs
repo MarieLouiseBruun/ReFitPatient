@@ -56,7 +56,7 @@ namespace ReFitPatientCore
 
         private void addCommentB_Click(object sender, RoutedEventArgs e)
         {
-            _commentWindow = new CommentExerciseWindow();
+            _commentWindow = new CommentExerciseWindow(_patient);
             _commentWindow.ShowDialog();
         }
 

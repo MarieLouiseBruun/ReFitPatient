@@ -26,16 +26,12 @@ namespace ReFitPatientCore
 
         private ExerciseWindow _exerciseWindow;
         private JournalWindow _journalWindow;
-        private AddToJournalWindow _addToJournalWindow;
         private SetIntervalWindow _setIntervalWindow;
-        private CommentExerciseWindow _commentExerciseWindow;
-        private LoginWindow _loginWindow;
 
         private LogoutControl _logoutControl;
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
         private Patient _patient;
-        private Journal _journal;
         private TrainingReminderControl _reminderControl;
 
         public HomeWindow(Patient patient)
@@ -66,7 +62,7 @@ namespace ReFitPatientCore
         private void journalB_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _journalWindow = new JournalWindow(this, _journal, _patient);
+            _journalWindow = new JournalWindow(this, _patient);
             _journalWindow.Show();
 
         }

@@ -12,11 +12,6 @@ namespace ReFitPatientBusiness
     {
         private Patient _patient;
         private LoadDatabase _loadDatabase;
-        private List<ExercisePackage> _packageList;
-        private ExercisePackage _exercisePackage;
-        private Exercise _exercise;
-        private List<Exercise> _exerciseList;
-
         public LoginControl()
         {
             _loadDatabase = new LoadDatabase();

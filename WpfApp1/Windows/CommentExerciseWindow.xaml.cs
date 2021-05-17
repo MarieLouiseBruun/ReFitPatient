@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ReFitPatientBusiness;
+using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
@@ -21,9 +22,11 @@ namespace ReFitPatientCore
     public partial class CommentExerciseWindow : Window
     {
         private ExerciseControl _exerciseControl;
-        public CommentExerciseWindow()
+        private Patient _patient;
+        public CommentExerciseWindow(Patient patient)
         {
-            _exerciseControl = new ExerciseControl();
+            patient = _patient;
+            _exerciseControl = new ExerciseControl(_patient);
             InitializeComponent();
         }
 
