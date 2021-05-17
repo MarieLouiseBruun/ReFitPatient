@@ -80,6 +80,7 @@ namespace ReFitPatientCore
             //skal lige undersøge om det virker for real
             //videopath = "https://www.youtube.com/video?v=Xa0Swz3X1cQ"; 
             videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            browserWB.NavigateToString(NavigateToYoutube(videopath));
 
         }
 
