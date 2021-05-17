@@ -11,6 +11,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="#FFCEDCE2"
+        Closed="ExerciseWindow_OnClosed"
         MouseDown="ExerciseWindow_OnMouseDown">
 
     <ScrollViewer>

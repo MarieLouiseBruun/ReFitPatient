@@ -78,10 +78,20 @@ namespace ReFitPatientCore
             //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også er i.
 
             //skal lige undersøge om det virker for real
-            videopath = "https://www.youtube.com/watch?v=Xa0Swz3X1cQ";
-            browserWB.Navigate(videopath);
+            //videopath = "https://www.youtube.com/video?v=Xa0Swz3X1cQ"; 
+            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
 
+        }
 
+        private string NavigateToYoutube(string url)
+        {
+            string html = "<html><head>";
+            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            html +=
+                $"<iframe id='video' src= '{url}'  gesture='media' allow='encrypted - media' width='230' height='228' frameborder='0' allowfullscreen></iframe>";
+            html += "</body>>/html>";
+
+            return html;
         }
 
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
@@ -148,6 +158,11 @@ namespace ReFitPatientCore
             RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
             ExerciseTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].ExerciseID);
             videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+        }
+
+        private void ExerciseWindow_OnClosed(object? sender, EventArgs e)
+        {
+            browserWB.Process.Terminate();
         }
     }
 }
