@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -34,7 +35,12 @@ namespace ReFitPatientCore
             _loginControl = new LoginControl();
             InitializeComponent();
             cprTB.Focus();
-            pwTB.Visibility = Visibility.Collapsed;
+            pwTB.Visibility = Visibility.Hidden;
+            _passwordIsVisible = false;
+            ShowHideImg.Visibility = Visibility.Hidden;
+            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1", "");
+
+            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
         }
 
         private void loginB_Click(object sender, RoutedEventArgs e)
@@ -61,13 +67,13 @@ namespace ReFitPatientCore
         }
 
 
-        private void showPWCB_Checked(object sender, RoutedEventArgs e)
-        {
-            pwTB.Text = pwPB.Password;
-            pwPB.Visibility = Visibility.Collapsed;
-            pwTB.Visibility = Visibility.Visible;
+        //private void showPWCB_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    pwTB.Text = pwPB.Password;
+        //    pwPB.Visibility = Visibility.Collapsed;
+        //    pwTB.Visibility = Visibility.Visible;
 
-        }
+        //}
 
         void ShowPassword()
         {

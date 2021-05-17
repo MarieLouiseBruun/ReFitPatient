@@ -96,7 +96,7 @@
                         FontSize="14"
                         FontWeight="Medium"
                         HorizontalAlignment="Left"
-                        Margin="30,156,0,66"
+                        Margin="70,156,0,66"
                         IsDefault="True">
 
                     <Button.Style>
@@ -125,7 +125,7 @@
 
                 </Button>
                 <Image x:Name="ShowHideImg" 
-                       Margin="320,114,140,122" 
+                       Margin="184,122,40,147" 
                        Stretch="Fill"
                        Source="/Images/Show.JPG" 
                        MouseDown="ShowHideImg_MouseDown" 
