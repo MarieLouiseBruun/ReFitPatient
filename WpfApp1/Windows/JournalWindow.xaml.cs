@@ -34,7 +34,7 @@ namespace ReFitPatientCore
             _patient = patient;
             _journal = journal;
             _homeWindow = window;
-            _journalControl = new UpdateJournalControl(patient, journal);
+            _journalControl = new UpdateJournalControl(patient);
             InitializeComponent();
 
             foreach (var item in _patient.ExercisePackages)

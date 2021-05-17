@@ -8,7 +8,7 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientBusiness
 {
-    public class LoginControl
+    public class LoginControl : ILoginControl
     {
         private Patient _patient;
         private LoadDatabase _loadDatabase;

@@ -42,10 +42,9 @@ namespace ReFitPatientCore
         {
             _patient = patient;
             _logoutControl = new LogoutControl();
-            _patient = patient;
-            _updateJournalControl = new UpdateJournalControl(_patient, _journal);
-            _exerciseControl = new ExerciseControl();
-            _reminderControl = new TrainingReminderControl(patient);
+            _updateJournalControl = new UpdateJournalControl(_patient);
+            _exerciseControl = new ExerciseControl(_patient);
+            _reminderControl = new TrainingReminderControl(_patient);
             
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
