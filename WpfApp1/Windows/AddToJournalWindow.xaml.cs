@@ -89,9 +89,25 @@ namespace ReFitPatientCore
             }
         }
 
-        private void AnnullerB_OnClick(object sender, RoutedEventArgs e)
+        private void AnullerB_OnClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Er du sikker på du vil annullere?", "Cancel message", MessageBoxButton.YesNo);
+            String dialogResult = Convert.ToString(MessageBox.Show("Er du sikker på du vil annullere?", "Cancel message", MessageBoxButton.YesNo));
+            if (dialogResult == "Yes")
+            {
+                this.Hide();
+            }
+            else if (dialogResult == "No")
+            {
+                //do something else
+            }
+        }
+
+        private void AddToJournalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
