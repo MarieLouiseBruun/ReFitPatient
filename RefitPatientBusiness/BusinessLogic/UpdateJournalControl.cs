@@ -10,15 +10,17 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientBusiness
 {
-    public class UpdateJournalControl :IUpdateJournalControl
+    public class UpdateJournalControl
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
+        private Journal _journal;
         private Patient _patient;
 
-        public UpdateJournalControl(Patient patient)
+        public UpdateJournalControl(Patient patient, Journal journal)
         {
             _patient = patient;
+            _journal = journal;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase(_patient);
         }

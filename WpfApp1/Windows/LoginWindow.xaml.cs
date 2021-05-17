@@ -39,12 +39,12 @@ namespace ReFitPatientCore
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
-            if(_loginControl.LoginButtonIsPressed(cprTB.Text, Convert.ToString(pwPB.Password)))
+            if (_loginControl.LoginButtonIsPressed(cprTB.Text, Convert.ToString(pwPB.Password)))
             {
                 _patient = _loginControl.GetPatientInfo(cprTB.Text, Convert.ToString(pwPB.Password));
-                    _homeWindow = new HomeWindow(_patient);
-                    _homeWindow.Show();
-                    this.Close();
+                _homeWindow = new HomeWindow(_patient);
+                _homeWindow.Show();
+                this.Close();
             }
             else
             {
@@ -101,7 +101,7 @@ namespace ReFitPatientCore
             else
                 ShowHideImg.Visibility = Visibility.Hidden;
         }
-        
+
         private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -133,6 +133,6 @@ namespace ReFitPatientCore
             cprTB.SelectAll();
         }
 
-       
+
     }
 }

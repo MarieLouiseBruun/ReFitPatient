@@ -9,21 +9,22 @@ using ReFitPatientBusiness;
 
 namespace ReFitPatientBusiness
 {
-    public class ExerciseControl : IExerciseControl
+    public class ExerciseControl
     {
+        private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
-        private Patient _patient;
 
-        public ExerciseControl(Patient patient)
+
+        public ExerciseControl()
         {
-            _patient = patient;
-            _saveDatabase = new SaveDatabase(_patient);
+            _loadDatabase = new LoadDatabase();
         }
 
-        //Her skulle muligheden for at gemme en konkret kommentar til en øvelses implementeres
-        public void SaveIsPressed(string comment, int exerciseID)
-        {
-            _saveDatabase.SaveComment(comment, exerciseID);
-        }
+
+        //public void SaveIsPressed(string comment, int exerciseID)
+        //{
+        //    _saveDatabase.SaveComment(comment, exerciseID);
+        //    _exerciseWindow.CommentSaved();
+        //}
     }
 }

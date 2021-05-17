@@ -24,16 +24,17 @@ namespace ReFitPatientCore
     public partial class JournalWindow : Window
     {
         private AddToJournalWindow _addToJournalWindow;
+        public Journal _journal { get; set; }
         private HomeWindow _homeWindow;
         private Patient _patient;
         private UpdateJournalControl _journalControl;
 
-        public JournalWindow(HomeWindow window, Patient patient)
+        public JournalWindow(HomeWindow window, Journal journal, Patient patient)
         {
             _patient = patient;
-
+            _journal = journal;
             _homeWindow = window;
-            _journalControl = new UpdateJournalControl(patient);
+            _journalControl = new UpdateJournalControl(patient, journal);
             InitializeComponent();
 
             foreach (var item in _patient.ExercisePackages)
@@ -53,7 +54,7 @@ namespace ReFitPatientCore
         private void editB_Click(object sender, RoutedEventArgs e)
         {
 
-            _addToJournalWindow = new AddToJournalWindow(this,_patient,_journalControl);
+            _addToJournalWindow = new AddToJournalWindow(this, _patient, _journalControl);
             _addToJournalWindow.Show();
         }
 
@@ -62,8 +63,8 @@ namespace ReFitPatientCore
             var list = _patient.Journals.OrderByDescending(x => x.JournalID).ToList();
             this.JournalinfoTB.Text = "";
             foreach (var item in list)
-            { 
-                if ((string) journalCB.SelectedItem == item.JournalType)
+            {
+                if ((string)journalCB.SelectedItem == item.JournalType)
                 {
                     //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
                     this.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
@@ -81,7 +82,7 @@ namespace ReFitPatientCore
         private void JournalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-            { 
+            {
                 DragMove();
             }
         }

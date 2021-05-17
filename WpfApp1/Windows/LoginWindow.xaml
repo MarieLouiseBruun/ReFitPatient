@@ -23,9 +23,9 @@
             <Image x:Name="LogoImage" 
                    Margin="45,0,45,0" 
                    Stretch="Fill"
-                   Source="/Images/Logo.jpg"/> 
-                   
-            </Grid>
+                   Source="/Images/Logo.jpg"/>
+
+        </Grid>
 
         <Grid Row="1">
             <Grid.RowDefinitions>
@@ -33,9 +33,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--<StackPanel Orientation="Horizontal"-->
-                            <!--Margin="0,0,0,20">-->
-               
-                <!--<TextBlock Text="Refit"
+            <!--Margin="0,0,0,20">-->
+
+            <!--<TextBlock Text="Refit"
                                Foreground="White"
                                FontSize="20"
                                FontWeight="Medium"
@@ -193,10 +193,10 @@
                 </StackPanel>
             </StackPanel>
         </Grid>-->
-    <!--</Grid>-->
+        <!--</Grid>-->
 
 
-    <!--<Grid>
+        <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>

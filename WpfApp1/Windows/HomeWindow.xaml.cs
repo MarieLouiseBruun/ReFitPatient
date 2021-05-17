@@ -26,22 +26,27 @@ namespace ReFitPatientCore
 
         private ExerciseWindow _exerciseWindow;
         private JournalWindow _journalWindow;
+        private AddToJournalWindow _addToJournalWindow;
         private SetIntervalWindow _setIntervalWindow;
+        private CommentExerciseWindow _commentExerciseWindow;
+        private LoginWindow _loginWindow;
 
         private LogoutControl _logoutControl;
         private UpdateJournalControl _updateJournalControl;
         private ExerciseControl _exerciseControl;
         private Patient _patient;
+        private Journal _journal;
         private TrainingReminderControl _reminderControl;
 
         public HomeWindow(Patient patient)
         {
             _patient = patient;
             _logoutControl = new LogoutControl();
-            _updateJournalControl = new UpdateJournalControl(_patient);
-            _exerciseControl = new ExerciseControl(_patient);
-            _reminderControl = new TrainingReminderControl(_patient);
-            
+            _patient = patient;
+            _updateJournalControl = new UpdateJournalControl(_patient, _journal);
+            _exerciseControl = new ExerciseControl();
+            _reminderControl = new TrainingReminderControl(patient);
+
             InitializeComponent();
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
@@ -55,14 +60,14 @@ namespace ReFitPatientCore
             //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
             //Application.Current.Shutdown();
             //System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
-            
+
             //_logoutControl.LogoutIsPressed();
         }
 
         private void journalB_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            _journalWindow = new JournalWindow(this, _patient);
+            _journalWindow = new JournalWindow(this, _journal, _patient);
             _journalWindow.Show();
 
         }

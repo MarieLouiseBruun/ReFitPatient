@@ -27,9 +27,9 @@
             <StackPanel Grid.ColumnSpan="2" Margin="10,0,10,0">
                 <Button x:Name="backB" Background="{StaticResource AddButtonImageBrush}" Height="30" Width="30" HorizontalAlignment="Left" Click="backB_Click"/>
                 <ComboBox x:Name="exercisepackageCB" SelectionChanged="exercisepackageCB_SelectionChanged_1">
-                    
+
                 </ComboBox>
-                
+
                 <TextBlock Text="Øvelse 1"
                            x:Name="ExerciseTB"
                            Foreground="Black"
@@ -45,7 +45,7 @@
                            FontWeight="Medium"
                            FontFamily="Fonts/#Dosis"
                            TextWrapping="Wrap"
-                           Margin="0,0,0,0"/>    
+                           Margin="0,0,0,0"/>
                 <!--<WebBrowser x:Name ="browserWB" Height="300" Width="250" />-->
                 <controls1:WebView x:Name ="browserWB" Height="300" Width="250"/>
                 <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
@@ -84,7 +84,7 @@
                                TextWrapping="Wrap"
                                Margin="0,15,0,0"/>
                 </StackPanel>
-                
+
                 <Button x:Name="addCommentB" Content="Tilføj kommentar"   Margin="0,20,0,20"
                         Click="addCommentB_Click"
                         Foreground="White"
