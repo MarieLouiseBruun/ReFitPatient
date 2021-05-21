@@ -16,7 +16,6 @@ namespace ReFitPatientBusiness
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
-
         /// <summary>
         /// constructor til exercisecontrol
         /// </summary>
@@ -24,7 +23,7 @@ namespace ReFitPatientBusiness
         {
             _loadDatabase = new LoadDatabase();
         }
-
+        
         //public void SaveIsPressed(string comment, int exerciseID)
         //{
         //    _saveDatabase.SaveComment(comment, exerciseID);

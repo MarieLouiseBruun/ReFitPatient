@@ -4,6 +4,11 @@
         <name>ReFitPatientDomain</name>
     </assembly>
     <members>
+        <member name="T:ReFitPatientData.PatientContext">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="P:ReFitPatientData.PatientContext.Patients">
             <summary>
             propperty til patienter

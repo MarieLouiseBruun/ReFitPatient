@@ -36,7 +36,7 @@
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
     <VisibleItems>Internals, Privates, PrivateFields, Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
-    <MissingTags>Summary, Parameter, Returns, Value, AutoDocumentCtors, AutoDocumentDispose</MissingTags>
+    <MissingTags>Summary, AutoDocumentCtors, AutoDocumentDispose</MissingTags>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\RefitPatientBusiness\bin\Debug\netcoreapp3.1\netcoreapp3.1\ReFitPatientDomain.xml" />
       <DocumentationSource sourceFile="..\RefitPatientBusiness\bin\Debug\netcoreapp3.1\netcoreapp3.1\ReFitPatientDomain.dll" />
