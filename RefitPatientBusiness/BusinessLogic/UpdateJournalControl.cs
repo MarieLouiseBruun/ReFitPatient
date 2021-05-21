@@ -12,16 +12,12 @@ namespace ReFitPatientBusiness
 {
     public class UpdateJournalControl
     {
-        private ILoadDatabase _loadDatabase;
         private ISaveDatabase _saveDatabase;
-        private Journal _journal;
         private Patient _patient;
 
-        public UpdateJournalControl(Patient patient, Journal journal)
+        public UpdateJournalControl(Patient patient)
         {
             _patient = patient;
-            _journal = journal;
-            _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase(_patient);
         }
 
