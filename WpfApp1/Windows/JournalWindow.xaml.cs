@@ -61,19 +61,19 @@ namespace ReFitPatientCore
         private void journalCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var list = _patient.Journals.OrderByDescending(x => x.JournalID).ToList();
-            this.JournalinfoTB.Text = "";
+            this.JournalinfoTB.Text = string.Empty;
             foreach (var item in list)
             {
                 if ((string)journalCB.SelectedItem == item.JournalType)
                 {
-                    //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
                     this.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
                                                         + "\r\n" + "Generelt: " +
                                                         Convert.ToString(item.GeneralComment) + "\r\n"
                                                         + "Vinkel: " + Convert.ToString(item.BendAngle)
                                                         + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
                                                         + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine)
-                                                        + "\r\n";
+                                                        + "\r\n" + "" + "\r\n";
+
                 }
             }
         }
