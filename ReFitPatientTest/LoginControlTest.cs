@@ -15,7 +15,6 @@ namespace ReFitPatientTest
         [SetUp]
         public void Setup()
         {
-
             _loadDatabase = Substitute.For<ILoadDatabase>();
             uut = new LoginControl(_loadDatabase);
         }

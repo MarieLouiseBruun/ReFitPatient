@@ -20,7 +20,6 @@ namespace ReFitPatientBusiness
             _loadDatabase = new LoadDatabase();
         }
 
-
         //public void SaveIsPressed(string comment, int exerciseID)
         //{
         //    _saveDatabase.SaveComment(comment, exerciseID);
