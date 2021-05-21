@@ -68,7 +68,7 @@
                     </Button>
                 </StackPanel>
                 <TextBlock x:Name="journalinfoLabel" Text="Dagbogsinfo" Width="180" Margin="0,0,40,0"/>
-                <TextBlock x:Name="JournalinfoTB" TextWrapping="Wrap" FontFamily="Fonts/#Dosis"/>
+                <TextBlock x:Name="JournalinfoTB" TextWrapping="Wrap" Height="360" FontFamily="Fonts/#Dosis"/>
 
             </StackPanel>
         </Grid>
