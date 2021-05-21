@@ -10,7 +10,7 @@ using ReFitPatientData;
 
 namespace ReFitPatientData
 {
-    public class LoadDatabase
+    public class LoadDatabase :ILoadDatabase
     {
         private Patient _patient;
         private readonly PatientContext _db;

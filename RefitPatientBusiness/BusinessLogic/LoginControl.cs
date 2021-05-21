@@ -10,10 +10,15 @@ namespace ReFitPatientBusiness
 {
     public class LoginControl : ILoginControl
     {
-        private LoadDatabase _loadDatabase;
+        private ILoadDatabase _loadDatabase;
         public LoginControl()
         {
             _loadDatabase = new LoadDatabase();
+        }
+
+        public LoginControl(ILoadDatabase loadDatabase)
+        {
+            _loadDatabase = loadDatabase;
         }
         public bool LoginButtonIsPressed(string SSN, string Password)
         {

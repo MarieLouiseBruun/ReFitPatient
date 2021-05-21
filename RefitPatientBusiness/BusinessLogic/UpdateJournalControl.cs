@@ -12,8 +12,8 @@ namespace ReFitPatientBusiness
 {
     public class UpdateJournalControl
     {
-        private LoadDatabase _loadDatabase;
-        private SaveDatabase _saveDatabase;
+        private ILoadDatabase _loadDatabase;
+        private ISaveDatabase _saveDatabase;
         private Journal _journal;
         private Patient _patient;
 
@@ -23,6 +23,11 @@ namespace ReFitPatientBusiness
             _journal = journal;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase(_patient);
+        }
+
+        public UpdateJournalControl(ISaveDatabase saveDatabase)
+        {
+            _saveDatabase = saveDatabase;
         }
 
         public void SaveNewJournalData(Journal journal)

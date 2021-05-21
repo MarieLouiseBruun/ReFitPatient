@@ -8,7 +8,7 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientData
 {
-    public class SaveDatabase
+    public class SaveDatabase :ISaveDatabase
     {
         private Patient _patient;
         private readonly PatientContext _db;

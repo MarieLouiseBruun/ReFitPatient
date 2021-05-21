@@ -11,13 +11,18 @@ namespace ReFitPatientBusiness
 {
     public class TrainingReminderControl
     {
-        private SaveDatabase _saveDatabase;
+        private ISaveDatabase _saveDatabase;
         private Patient _patient;
 
         public TrainingReminderControl(Patient patient)
         {
             _patient = patient;
             _saveDatabase = new SaveDatabase(_patient);
+        }
+
+        public TrainingReminderControl(ISaveDatabase saveDatabase)
+        {
+            _saveDatabase = saveDatabase;
         }
 
         public void IntervalSet(int interval)
