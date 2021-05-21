@@ -109,6 +109,9 @@ namespace ReFitPatientCore
                     setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
                     RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
                     ExerciseTB.Text = Convert.ToString(ExerciseNumber);
+                    browserWB.Visibility = Visibility.Collapsed;
+                    playB.Visibility = Visibility.Visible;
+                    browserWB.NavigateToString("www.google.com");
                     videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
                 }
                 else
@@ -130,6 +133,9 @@ namespace ReFitPatientCore
                 setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
                 RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
                 ExerciseTB.Text = Convert.ToString(ExerciseNumber);
+                browserWB.Visibility = Visibility.Collapsed;
+                playB.Visibility = Visibility.Visible;
+                browserWB.NavigateToString("www.google.com");
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
         }
