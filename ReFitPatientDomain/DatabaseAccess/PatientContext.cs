@@ -9,6 +9,9 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientData
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class PatientContext : DbContext
     {
         /// <summary>

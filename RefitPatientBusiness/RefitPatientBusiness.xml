@@ -4,5 +4,188 @@
         <name>RefitPatientBusiness</name>
     </assembly>
     <members>
+        <member name="T:ReFitPatientBusiness.ExerciseControl">
+            <summary>
+            Bruges ikke pt, men hvis der skal kunne kommenteres på enkelte øvelser, vil gemme-delen gå igennem den her.
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.ExerciseControl.#ctor">
+            <summary>
+            constructor til exercisecontrol
+            </summary>
+        </member>
+        <member name="T:ReFitPatientBusiness.IExerciseControl">
+            <summary>
+            interface for excercisecontrol
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.IExerciseControl.SaveIsPressed(System.String,System.Int32)">
+            <summary>
+            sender den indtastede kommentar videre med øvelsensid
+            </summary>
+            <param name="comment"></param>
+            <param name="exerciseID"></param>
+        </member>
+        <member name="T:ReFitPatientBusiness.ILoginControl">
+            <summary>
+            interfacet til Logincontrolleren
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.ILoginControl.CheckSSN(System.String)">
+            <summary>
+            se loginControl  med samme metodenavn
+            </summary>
+            <param name="SSN"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReFitPatientBusiness.ILoginControl.GetPatientInfo(System.String,System.String)">
+            <summary>
+            se loginControl  med samme metodenavn
+            </summary>
+            <param name="ssr"></param>
+            <param name="pw"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReFitPatientBusiness.ILoginControl.LoginButtonIsPressed(System.String,System.String)">
+            <summary>
+            se loginControl med samme metodenavn
+            </summary>
+            <param name="SSN"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ReFitPatientBusiness.ILogoutControl">
+            <summary>
+            interface til logoutcontroller
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.ILogoutControl.LogoutIsPressed">
+            <summary>
+            skal (senere) sørge for at den patient, der har været logget inds informationer ikke er med
+            </summary>
+        </member>
+        <member name="T:ReFitPatientBusiness.ITrainingReminderControl">
+            <summary>
+            interface for sæt intervals controller
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.ITrainingReminderControl.IntervalSet(System.Int32)">
+            <summary>
+            sender det indtastede interval videre
+            </summary>
+            <param name="interval"></param>
+        </member>
+        <member name="T:ReFitPatientBusiness.IUpdateJournalControl">
+            <summary>
+            interface til updatejournalcontrol
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.IUpdateJournalControl.SaveNewJournalData(ReFitPatientDomain.Journal)">
+            <summary>
+            se updatejournalcontrols metode med samme navn
+            </summary>
+            <param name="journal"></param>
+        </member>
+        <member name="T:ReFitPatientBusiness.LoginControl">
+            <summary>
+            controller til UC1 login. kalder metoder videre til dataAccesLogic og sender tilbage til presentationlogic
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.LoginControl.#ctor">
+            <summary>
+            constructor for logincontrol uden parametere
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.LoginControl.#ctor(ReFitPatientData.ILoadDatabase)">
+            <summary>
+            constriúctor for logincontrol med loaddatabase med som parameter
+            </summary>
+            <param name="loadDatabase"></param>
+        </member>
+        <member name="M:ReFitPatientBusiness.LoginControl.LoginButtonIsPressed(System.String,System.String)">
+            <summary>
+            Sender cpr og password videre til datalaget, hvis cpr overholder reglerne
+            </summary>
+            <param name="SSN">cpr nummer</param>
+            <param name="Password">password</param>
+            <returns>true hvis cpr overholder regler OG false hvis det ikke overholder en af delene</returns>
+        </member>
+        <member name="M:ReFitPatientBusiness.LoginControl.GetPatientInfo(System.String,System.String)">
+            <summary>
+            henter patient informationerner fra databasen hvis cpr og password passer
+            </summary>
+            <param name="ssr">det indtastede cpr nummer</param>
+            <param name="pw">det indtastede password</param>
+            <returns></returns>
+        </member>
+        <member name="M:ReFitPatientBusiness.LoginControl.CheckSSN(System.String)">
+            <summary>
+            tjekker om CPR-nummeret passer til rammerne for et 
+            </summary>
+            <param name="SSN">cpr nummer</param>
+            <returns>true hvis cpr nummeret er 10 tegn, false hvis det ikke gør</returns>
+        </member>
+        <member name="T:ReFitPatientBusiness.LogoutControl">
+            <summary>
+            controller til UC5 logout - bruges ikke pt.
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.LogoutControl.#ctor">
+            <summary>
+            constructor til logoutcontrol
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.LogoutControl.LogoutIsPressed">
+            <summary>
+            denne metode skal sørge for at patienten bliver ordentlig logget ud når der bliver trykket på log ud
+            </summary>
+        </member>
+        <member name="T:ReFitPatientBusiness.TrainingReminderControl">
+            <summary>
+            controller til UC4 sæt træningsinterval. fører det indtastede fra præsentationslogic videre til dataAccesLogik 
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.TrainingReminderControl.#ctor(ReFitPatientDomain.Patient)">
+            <summary>
+            construktor hvor savedatabase er det medfulgte parameter
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <member name="M:ReFitPatientBusiness.TrainingReminderControl.#ctor(ReFitPatientData.ISaveDatabase)">
+            <summary>
+            construktor hvor savedatabase er det medfulgte parameter
+            </summary>
+            <param name="saveDatabase"></param>
+        </member>
+        <member name="M:ReFitPatientBusiness.TrainingReminderControl.IntervalSet(System.Int32)">
+            <summary>
+            kalder videre til dataAccesLogic når dagsinterval skal gemmes
+            </summary>
+            <param name="interval">det nye dagsintervallet mellem træninger</param>
+        </member>
+        <member name="T:ReFitPatientBusiness.UpdateJournalControl">
+            <summary>
+            controller til UC3 opdater dagbog
+            </summary>
+        </member>
+        <member name="M:ReFitPatientBusiness.UpdateJournalControl.#ctor(ReFitPatientDomain.Patient)">
+            <summary>
+            constructor til klassen som får patienten dagbogsinformationerne skal kobles til med
+            </summary>
+            <param name="patient"></param>
+            <param name="journal"></param>
+        </member>
+        <member name="M:ReFitPatientBusiness.UpdateJournalControl.#ctor(ReFitPatientData.ISaveDatabase)">
+            <summary>
+            constructor, der bruges til test
+            </summary>
+            <param name="saveDatabase"></param>
+        </member>
+        <member name="M:ReFitPatientBusiness.UpdateJournalControl.SaveNewJournalData(ReFitPatientDomain.Journal)">
+            <summary>
+            Sender journal videre til savedatabase så det nye dagbogsnotat kan blive gemt
+            </summary>
+            <param name="journal">nyt dagbogsnotat</param>
+        </member>
     </members>
 </doc>

@@ -4,5 +4,236 @@
         <name>ReFitPatientDomain</name>
     </assembly>
     <members>
+        <member name="P:ReFitPatientData.PatientContext.Patients">
+            <summary>
+            propperty til patienter
+            </summary>
+        </member>
+        <member name="P:ReFitPatientData.PatientContext.Journals">
+            <summary>
+            propperty til dagbøger
+            </summary>
+        </member>
+        <member name="P:ReFitPatientData.PatientContext.Exercises">
+            <summary>
+            propperty til øvelser
+            </summary>
+        </member>
+        <member name="P:ReFitPatientData.PatientContext.ExercisePackages">
+            <summary>
+            propperty til øvelsespakkeider
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.PatientContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:ReFitPatientDomain.Exercise">
+            <summary>
+            domine klasse til de enkelte øvelser
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Exercise.#ctor">
+            <summary>
+            constructor til exercise
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.ExerciseID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.ExerciseLink">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.Sets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.Repetitions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.Hide">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Exercise.ExercisePackage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ReFitPatientDomain.ExercisePackage">
+            <summary>
+            domaineklasse til exercisepakage
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.ExercisePackage.#ctor">
+            <summary>
+            constructor til exercisepakage
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.ExercisePackage.ExercisePackageID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.ExercisePackage.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.ExercisePackage.Completed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.ExercisePackage.Patients">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ReFitPatientDomain.Journal">
+            <summary>
+            domaineklasse til journal
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.JournalID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.JournalDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.JournalType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.PainScale">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.BendAngle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.Medicine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.GeneralComment">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Journal.Patient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Journal.ToString">
+            <summary>
+            
+            </summary>
+            <returns>dato som en tekststreng</returns>
+        </member>
+        <member name="T:ReFitPatientDomain.Patient">
+            <summary>
+            domaineklasse til patient
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Patient.#ctor">
+            <summary>
+            constructor til patientklassen
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.SSN">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.PhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.Journals">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ReFitPatientDomain.Patient.ExercisePackages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Patient.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ReFitPatientDomain.Migrations.InitialCreation3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Migrations.InitialCreation3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="M:ReFitPatientDomain.Migrations.InitialCreation3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="migrationBuilder"></param>
+        </member>
+        <member name="T:ReFitPatientDomain.Migrations.PatientContextModelSnapshot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ReFitPatientDomain.Migrations.PatientContextModelSnapshot.BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
     </members>
 </doc>

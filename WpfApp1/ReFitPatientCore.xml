@@ -24,11 +24,47 @@
         </member>
         <member name="T:ReFitPatientCore.AddToJournalWindow">
             <summary>
-            Interaction logic for MainWindow.xaml
+            Interaction logic for AddToJournalWindow.xaml
             </summary>
             <summary>
             AddToJournalWindow
             </summary>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.#ctor(ReFitPatientCore.JournalWindow,ReFitPatientDomain.Patient,ReFitPatientBusiness.UpdateJournalControl)">
+            <summary>
+            constructor til addToJournalWindow
+            </summary>
+            <param name="window">det journalwindow man kom fra</param>
+            <param name="patient">patientinformaitoner på den der er logget ind</param>
+            <param name="journalControl">controller, så der kan sendes videre</param>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.backB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            navigere tilbage til dagbosvindue når der trykkes på denne knap
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.gemB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            opretter en ny journal, sender denne videre til dataAcces og lukker dette vindue, for at vise dagbogsvinduet
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.AnullerB_OnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            når der trykkes på annullere kommer der et popupvindue om patienten er sikker, hvorfra han kan sige ja eller nej. hvis han trykker nej lukker popupvinduet. hvis han trykker ja lukker addtojournalvinduet
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.AddToJournalWindow_OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:ReFitPatientCore.AddToJournalWindow.InitializeComponent">
             <summary>
@@ -43,6 +79,32 @@
             CommentExerciseWindow
             </summary>
         </member>
+        <member name="M:ReFitPatientCore.CommentExerciseWindow.#ctor">
+            <summary>
+            constuctor til commentExcerciseWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.CommentExerciseWindow.gemB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            når der trykkes gem, bør den sende notatet videre til exercisecontrol(dette er ikke implemnenteret) og lukke vinduet
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.CommentExerciseWindow.annullerB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            når der trykkes annuller lukker dette vindue
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.CommentExerciseWindow.CommentExerciseWindow_OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="M:ReFitPatientCore.CommentExerciseWindow.InitializeComponent">
             <summary>
             InitializeComponent
@@ -50,8 +112,81 @@
         </member>
         <member name="T:ReFitPatientCore.ExerciseWindow">
             <summary>
+            Interaction logic for ExerciseWindow.xaml
+            </summary>
+            <summary>
             ExerciseWindow
             </summary>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.#ctor(ReFitPatientCore.HomeWindow,ReFitPatientDomain.Patient)">
+            <summary>
+            constructor til exercisewindow, opretter de ting, der skal bruges og putter exercisepakker ind i comboboxen
+            </summary>
+            <param name="homewindow"></param>
+            <param name="patient"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.backB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            navigere tilbage til dagbosvindue når der trykkes på denne knap
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.addCommentB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            åbner kommentarboxen til den specifikke video
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.playB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            gør videoen synlig og afspiller den
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.NavigateToYoutube(System.String)">
+            <summary>
+            omskriver linket til videoen så webbrowseren forstår hvad den skal
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.nextExerciseB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            navigere videre til næste øvelse
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.lastExerciseB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            navigere videre til forige øvelse
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.ExerciseWindow_OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.exercisepackageCB_SelectionChanged_1(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            ændrer øvelsespakke alt efter hvilken pakke, der er valgt
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.ExerciseWindow_OnClosed(System.Object,System.EventArgs)">
+            <summary>
+            event på hvad der skal ske når vinduet lukkes
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:ReFitPatientCore.ExerciseWindow.InitializeComponent">
             <summary>
@@ -60,11 +195,52 @@
         </member>
         <member name="T:ReFitPatientCore.HomeWindow">
             <summary>
-            Interaction logic for MainWindow.xaml
+            Interaction logic for HomeWindow.xaml
             </summary>
             <summary>
             HomeWindow
             </summary>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.#ctor(ReFitPatientDomain.Patient)">
+            <summary>
+            constructor for homewindow. opretter alle de nødvendige komponenter til programmet udfra patientens info
+            </summary>
+            <param name="patient">som er logget ind</param>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.logoutB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            lukker homewindow og åbner et nyt loginwindow
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.journalB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            gemmer homewindow og åbner journal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.viewExercisesB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            gemmer homewindow og åbner et nyt exercisewindow
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.intervalB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            gemmer homewindow og åbner et nyt sætintervalwindow
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.LoginWindow_OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:ReFitPatientCore.HomeWindow.InitializeComponent">
             <summary>
@@ -73,11 +249,33 @@
         </member>
         <member name="T:ReFitPatientCore.JournalWindow">
             <summary>
-            Interaction logic for MainWindow.xaml
+            Interaction logic for JournalWindow.xaml
             </summary>
             <summary>
             JournalWindow
             </summary>
+        </member>
+        <member name="M:ReFitPatientCore.JournalWindow.#ctor(ReFitPatientCore.HomeWindow,ReFitPatientDomain.Journal,ReFitPatientDomain.Patient)">
+            <summary>
+            constructor for journalwindow som opretter alle de ting, der skal oprettes údfra patientens informationer. sætter ´patientens øvelsespakker ind i comboboxen
+            </summary>
+            <param name="window">homewindow, som der skal navigeres tilbage til</param>
+            <param name="journal"></param>
+            <param name="patient">patienten, der følger med, hvis informationer, der skal bruges</param>
+        </member>
+        <member name="M:ReFitPatientCore.JournalWindow.backB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            navigere tilbage til homewindow
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ReFitPatientCore.JournalWindow.editB_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            åbner et nyt tilføj dagbogsvindue
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="M:ReFitPatientCore.JournalWindow.InitializeComponent">
             <summary>
@@ -86,10 +284,20 @@
         </member>
         <member name="T:ReFitPatientCore.LoginWindow">
             <summary>
-            Interaction logic for MainWindow.xaml
+            Interaction logic for LoginWindow.xaml
             </summary>
             <summary>
             LoginWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.LoginWindow.#ctor">
+            <summary>
+            constructor for loginwindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.LoginWindow.LoginErrorMessage">
+            <summary>
+            viser et poopupvindue om at der er fejl i login.
             </summary>
         </member>
         <member name="M:ReFitPatientCore.LoginWindow.InitializeComponent">
@@ -104,6 +312,13 @@
             <summary>
             SetIntervalWindow
             </summary>
+        </member>
+        <member name="M:ReFitPatientCore.SetIntervalWindow.#ctor(ReFitPatientCore.HomeWindow,ReFitPatientDomain.Patient)">
+            <summary>
+            constructor til setIntervalWindow
+            </summary>
+            <param name="homewindow"></param>
+            <param name="patient">patienten, intervallet skal ændres for</param>
         </member>
         <member name="M:ReFitPatientCore.SetIntervalWindow.InitializeComponent">
             <summary>

@@ -4,5 +4,78 @@
         <name>ReFitPatientTest</name>
     </assembly>
     <members>
+        <member name="T:ReFitPatientTest.Tests">
+            <summary>
+            testes til logincontrolleren
+            </summary>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.Setup">
+            <summary>
+            sætter testsenariet op
+            </summary>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.CheckSSR_SSRtooshort_ReturnsFalse(System.String)">
+            <summary>
+            tester om logincontrolleren siger at cprnummeret er for kort
+            </summary>
+            <param name="a">cprnummer</param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.CheckSSR_SSRis10_ReturnsTrue(System.String)">
+            <summary>
+            tester at det indtastede er 10 tegn præcist
+            </summary>
+            <param name="a">cprnummer</param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.CheckSSR_SSRtoolong_ReturnsFalse(System.String)">
+            <summary>
+            tester at det indtastede er for langt og metoden returnere derfor false
+            </summary>
+            <param name="a"></param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.ValidateLogin_LoginButtonIsPressedCallsValidateLogin_RecievesOne(System.String,System.String)">
+            <summary>
+            tester om loaddatabase modtager cpr som den første og password som den anden
+            </summary>
+            <param name="a">cpr</param>
+            <param name="b">password</param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.LoadPatientInfo_GetPatientInfoIsCalled_RecievesOne(System.String,System.String)">
+            <summary>
+            tjekker om getpatientinfo bliver kaldt en gang
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.GetPatientInfo_ReturnsSamePatientAsLoadPatientInfo_IsTrue(System.String,System.String)">
+            <summary>
+            tjekker om der bliver retuneret en patient
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:ReFitPatientTest.Tests.GetPatientInfo_ReturnsSamePatientAsLoadPatientInfo_IsFalse(System.String,System.String,System.String)">
+            <summary>
+            tester om det er den samme patient der bliver returneret
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+        </member>
+        <member name="T:ReFitPatientTest.TrainingReminderControlTest">
+            <summary>
+            tests af ændrign af træningsintervalcontrolleren
+            </summary>
+        </member>
+        <member name="M:ReFitPatientTest.TrainingReminderControlTest.Setup">
+            <summary>
+            sætter testsenariet op
+            </summary>
+        </member>
+        <member name="M:ReFitPatientTest.TrainingReminderControlTest.SaveInterval_IntervalSetIsCalled_RecievesOne(System.Int32)">
+            <summary>
+            tester om det der kommer ind svarer til det der bliver sendt videre
+            </summary>
+            <param name="a"></param>
+        </member>
     </members>
 </doc>

@@ -4,5 +4,106 @@
         <name>ReFitPatientData</name>
     </assembly>
     <members>
+        <member name="T:ReFitPatientData.ILoadDatabase">
+            <summary>
+            interface for loaddatbase
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.ILoadDatabase.LoadPatientInfo(System.String,System.String)">
+            <summary>
+            tjekker databasen for om en patient med det indtastede cpr og password findes i databasen
+            </summary>
+            <param name="SSN"></param>
+            <param name="PW"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ReFitPatientData.ILoadDatabase.ValidateLogin(System.String,System.String)">
+            <summary>
+            tjekker om de indtastede informationer er valide
+            </summary>
+            <param name="SSN"></param>
+            <param name="Password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ReFitPatientData.ISaveDatabase">
+            <summary>
+            interface for savedatabase
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.ISaveDatabase.SaveComment(System.String,System.Int32)">
+            <summary>
+            gemmer kommentar til specifik øvelse(ikke implementeret) i databsen
+            </summary>
+            <param name="comment"></param>
+            <param name="exerciseID"></param>
+        </member>
+        <member name="M:ReFitPatientData.ISaveDatabase.SaveJournal(ReFitPatientDomain.Journal)">
+            <summary>
+            gemmer et nyt journalnotat til patienten i databasen
+            </summary>
+            <param name="journal">nyt journalnotat</param>
+        </member>
+        <member name="M:ReFitPatientData.ISaveDatabase.SaveInterval(System.Int32)">
+            <summary>
+            gemmer det nye interval i databasen
+            </summary>
+            <param name="invertal">nyt interval</param>
+        </member>
+        <member name="T:ReFitPatientData.LoadDatabase">
+            <summary>
+            henter oplysninger fra databasen
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.LoadDatabase.#ctor">
+            <summary>
+            constructor til loaddatbase
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.LoadDatabase.LoadPatientInfo(System.String,System.String)">
+            <summary>
+            opretter en ny patient hvis cpr og password passer til en patient i databasen 
+            </summary>
+            <param name="SSN">cprnummer</param>
+            <param name="PW">password</param>
+            <returns>Patienten med informationer fra databasen</returns>
+        </member>
+        <member name="M:ReFitPatientData.LoadDatabase.ValidateLogin(System.String,System.String)">
+            <summary>
+            validere login. tjekker altså om der findes en patient i databasen med cprnummeret og passwordet
+            </summary>
+            <param name="SSN">cprnummer</param>
+            <param name="Password"></param>
+            <returns>true, hvis patienten findes, false hvis han ikke gør</returns>
+        </member>
+        <member name="T:ReFitPatientData.SaveDatabase">
+            <summary>
+            gemmer i databasen
+            </summary>
+        </member>
+        <member name="M:ReFitPatientData.SaveDatabase.#ctor(ReFitPatientDomain.Patient)">
+            <summary>
+            constructor med patient som parameter, for at indikere hvilken patient, der skal gemmes ved.
+            </summary>
+            <param name="patient">patienten der er logget ind</param>
+        </member>
+        <member name="M:ReFitPatientData.SaveDatabase.SaveComment(System.String,System.Int32)">
+            <summary>
+            gemmer en kommentar til en specifik øvelse(ikke implementeret) i databasen
+            </summary>
+            <param name="comment">kommentar</param>
+            <param name="exerciseID">hvilken øvelse, der skal knyttes kommentar til</param>
+        </member>
+        <member name="M:ReFitPatientData.SaveDatabase.SaveJournal(ReFitPatientDomain.Journal)">
+            <summary>
+            gemmer et ny journalnotat i databasen
+            </summary>
+            <param name="journal"></param>
+        </member>
+        <member name="M:ReFitPatientData.SaveDatabase.SaveInterval(System.Int32)">
+            <summary>
+            gemmer interval mellem træningspåmindelser i databasen(ikke implemnteret)
+            </summary>
+            <param name="invertal"></param>
+        </member>
     </members>
 </doc>
