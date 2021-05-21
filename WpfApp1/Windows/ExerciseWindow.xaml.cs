@@ -164,6 +164,8 @@ namespace ReFitPatientCore
             RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
             ExerciseTB.Text = Convert.ToString(ExerciseNumber);
             videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            browserWB.Visibility = Visibility.Collapsed;
+            playB.Visibility = Visibility.Visible;
         }
 
         private void ExerciseWindow_OnClosed(object? sender, EventArgs e)
