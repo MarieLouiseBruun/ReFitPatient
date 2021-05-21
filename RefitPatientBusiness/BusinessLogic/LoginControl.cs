@@ -14,11 +14,18 @@ namespace ReFitPatientBusiness
     public class LoginControl : ILoginControl
     {
         private ILoadDatabase _loadDatabase;
+       /// <summary>
+       /// constructor for logincontrol uden parametere
+       /// </summary>
         public LoginControl()
         {
             _loadDatabase = new LoadDatabase();
         }
 
+       /// <summary>
+       /// constriúctor for logincontrol med loaddatabase med som parameter
+       /// </summary>
+       /// <param name="loadDatabase"></param>
         public LoginControl(ILoadDatabase loadDatabase)
         {
             _loadDatabase = loadDatabase;

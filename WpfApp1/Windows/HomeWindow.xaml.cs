@@ -47,7 +47,7 @@ namespace ReFitPatientCore
             _patient = patient;
             _logoutControl = new LogoutControl();
             _patient = patient;
-            _updateJournalControl = new UpdateJournalControl(_patient, _journal);
+            _updateJournalControl = new UpdateJournalControl(_patient);
             _exerciseControl = new ExerciseControl();
             _reminderControl = new TrainingReminderControl(patient);
 

@@ -8,9 +8,16 @@ using ReFitPatientData;
 
 namespace ReFitPatientDomain.Migrations
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [DbContext(typeof(PatientContext))]
     partial class PatientContextModelSnapshot : ModelSnapshot
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

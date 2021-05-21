@@ -8,20 +8,38 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientData
 {
+    /// <summary>
+    /// gemmer i databasen
+    /// </summary>
     public class SaveDatabase :ISaveDatabase
     {
+
         private Patient _patient;
         private readonly PatientContext _db;
+        /// <summary>
+        /// constructor med patient som parameter, for at indikere hvilken patient, der skal gemmes ved.
+        /// </summary>
+        /// <param name="patient">patienten der er logget ind</param>
         public SaveDatabase(Patient patient)
         {
             _patient = patient;
             _db = new PatientContext();
         }
+
+        /// <summary>
+        /// gemmer en kommentar til en specifik øvelse(ikke implementeret) i databasen
+        /// </summary>
+        /// <param name="comment">kommentar</param>
+        /// <param name="exerciseID">hvilken øvelse, der skal knyttes kommentar til</param>
         public void SaveComment(string comment, int exerciseID)
         {
 
         }
 
+        /// <summary>
+        /// gemmer et ny journalnotat i databasen
+        /// </summary>
+        /// <param name="journal"></param>
         public void SaveJournal(Journal journal)
         {
             _patient.Journals.Add(journal);
@@ -30,6 +48,10 @@ namespace ReFitPatientData
             _db.SaveChanges();
         }
 
+        /// <summary>
+        /// gemmer interval mellem træningspåmindelser i databasen(ikke implemnteret)
+        /// </summary>
+        /// <param name="invertal"></param>
         public void SaveInterval(int invertal)
         {
 

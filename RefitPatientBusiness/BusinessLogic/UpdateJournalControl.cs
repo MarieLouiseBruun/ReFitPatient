@@ -17,7 +17,6 @@ namespace ReFitPatientBusiness
     {
         private ILoadDatabase _loadDatabase;
         private ISaveDatabase _saveDatabase;
-        private Journal _journal;
         private Patient _patient;
 
         /// <summary>
@@ -25,10 +24,9 @@ namespace ReFitPatientBusiness
         /// </summary>
         /// <param name="patient"></param>
         /// <param name="journal"></param>
-        public UpdateJournalControl(Patient patient, Journal journal)
+        public UpdateJournalControl(Patient patient)
         {
             _patient = patient;
-            _journal = journal;
             _loadDatabase = new LoadDatabase();
             _saveDatabase = new SaveDatabase(_patient);
         }

@@ -9,10 +9,16 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientTest
 {
+    /// <summary>
+    /// tests af ændrign af træningsintervalcontrolleren
+    /// </summary>
     class TrainingReminderControlTest
     {
         private ISaveDatabase _saveDatabase;
         private TrainingReminderControl uut;
+        /// <summary>
+        /// sætter testsenariet op
+        /// </summary>
         [SetUp]
         public void Setup()
         {
@@ -20,6 +26,10 @@ namespace ReFitPatientTest
             uut = new TrainingReminderControl(_saveDatabase);
         }
 
+        /// <summary>
+        /// tester om det der kommer ind svarer til det der bliver sendt videre
+        /// </summary>
+        /// <param name="a"></param>
         [TestCase(2)]
         public void SaveInterval_IntervalSetIsCalled_RecievesOne(int a)
         {
