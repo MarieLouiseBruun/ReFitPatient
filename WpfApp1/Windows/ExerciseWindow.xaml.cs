@@ -17,7 +17,9 @@ using ReFitPatientDomain;
 
 namespace ReFitPatientCore
 {
-
+    /// <summary>
+    /// Interaction logic for ExerciseWindow.xaml
+    /// </summary>
     public partial class ExerciseWindow : Window
     {
         private ExerciseControl _exerciseControl;
@@ -29,7 +31,11 @@ namespace ReFitPatientCore
         private int ExerciseNumber = 1;
 
         private string videopath;
-
+        /// <summary>
+        /// constructor til exercisewindow, opretter de ting, der skal bruges og putter exercisepakker ind i comboboxen
+        /// </summary>
+        /// <param name="homewindow"></param>
+        /// <param name="patient"></param>
         public ExerciseWindow(HomeWindow homewindow, Patient patient)
         {
             _patient = patient;
@@ -48,6 +54,11 @@ namespace ReFitPatientCore
             exercisepackageCB.SelectedItem = exercisepackageCB.Items[0];
         }
 
+        /// <summary>
+        /// navigere tilbage til dagbosvindue når der trykkes på denne knap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             _homeWindow.Show();
@@ -55,17 +66,27 @@ namespace ReFitPatientCore
             Close();
         }
 
+        /// <summary>
+        /// åbner kommentarboxen til den specifikke video
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addCommentB_Click(object sender, RoutedEventArgs e)
         {
             _commentWindow = new CommentExerciseWindow();
             _commentWindow.ShowDialog();
         }
 
-        public void CommentSaved()
-        {
-            MessageBox.Show("Kommentar gemt!");
-        }
+        //public void CommentSaved()
+        //{
+        //    MessageBox.Show("Kommentar gemt!");
+        //}
 
+        /// <summary>
+        /// gør videoen synlig og afspiller den
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void playB_Click(object sender, RoutedEventArgs e)
         {
             browserWB.Visibility = Visibility.Visible;
@@ -86,6 +107,11 @@ namespace ReFitPatientCore
 
         }
 
+        /// <summary>
+        /// omskriver linket til videoen så webbrowseren forstår hvad den skal
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private string NavigateToYoutube(string url)
         {
             string html = "<html><head>";
@@ -97,6 +123,11 @@ namespace ReFitPatientCore
             return html;
         }
 
+        /// <summary>
+        /// navigere videre til næste øvelse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextExerciseB_Click(object sender, RoutedEventArgs e)
         {
             //if (_exerciseList[CurrentExerciseID].Hide == false)
@@ -123,6 +154,11 @@ namespace ReFitPatientCore
             }
         }
 
+        /// <summary>
+        /// navigere videre til forige øvelse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lastExerciseB_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentExerciseID > 0)
@@ -139,7 +175,11 @@ namespace ReFitPatientCore
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExerciseWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -150,6 +190,11 @@ namespace ReFitPatientCore
 
         }
 
+        /// <summary>
+        /// ændrer øvelsespakke alt efter hvilken pakke, der er valgt
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exercisepackageCB_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             _exerciseList = new List<Exercise>();
@@ -174,6 +219,11 @@ namespace ReFitPatientCore
             playB.Visibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// event på hvad der skal ske når vinduet lukkes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExerciseWindow_OnClosed(object? sender, EventArgs e)
         {
             browserWB.Process.Terminate();

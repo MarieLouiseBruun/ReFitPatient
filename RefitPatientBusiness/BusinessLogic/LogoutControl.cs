@@ -8,6 +8,9 @@ using ReFitPatientBusiness;
 
 namespace ReFitPatientBusiness
 {
+    /// <summary>
+    /// controller til UC5 logout - bruges ikke pt.
+    /// </summary>
     public class LogoutControl :ILogoutControl
     {
 

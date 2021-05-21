@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReFitPatientCore</name>
+    </assembly>
+    <members>
+        <member name="T:WpfApp1.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:WpfApp1.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:WpfApp1.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.AddToJournalWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            AddToJournalWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.AddToJournalWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.CommentExerciseWindow">
+            <summary>
+            Interaction logic for CommentExerciseWindow.xaml
+            </summary>
+            <summary>
+            CommentExerciseWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.CommentExerciseWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.ExerciseWindow">
+            <summary>
+            ExerciseWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.ExerciseWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.HomeWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            HomeWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.HomeWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.JournalWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            JournalWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.JournalWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.LoginWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            LoginWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.LoginWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ReFitPatientCore.SetIntervalWindow">
+            <summary>
+            Interaction logic for SetIntervalWindow.xaml
+            </summary>
+            <summary>
+            SetIntervalWindow
+            </summary>
+        </member>
+        <member name="M:ReFitPatientCore.SetIntervalWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

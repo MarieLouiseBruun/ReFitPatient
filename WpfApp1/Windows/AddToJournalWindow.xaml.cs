@@ -18,7 +18,7 @@ using ReFitPatientDomain;
 namespace ReFitPatientCore
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddToJournalWindow.xaml
     /// </summary>
     public partial class AddToJournalWindow : Window
     {
@@ -26,6 +26,12 @@ namespace ReFitPatientCore
         private JournalWindow _journalWindow;
         private Journal newJournal;
         private Patient _patient;
+        /// <summary>
+        /// constructor til addToJournalWindow
+        /// </summary>
+        /// <param name="window">det journalwindow man kom fra</param>
+        /// <param name="patient">patientinformaitoner på den der er logget ind</param>
+        /// <param name="journalControl">controller, så der kan sendes videre</param>
         public AddToJournalWindow(JournalWindow window, Patient patient, UpdateJournalControl journalControl)
         {
             _journalWindow = window;
@@ -51,13 +57,21 @@ namespace ReFitPatientCore
                 vinkelTBL.Text = "Hvor mange grader kan du bøje din albue i?";
             }
         }
-
+        /// <summary>
+        /// navigere tilbage til dagbosvindue når der trykkes på denne knap
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
             _journalWindow.Show();
         }
-
+        /// <summary>
+        /// opretter en ny journal, sender denne videre til dataAcces og lukker dette vindue, for at vise dagbogsvinduet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gemB_Click(object sender, RoutedEventArgs e)
         {
             newJournal = new Journal();
@@ -89,6 +103,11 @@ namespace ReFitPatientCore
             }
         }
 
+        /// <summary>
+        /// når der trykkes på annullere kommer der et popupvindue om patienten er sikker, hvorfra han kan sige ja eller nej. hvis han trykker nej lukker popupvinduet. hvis han trykker ja lukker addtojournalvinduet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AnullerB_OnClick(object sender, RoutedEventArgs e)
         {
             String dialogResult = Convert.ToString(MessageBox.Show("Er du sikker på du vil annullere?", "Cancel message", MessageBoxButton.YesNo));
@@ -101,7 +120,11 @@ namespace ReFitPatientCore
                 //do something else
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddToJournalWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

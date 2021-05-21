@@ -21,7 +21,7 @@ using ReFitPatientData;
 namespace ReFitPatientCore
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
     public partial class LoginWindow : Window
     {
@@ -30,6 +30,10 @@ namespace ReFitPatientCore
         private Patient _patient;
         private string _currentDirectory;
         private bool _passwordIsVisible;
+        
+        /// <summary>
+        /// constructor for loginwindow
+        /// </summary>
         public LoginWindow()
         {
             _loginControl = new LoginControl();
@@ -42,6 +46,7 @@ namespace ReFitPatientCore
 
             ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
         }
+
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
@@ -61,6 +66,10 @@ namespace ReFitPatientCore
                 this.cprTB.Focus();
             }
         }
+
+        /// <summary>
+        /// viser et poopupvindue om at der er fejl i login.
+        /// </summary>
         public void LoginErrorMessage()
         {
             MessageBox.Show("Fejl i login. Prøv igen");
@@ -75,6 +84,7 @@ namespace ReFitPatientCore
 
         //}
 
+        
         void ShowPassword()
         {
             ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Hide.JPG"));
@@ -100,6 +110,7 @@ namespace ReFitPatientCore
         {
             passwordBox.GetType().GetMethod("Select", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(passwordBox, new object[] { start, length });
         }
+
         private void pwPB_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (pwPB.Password.Length > 0)

@@ -9,12 +9,17 @@ using ReFitPatientBusiness;
 
 namespace ReFitPatientBusiness
 {
+    /// <summary>
+    /// Bruges ikke pt, men hvis der skal kunne kommenteres på enkelte øvelser, vil gemme-delen gå igennem den her.
+    /// </summary>
     public class ExerciseControl
     {
         private LoadDatabase _loadDatabase;
         private SaveDatabase _saveDatabase;
 
-
+        /// <summary>
+        /// constructor til exercisecontrol
+        /// </summary>
         public ExerciseControl()
         {
             _loadDatabase = new LoadDatabase();

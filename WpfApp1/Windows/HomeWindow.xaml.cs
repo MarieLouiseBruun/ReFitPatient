@@ -19,7 +19,7 @@ using ReFitPatientCore;
 namespace ReFitPatientCore
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomeWindow.xaml
     /// </summary>
     public partial class HomeWindow : Window
     {
@@ -38,6 +38,10 @@ namespace ReFitPatientCore
         private Journal _journal;
         private TrainingReminderControl _reminderControl;
 
+        /// <summary>
+        /// constructor for homewindow. opretter alle de nødvendige komponenter til programmet udfra patientens info
+        /// </summary>
+        /// <param name="patient">som er logget ind</param>
         public HomeWindow(Patient patient)
         {
             _patient = patient;
@@ -51,6 +55,11 @@ namespace ReFitPatientCore
             welcomeL.Text = "Hej " + _patient.Name + ". Her kan du se dine træningsøvelser eller opdatere din dagbog. God træning :-)";
         }
 
+        /// <summary>
+        /// lukker homewindow og åbner et nyt loginwindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logoutB_Click(object sender, RoutedEventArgs e)
         {
             _loginWindow = new LoginWindow();
@@ -64,6 +73,11 @@ namespace ReFitPatientCore
             //_logoutControl.LogoutIsPressed();
         }
 
+        /// <summary>
+        /// gemmer homewindow og åbner journal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void journalB_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -72,6 +86,11 @@ namespace ReFitPatientCore
 
         }
 
+        /// <summary>
+        /// gemmer homewindow og åbner et nyt exercisewindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void viewExercisesB_Click(object sender, RoutedEventArgs e)
         {
             _exerciseWindow = new ExerciseWindow(this, _patient);
@@ -79,6 +98,11 @@ namespace ReFitPatientCore
             this.Hide();
         }
 
+        /// <summary>
+        /// gemmer homewindow og åbner et nyt sætintervalwindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void intervalB_Click(object sender, RoutedEventArgs e)
         {
             _setIntervalWindow = new SetIntervalWindow(this, _patient);
@@ -86,6 +110,11 @@ namespace ReFitPatientCore
             this.Hide();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginWindow_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

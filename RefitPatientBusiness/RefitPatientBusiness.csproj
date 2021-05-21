@@ -4,6 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\marie\Desktop\refitpatient\RefitPatientBusiness\RefitPatientBusiness.xml</DocumentationFile>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\RefitPatientData\ReFitPatientData.csproj" />
     <ProjectReference Include="..\ReFitPatientDomain\ReFitPatientDomain.csproj" />

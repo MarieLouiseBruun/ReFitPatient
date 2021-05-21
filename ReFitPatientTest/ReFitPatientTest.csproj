@@ -6,6 +6,11 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\marie\Desktop\refitpatient\ReFitPatientTest\ReFitPatientTest.xml</DocumentationFile>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="NSubstitute" Version="4.2.2" />
     <PackageReference Include="nunit" Version="3.12.0" />

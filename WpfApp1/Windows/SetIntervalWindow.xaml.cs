@@ -24,6 +24,11 @@ namespace ReFitPatientCore
         private TrainingReminderControl _reminderControl;
         private HomeWindow _homeWindow;
         private Patient _patient;
+        /// <summary>
+        /// constructor til setIntervalWindow
+        /// </summary>
+        /// <param name="homewindow"></param>
+        /// <param name="patient">patienten, intervallet skal ændres for</param>
         public SetIntervalWindow(HomeWindow homewindow, Patient patient)
         {
             _homeWindow = homewindow;

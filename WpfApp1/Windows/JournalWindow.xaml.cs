@@ -19,7 +19,7 @@ using ReFitPatientDomain;
 namespace ReFitPatientCore
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for JournalWindow.xaml
     /// </summary>
     public partial class JournalWindow : Window
     {
@@ -29,6 +29,12 @@ namespace ReFitPatientCore
         private Patient _patient;
         private UpdateJournalControl _journalControl;
 
+        /// <summary>
+        /// constructor for journalwindow som opretter alle de ting, der skal oprettes údfra patientens informationer. sætter ´patientens øvelsespakker ind i comboboxen
+        /// </summary>
+        /// <param name="window">homewindow, som der skal navigeres tilbage til</param>
+        /// <param name="journal"></param>
+        /// <param name="patient">patienten, der følger med, hvis informationer, der skal bruges</param>
         public JournalWindow(HomeWindow window, Journal journal, Patient patient)
         {
             _patient = patient;
@@ -44,6 +50,11 @@ namespace ReFitPatientCore
             journalCB.SelectedItem = journalCB.Items[0];
         }
 
+        /// <summary>
+        /// navigere tilbage til homewindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backB_Click(object sender, RoutedEventArgs e)
         {
             //Her er dobbelt dependency
@@ -51,13 +62,18 @@ namespace ReFitPatientCore
             _homeWindow.Show();
         }
 
+        /// <summary>
+        /// åbner et nyt tilføj dagbogsvindue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editB_Click(object sender, RoutedEventArgs e)
         {
-
             _addToJournalWindow = new AddToJournalWindow(this, _patient, _journalControl);
             _addToJournalWindow.Show();
         }
 
+    
         private void journalCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var list = _patient.Journals.OrderByDescending(x => x.JournalID).ToList();

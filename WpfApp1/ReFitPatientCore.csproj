@@ -6,6 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <DocumentationFile>C:\Users\marie\Desktop\refitpatient\WpfApp1\ReFitPatientCore.xml</DocumentationFile>
+    <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Images\Hide.JPG" />
     <None Remove="Images\Logo.jpg" />
