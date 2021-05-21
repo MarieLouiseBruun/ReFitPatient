@@ -32,7 +32,7 @@ namespace ReFitPatientCore
             InitializeComponent();
         }
 
-        private void gemB_Click(object sender, RoutedEventArgs e)
+        private void gemB_Click(object sender, RoutedEventArgs e)   
         {
             int value;
             if (int.TryParse(intervalTB.Text, out value))

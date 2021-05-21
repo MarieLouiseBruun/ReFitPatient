@@ -53,9 +53,9 @@ namespace ReFitPatientCore
 
         private void logoutB_Click(object sender, RoutedEventArgs e)
         {
-            //_loginWindow = new LoginWindow();
-            //_loginWindow.Show();
-            //this.Close();
+            _loginWindow = new LoginWindow();
+            _loginWindow.Show();
+            this.Close();
 
             //Den her genstarter programmet. Der er muligvis en bedre måde at gøre det på, så jeg undersøger lige nærmere
             //Application.Current.Shutdown();

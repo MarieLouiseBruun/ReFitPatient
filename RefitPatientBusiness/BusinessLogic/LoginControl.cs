@@ -10,7 +10,6 @@ namespace ReFitPatientBusiness
 {
     public class LoginControl : ILoginControl
     {
-        private Patient _patient;
         private LoadDatabase _loadDatabase;
         public LoginControl()
         {

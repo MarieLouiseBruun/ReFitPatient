@@ -16,7 +16,6 @@ namespace ReFitPatientBusiness
         }
         public void LogoutIsPressed()
         {
-            
             //Vi skal have ryddet vores cache på en måde, slettet det, som er gemt fra tidligere login
         }
     }
