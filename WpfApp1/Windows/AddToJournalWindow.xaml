@@ -28,7 +28,7 @@
                        FontWeight="Medium"
                        FontFamily="Fonts/#Dosis" Margin="0,0,60,0"/>
                 <TextBlock x:Name="scaleTB" TextWrapping="Wrap"  Margin="-0,0,0,0"/>
-                <Slider x:Name="painS" Cursor="None" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
+                <Slider x:Name="painS" IsSnapToTickEnabled="True" TickPlacement="TopLeft" AutoToolTipPlacement="TopLeft" />
 
 
                 <Label x:Name="vinkelL" Content="Vinkel" Width="180" Foreground="Black"
