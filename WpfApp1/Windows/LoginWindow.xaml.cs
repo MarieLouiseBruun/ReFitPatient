@@ -42,7 +42,7 @@ namespace ReFitPatientCore
             pwTB.Visibility = Visibility.Hidden;
             _passwordIsVisible = false;
             ShowHideImg.Visibility = Visibility.Hidden;
-            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1", "");
+            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1\\netcoreapp3.1", "");
 
             ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
         }
