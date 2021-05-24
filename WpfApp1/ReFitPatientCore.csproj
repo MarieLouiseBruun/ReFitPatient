@@ -8,7 +8,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>5</WarningLevel>
-    <DocumentationFile>C:\Users\marie\Desktop\refitpatient\WpfApp1\ReFitPatientCore.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netcoreapp3.1\ReFitPatientCore.xml</DocumentationFile>
     <OutputPath>bin\Debug\netcoreapp3.1\</OutputPath>
   </PropertyGroup>
 
