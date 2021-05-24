@@ -49,7 +49,7 @@
                            Margin="0,0,0,0"/>
                 <!--<WebBrowser x:Name ="browserWB" Height="300" Width="250" />-->
                 <controls1:WebView x:Name ="browserWB" Height="300" Width="250"/>
-                <Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />
+                <!--<Button x:Name="playB" Background="{StaticResource play}" Height="130" Width="130" Click="playB_Click" />-->
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="setTB"
                                Text="Set:"

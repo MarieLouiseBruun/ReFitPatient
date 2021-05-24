@@ -46,12 +46,15 @@ namespace ReFitPatientCore
             DescriptionTB.Text = "Vælg en øvelsespakke!";
             RepititionsTB.Text = "";
             setNumberTB.Text = "";
-            browserWB.Visibility = Visibility.Collapsed;
+            //browserWB.Visibility = Visibility.Collapsed;
             foreach (var item in _patient.ExercisePackages)
             {
                 exercisepackageCB.Items.Add(item.Name);
             }
             exercisepackageCB.SelectedItem = exercisepackageCB.Items[0];
+
+            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+            browserWB.NavigateToString(NavigateToYoutube(videopath));
         }
 
         /// <summary>
@@ -87,25 +90,25 @@ namespace ReFitPatientCore
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void playB_Click(object sender, RoutedEventArgs e)
-        {
-            browserWB.Visibility = Visibility.Visible;
-            playB.Visibility = Visibility.Collapsed;
-            //Her skal den navigere til den video, der viser øvelsen
+        //private void playB_Click(object sender, RoutedEventArgs e)
+        //{
+        //    browserWB.Visibility = Visibility.Visible;
+        //    playB.Visibility = Visibility.Collapsed;
+        //    //Her skal den navigere til den video, der viser øvelsen
 
-            //Indsæt string herunder!!
+        //    //Indsæt string herunder!!
 
-            //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
-            //Hvornår henter vi nye exercise??
-            //exercises hentes når patienten logger ind. 
-            //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også er i.
+        //    //Her skal videopath sættes til den første øvelses path alla exercisePakage.exerciselist[1].
+        //    //Hvornår henter vi nye exercise??
+        //    //exercises hentes når patienten logger ind. 
+        //    //Når man vælger en ny package i comboboxen indlæser den de nye exercise i en ny liste, hvor links også er i.
 
-            //skal lige undersøge om det virker for real
-            //videopath = "https://www.youtube.com/video?v=Xa0Swz3X1cQ"; 
-            videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
-            browserWB.NavigateToString(NavigateToYoutube(videopath));
+        //    //skal lige undersøge om det virker for real
+        //    //videopath = "https://www.youtube.com/video?v=Xa0Swz3X1cQ"; 
+        //    videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+        //    browserWB.NavigateToString(NavigateToYoutube(videopath));
 
-        }
+        //}
 
         /// <summary>
         /// omskriver linket til videoen så webbrowseren forstår hvad den skal
@@ -140,10 +143,10 @@ namespace ReFitPatientCore
                     setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
                     RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
                     ExerciseTB.Text = Convert.ToString(ExerciseNumber);
-                    browserWB.Visibility = Visibility.Collapsed;
-                    playB.Visibility = Visibility.Visible;
-                    browserWB.NavigateToString("www.google.com");
+                    //browserWB.Visibility = Visibility.Collapsed;
+                    //playB.Visibility = Visibility.Visible;
                     videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+                    browserWB.NavigateToString(NavigateToYoutube(videopath));
                 }
                 else
                 {
@@ -169,10 +172,9 @@ namespace ReFitPatientCore
                 setNumberTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Sets);
                 RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
                 ExerciseTB.Text = Convert.ToString(ExerciseNumber);
-                browserWB.Visibility = Visibility.Collapsed;
-                playB.Visibility = Visibility.Visible;
-                browserWB.NavigateToString("www.google.com");
                 videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
+                browserWB.NavigateToString(NavigateToYoutube(videopath));
+                //videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
             }
         }
         /// <summary>
@@ -215,8 +217,7 @@ namespace ReFitPatientCore
             RepititionsTB.Text = Convert.ToString(_exerciseList[CurrentExerciseID].Repetitions);
             ExerciseTB.Text = Convert.ToString(ExerciseNumber);
             videopath = _exerciseList[CurrentExerciseID].ExerciseLink;
-            browserWB.Visibility = Visibility.Collapsed;
-            playB.Visibility = Visibility.Visible;
+            browserWB.NavigateToString(NavigateToYoutube(videopath));
         }
 
         /// <summary>

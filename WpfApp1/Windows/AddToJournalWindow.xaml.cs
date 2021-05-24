@@ -79,6 +79,7 @@ namespace ReFitPatientCore
             newJournal = new Journal();
             newJournal.GeneralComment = generelTB.Text;
             newJournal.PainScale = painS.Value;
+            //Exception her ved hoftenotat gemning
             newJournal.BendAngle = Convert.ToDouble(vinkelTB.Text);
             newJournal.Medicine = medicinTB.Text;
             newJournal.JournalDate = DateTime.Now;
