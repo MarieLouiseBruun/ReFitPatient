@@ -38,9 +38,9 @@ namespace ReFitPatientCore
             _updateJournalControl = journalControl;
             _patient = patient;
             InitializeComponent();
-            if (_journalWindow.journalCB.Text == "Knæalloplastik")
+            if (_journalWindow.journalCB.Text == "Knæ")
             {
-                overskriftL.Content = "Dagbog for knæalloplastik";
+                overskriftL.Content = "Dagbog for knæ";
                 scaleTB.Text = "Hvor meget smerte oplever du i dit knæ på en skala fra 1 - 10 ?";
                 vinkelTBL.Text = "Hvor mange grader kan du bøje dit knæ i?";
             }
@@ -79,8 +79,11 @@ namespace ReFitPatientCore
             newJournal = new Journal();
             newJournal.GeneralComment = generelTB.Text;
             newJournal.PainScale = painS.Value;
-            //Exception her ved hoftenotat gemning
-            newJournal.BendAngle = Convert.ToDouble(vinkelTB.Text);
+            if (_journalWindow.journalCB.Text == "Knæ" || (string)_journalWindow.journalCB.SelectedItem == "Albue")
+            {
+                newJournal.BendAngle = Convert.ToDouble(vinkelTB.Text);
+            }
+            else newJournal.BendAngle = 0;
             newJournal.Medicine = medicinTB.Text;
             newJournal.JournalDate = DateTime.Now;
             newJournal.JournalType = _journalWindow.journalCB.Text;
@@ -94,14 +97,30 @@ namespace ReFitPatientCore
             {
                 if ((string)_journalWindow.journalCB.SelectedItem == item.JournalType)
                 {
-                    //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
-                    _journalWindow.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
-                                                        + "\r\n" + "Generelt: " +
-                                                        Convert.ToString(item.GeneralComment) + "\r\n"
-                                                        + "Vinkel: " + Convert.ToString(item.BendAngle)
-                                                        + "\r\n" + "Smerte: " + Convert.ToString(item.PainScale)
-                                                        + "\r\n" + "Medicin: " + Convert.ToString(item.Medicine)
-                                                        + "\r\n";
+                    if ((string) _journalWindow.journalCB.SelectedItem == "Knæ" || (string)_journalWindow.journalCB.SelectedItem == "Albue")
+                    {
+                        //JournalinfoTB skal have textwrapping tror jeg, ellers bliver det grimt
+                        _journalWindow.JournalinfoTB.Text += "Dato: " + Convert.ToString(item.JournalDate)
+                                                                      + "\r\n" + "Generelt: " +
+                                                                      Convert.ToString(item.GeneralComment) + "\r\n"
+                                                                      + "Vinkel: " + Convert.ToString(item.BendAngle)
+                                                                      + "\r\n" + "Smerte: " +
+                                                                      Convert.ToString(item.PainScale)
+                                                                      + "\r\n" + "Medicin: " +
+                                                                      Convert.ToString(item.Medicine)
+                                                                      + "\r\n";
+                    }
+                    else
+                    {
+                        _journalWindow.JournalinfoTB.Text += "\r\nDato: " + Convert.ToString(item.JournalDate)
+                                                                      + "\r\n" + "Generelt: " +
+                                                                      Convert.ToString(item.GeneralComment)
+                                                                      + "\r\n" + "Smerte: " +
+                                                                      Convert.ToString(item.PainScale)
+                                                                      + "\r\n" + "Medicin: " +
+                                                                      Convert.ToString(item.Medicine)
+                                                                      + "\r\n";
+                        }
                 }
             }
         }
