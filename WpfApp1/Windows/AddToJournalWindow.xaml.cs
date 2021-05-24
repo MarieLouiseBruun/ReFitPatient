@@ -49,6 +49,8 @@ namespace ReFitPatientCore
                 overskriftL.Content = "Dagbog for hofte";
                 scaleTB.Text = "Hvor meget smerte oplever du i din hofte på en skala fra 1 - 10?";
                 vinkelTBL.Visibility = Visibility.Collapsed;
+                vinkelTB.Visibility = Visibility.Collapsed;
+                vinkelL.Visibility = Visibility.Collapsed;
             }
             else if (_journalWindow.journalCB.Text == "Albue")
             {
