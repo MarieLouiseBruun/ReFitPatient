@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ReFitPatientDomain
 {
     /// <summary>
-    /// domine klasse til de enkelte øvelser
+    /// Klassen indeholder properties for en øvelse i en øvelsespakke
     /// </summary>
     public class Exercise
     {
@@ -21,40 +21,40 @@ namespace ReFitPatientDomain
             Hide = false;
         }
         /// <summary>
-        /// 
+        /// Property som indeholder unikt id for en øvelse
         /// </summary>
         [Key]
         [Required] 
         public int ExerciseID { get; set; }
         /// <summary>
-        /// 
+        /// Property som indeholder en streng til øvelsens youtube link
         /// </summary>
         public string ExerciseLink { get; set; }
         /// <summary>
-        /// 
+        /// Property som indeholder en streng til beskrivelsen af øvelsen
         /// </summary>
         [Required]
         public string Description { get; set; }
         /// <summary>
-        /// 
+        /// Property som indeholder et hel tal for antallet af sæt
         /// </summary>
         [Required]
         [MaxLength(50)]
         public int Sets { get; set; }
         /// <summary>
-        /// 
+        /// Property som indeholder et hel tal for antallet af gentagelser
         /// </summary>
         [Required]
         [MaxLength(50)]
         public int Repetitions { get; set; }
-       /// <summary>
-       /// 
-       /// </summary>
+        /// <summary>
+        /// Property som indikerer om en øvelse skal gemmes væk eller ej
+        /// </summary>
         [Required]
         public bool Hide { get; set; }
-       /// <summary>
-       /// 
-       /// </summary>
-       public ExercisePackage ExercisePackage { get; set; }
+        /// <summary>
+        /// Property som indikerer hvilken øvelsepakke øvelsen indgår i
+        /// </summary>
+        public ExercisePackage ExercisePackage { get; set; }
     }
 }
