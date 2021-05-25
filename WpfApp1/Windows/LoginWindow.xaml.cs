@@ -39,17 +39,19 @@ namespace ReFitPatientCore
             _loginControl = new LoginControl();
             InitializeComponent();
             cprTB.Focus();
-            pwTB.Visibility = Visibility.Hidden;
+            SetupShowHideImgPbTbHidden();
             _passwordIsVisible = false;
             ShowHideImg.Visibility = Visibility.Hidden;
-            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1\\netcoreapp3.1", "");
-
-            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
         }
 
 
         private void loginB_Click(object sender, RoutedEventArgs e)
         {
+            if (_passwordIsVisible)
+            {
+                pwPB.Password = pwTB.Text;
+            }
+
             if (_loginControl.LoginButtonIsPressed(cprTB.Text, Convert.ToString(pwPB.Password)))
             {
                 _patient = _loginControl.GetPatientInfo(cprTB.Text, Convert.ToString(pwPB.Password));
@@ -59,11 +61,28 @@ namespace ReFitPatientCore
             }
             else
             {
-                this.LoginErrorMessage();
-                this.cprTB.Clear();
-                this.pwTB.Clear();
-                this.pwPB.Clear();
-                this.cprTB.Focus();
+                MessageBoxResult result = MessageBox.Show("Login er invalid", "", MessageBoxButton.OK);
+                switch (result)
+                {
+                    case MessageBoxResult.OK:
+                        if (_passwordIsVisible)
+                        {
+                            SetupShowHideImgPbTbVisible();
+                            this.cprTB.Clear();
+                            this.pwTB.Clear();
+                            this.pwPB.Clear();
+                            this.cprTB.Focus();
+                        }
+                        else
+                        {
+                            this.cprTB.Clear();
+                            this.pwTB.Clear();
+                            this.pwPB.Clear();
+                            this.cprTB.Focus();
+                        }
+
+                        break;
+                }
             }
         }
 
@@ -149,7 +168,33 @@ namespace ReFitPatientCore
         {
             cprTB.SelectAll();
         }
+        private void SetupShowHideImgPbTbHidden()
+        {
+            pwTB.Visibility = Visibility.Hidden;
+            _passwordIsVisible = false;
+            ShowHideImg.Visibility = Visibility.Hidden;
+            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1\\netcoreapp3.1", "");
 
+            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Show.JPG"));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private void SetupShowHideImgPbTbVisible()
+        {
+            pwPB.Visibility = Visibility.Hidden;
+            _passwordIsVisible = true;
+            ShowHideImg.Visibility = Visibility.Hidden;
+            _currentDirectory = Directory.GetCurrentDirectory().Replace("\\bin\\Debug\\netcoreapp3.1\\netcoreapp3.1", "");
+            ShowHideImg.Source = new BitmapImage(new Uri(_currentDirectory + "\\Images\\Hide.JPG"));
+        }
 
+        private void pwTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (pwTB.Text.Length > 0)
+                ShowHideImg.Visibility = Visibility.Visible;
+            else
+                ShowHideImg.Visibility = Visibility.Hidden;
+        }
     }
 }

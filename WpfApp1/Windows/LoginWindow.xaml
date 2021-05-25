@@ -88,7 +88,7 @@
                          TextWrapping="Wrap" 
                          VerticalAlignment="Top" 
                          Margin="30,120,0,0"
-                         Width="200"/>
+                         Width="200" TextChanged="pwTB_TextChanged"/>
 
                 <Button x:Name="loginB" Content="Login"  
                         Click="loginB_Click"
